@@ -1,178 +1,178 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carnet de Maths — CESS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ces-maths.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carnet de Maths — Edition enrichie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="ces-maths.css" />
 </head>
 <body>
 
 <header class="ces-header">
-    <div class="brand" onclick="goHome()"><span class="pin"></span>Carnet de Maths</div>
-    <button class="nav-btn" onclick="toggleTheme()" id="themeBtn">🌙 Mode sombre</button>
+  <div class="brand" onclick="goHome()"><span class="pin"></span>Carnet de Maths</div>
+  <button class="nav-btn" onclick="toggleTheme()" id="themeBtn">🌙 Mode sombre</button>
 </header>
 
 <main class="ces-app">
 
-    <!-- ================= ACCUEIL ================= -->
-    <section id="dashboard" class="tab-content">
-        <div class="hero">
-            <div>
-                <h1>Prêt à réviser ?</h1>
-                <p>Le programme officiel du CESS en maths, expliqué simplement, avec des quiz et des examens blancs.</p>
-                <span class="pastille-progress">📊 <span id="globalProgress">0</span>% du programme revu</span>
-            </div>
-            <button class="primary-btn" onclick="startRevision()">Reprendre où j'en étais</button>
-        </div>
+  <!-- ================= ACCUEIL ================= -->
+  <section id="dashboard" class="tab-content">
+    <div class="hero">
+      <div>
+        <h1>Prêt à réviser ?</h1>
+        <p>Le programme officiel du CESS en maths, expliqué simplement, avec des quiz et des examens blancs.</p>
+        <span class="pastille-progress">📊 <span id="globalProgress">0</span>% du programme revu</span>
+      </div>
+      <button class="primary-btn" onclick="startRevision()">Reprendre où j'en étais</button>
+    </div>
 
-        <div class="dashboard-grid">
-            <div class="panel">
-                <h3>📊 Progression par année</h3>
-                <div id="progressionAnnees" class="progression-list"></div>
-            </div>
-            <div class="panel">
-                <h3>🔥 À revoir en priorité</h3>
-                <div id="chapitresUrgents"></div>
-            </div>
-        </div>
+    <div class="dashboard-grid">
+      <div class="panel">
+        <h3>📊 Progression par année</h3>
+        <div id="progressionAnnees" class="progression-list"></div>
+      </div>
+      <div class="panel">
+        <h3>🔥 À revoir en priorité</h3>
+        <div id="chapitresUrgents"></div>
+      </div>
+    </div>
 
-        <div class="panel">
-            <h3>💡 Formules du jour</h3>
-            <div id="formulesDuJour" class="formules-du-jour"></div>
-        </div>
-    </section>
+    <div class="panel">
+      <h3>💡 Formules du jour</h3>
+      <div id="formulesDuJour" class="formules-du-jour"></div>
+    </div>
+  </section>
 
-    <!-- ================= COURS ================= -->
-    <section id="cours" class="tab-content hidden">
-        <div class="page-header">
-            <div>
-                <h1 class="section-title">📖 Réviser</h1>
-                <p class="muted">Choisissez une année pour voir les chapitres.</p>
-            </div>
-            <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
-        </div>
+  <!-- ================= COURS ================= -->
+  <section id="cours" class="tab-content hidden">
+    <div class="page-header">
+      <div>
+        <h1 class="section-title">📖 Réviser</h1>
+        <p class="muted">Choisissez une année pour voir les chapitres.</p>
+      </div>
+      <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
+    </div>
 
-        <div id="choixAnnee" class="annee-selector"></div>
-        <div id="contenuAnnee" class="hidden"></div>
+    <div id="choixAnnee" class="annee-selector"></div>
+    <div id="contenuAnnee" class="hidden"></div>
 
-        <!-- FICHES VISUELLES CORRIGÉES -->
-        <div class="panel" style="margin-top: 6px;">
-            <h3>🖼️ Fiches de révision</h3>
-            <p class="muted" style="margin-bottom: 4px;">Les notions essentielles résumées en images.</p>
-            <div class="groupe-fiches">
-                <img src="pythagore.jpg" alt="Théorème de Pythagore">
-                <img src="thales.jpg" alt="Théorème de Thalès">
-                <img src="trigonometrie.jpg" alt="Trigonométrie">
-                <img src="cercle_trigo.jpg" alt="Cercle trigonométrique">
-                <img src="discriminant.jpg" alt="Discriminant">
-                <img src="derivee.jpg" alt="Dérivée">
-                <img src="produit_scalaire.jpg" alt="Produit scalaire">
-                <img src="plan_complexe.jpg" alt="Plan complexe">
-            </div>
-        </div>
-    </section>
+    <!-- FICHES VISUELLES CORRIGÉES -->
+    <div class="panel" style="margin-top: 6px;">
+      <h3>🖼️ Fiches de révision</h3>
+      <p class="muted" style="margin-bottom: 4px;">Les notions essentielles résumées en images.</p>
+      <div class="groupe-fiches">
+        <img src="pythagore.jpg" alt="Théorème de Pythagore" />
+        <img src="thales.jpg" alt="Théorème de Thalès" />
+        <img src="trigonometrie.jpg" alt="Trigonométrie" />
+        <img src="cercle_trigo.jpg" alt="Cercle trigonométrique" />
+        <img src="discriminant.jpg" alt="Discriminant" />
+        <img src="derivee.jpg" alt="Dérivée" />
+        <img src="produit_scalaire.jpg" alt="Produit scalaire" />
+        <img src="plan_complexe.jpg" alt="Plan complexe" />
+      </div>
+    </div>
+  </section>
 
-    <!-- ================= FORMULES ================= -->
-    <section id="formules" class="tab-content hidden">
-        <div class="page-header">
-            <div>
-                <h1 class="section-title">📚 Formules</h1>
-                <p class="muted"><span id="formulesCount">0</span> formules — votre encyclopédie de poche.</p>
-            </div>
-            <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
-        </div>
+  <!-- ================= FORMULES ================= -->
+  <section id="formules" class="tab-content hidden">
+    <div class="page-header">
+      <div>
+        <h1 class="section-title">📚 Formules</h1>
+        <p class="muted"><span id="formulesCount">0</span> formules — votre encyclopédie de poche.</p>
+      </div>
+      <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
+    </div>
 
-        <input id="formuleSearch" class="search-bar" style="margin-bottom:14px;" placeholder="Rechercher une formule…" oninput="rechercherFormule()">
+    <input id="formuleSearch" class="search-bar" style="margin-bottom:14px;" placeholder="Rechercher une formule…" oninput="rechercherFormule()" />
 
-        <div class="filtres-pills" id="filtresFormules">
-            <button class="pill active" onclick="filtrerFormules('all', this)">Tout</button>
-            <button class="pill" onclick="filtrerFormules('algebre', this)">🔢 Algèbre</button>
-            <button class="pill" onclick="filtrerFormules('geometrie', this)">📐 Géométrie</button>
-            <button class="pill" onclick="filtrerFormules('trigonometrie', this)">📐 Trigo</button>
-            <button class="pill" onclick="filtrerFormules('analyse', this)">📈 Analyse</button>
-            <button class="pill" onclick="filtrerFormules('vecteurs', this)">➡️ Vecteurs</button>
-            <button class="pill" onclick="filtrerFormules('statistiques', this)">📊 Stats</button>
-            <button class="pill" onclick="filtrerFormules('complexes', this)">ℂ Complexes</button>
-        </div>
+    <div class="filtres-pills" id="filtresFormules">
+      <button class="pill active" onclick="filtrerFormules('all', this)">Tout</button>
+      <button class="pill" onclick="filtrerFormules('algebre', this)">🔢 Algèbre</button>
+      <button class="pill" onclick="filtrerFormules('geometrie', this)">📐 Géométrie</button>
+      <button class="pill" onclick="filtrerFormules('trigonometrie', this)">📐 Trigo</button>
+      <button class="pill" onclick="filtrerFormules('analyse', this)">📈 Analyse</button>
+      <button class="pill" onclick="filtrerFormules('vecteurs', this)">➡️ Vecteurs</button>
+      <button class="pill" onclick="filtrerFormules('statistiques', this)">📊 Stats</button>
+      <button class="pill" onclick="filtrerFormules('complexes', this)">ℂ Complexes</button>
+    </div>
 
-        <div id="formulesList" class="formules-grid"></div>
-    </section>
+    <div id="formulesList" class="formules-grid"></div>
+  </section>
 
-    <!-- ================= S'ENTRAÎNER ================= -->
-    <section id="entrainer" class="tab-content hidden">
-        <div class="page-header">
-            <div>
-                <h1 class="section-title">🎯 S'entraîner</h1>
-                <p class="muted">Testez vos connaissances.</p>
-            </div>
-            <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
-        </div>
+  <!-- ================= S'ENTRAÎNER ================= -->
+  <section id="entrainer" class="tab-content hidden">
+    <div class="page-header">
+      <div>
+        <h1 class="section-title">🎯 S'entraîner</h1>
+        <p class="muted">Testez vos connaissances.</p>
+      </div>
+      <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
+    </div>
 
-        <div class="panel block-entrainement">
-            <div class="block-header"><span class="block-icon">🧠</span><span class="block-title">Quiz rapide</span></div>
-            <div class="select-group">
-                <select id="quizAnnee" class="search-bar" onchange="updateQuizChapitres()">
-                    <option value="3e">3e Année</option>
-                    <option value="4e">4e Année</option>
-                    <option value="5e">5e Année</option>
-                    <option value="6e">6e Année</option>
-                </select>
-                <select id="quizChapitre" class="search-bar"><option value="all">Tous les chapitres</option></select>
-            </div>
-            <button class="primary-btn" style="width:100%;" onclick="startQuiz()">Lancer le quiz</button>
-            <button class="ghost-btn" style="width:100%;margin-top:9px;" onclick="startDefiJour()">🌟 Défi du jour (5 questions au hasard)</button>
-        </div>
+    <div class="panel block-entrainement">
+      <div class="block-header"><span class="block-icon">🧠</span><span class="block-title">Quiz rapide</span></div>
+      <div class="select-group">
+        <select id="quizAnnee" class="search-bar" onchange="updateQuizChapitres()">
+          <option value="3e">3e Année</option>
+          <option value="4e">4e Année</option>
+          <option value="5e">5e Année</option>
+          <option value="6e">6e Année</option>
+        </select>
+        <select id="quizChapitre" class="search-bar"><option value="all">Tous les chapitres</option></select>
+      </div>
+      <button class="primary-btn" style="width:100%;" onclick="startQuiz()">Lancer le quiz</button>
+      <button class="ghost-btn" style="width:100%;margin-top:9px;" onclick="startDefiJour()">🌟 Défi du jour (5 questions au hasard)</button>
+    </div>
 
-        <div class="panel block-entrainement">
-            <div class="block-header"><span class="block-icon">📝</span><span class="block-title">Examens blancs</span></div>
-            <div class="exam-grid">
-                <div class="exam-card" tabindex="0" onclick="startExamen('3e')"><div class="exam-title">3e Année</div><div class="exam-info">20 q · 30 min</div></div>
-                <div class="exam-card" tabindex="0" onclick="startExamen('4e')"><div class="exam-title">4e Année</div><div class="exam-info">25 q · 40 min</div></div>
-                <div class="exam-card" tabindex="0" onclick="startExamen('5e')"><div class="exam-title">5e Année</div><div class="exam-info">25 q · 40 min</div></div>
-                <div class="exam-card" tabindex="0" onclick="startExamen('6e')"><div class="exam-title">6e Année</div><div class="exam-info">30 q · 50 min</div></div>
-                <div class="exam-card complet" tabindex="0" onclick="startExamen('complet')"><div class="exam-title">Examen complet</div><div class="exam-info">50 q · 90 min</div></div>
-            </div>
-        </div>
+    <div class="panel block-entrainement">
+      <div class="block-header"><span class="block-icon">📝</span><span class="block-title">Examens blancs</span></div>
+      <div class="exam-grid">
+        <div class="exam-card" tabindex="0" onclick="startExamen('3e')"><div class="exam-title">3e Année</div><div class="exam-info">20 q · 30 min</div></div>
+        <div class="exam-card" tabindex="0" onclick="startExamen('4e')"><div class="exam-title">4e Année</div><div class="exam-info">25 q · 40 min</div></div>
+        <div class="exam-card" tabindex="0" onclick="startExamen('5e')"><div class="exam-title">5e Année</div><div class="exam-info">25 q · 40 min</div></div>
+        <div class="exam-card" tabindex="0" onclick="startExamen('6e')"><div class="exam-title">6e Année</div><div class="exam-info">30 q · 50 min</div></div>
+        <div class="exam-card complet" tabindex="0" onclick="startExamen('complet')"><div class="exam-title">Examen complet</div><div class="exam-info">50 q · 90 min</div></div>
+      </div>
+    </div>
 
-        <div id="quizContent" style="margin-top:18px;"></div>
-        <div id="examenContent" style="margin-top:18px;"></div>
-    </section>
+    <div id="quizContent" style="margin-top:18px;"></div>
+    <div id="examenContent" style="margin-top:18px;"></div>
+  </section>
 
-    <!-- ================= SUIVI ================= -->
-    <section id="suivi" class="tab-content hidden">
-        <div class="page-header">
-            <div>
-                <h1 class="section-title">📊 Mon suivi</h1>
-                <p class="muted">Votre progression et vos favoris.</p>
-            </div>
-            <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
-        </div>
+  <!-- ================= SUIVI ================= -->
+  <section id="suivi" class="tab-content hidden">
+    <div class="page-header">
+      <div>
+        <h1 class="section-title">📊 Mon suivi</h1>
+        <p class="muted">Votre progression et vos favoris.</p>
+      </div>
+      <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
+    </div>
 
-        <div class="stats-grid">
-            <div class="stat-card"><b>RÉVISÉS</b><span id="statsRevisites">0%</span></div>
-            <div class="stat-card"><b>QUIZ FAITS</b><span id="statsQuizTotal">0</span></div>
-            <div class="stat-card"><b>MEILLEUR SCORE</b><span id="statsMeilleur">0%</span></div>
-            <div class="stat-card"><b>SÉRIE EN COURS</b><span id="statsSerie">0</span></div>
-        </div>
+    <div class="stats-grid">
+      <div class="stat-card"><b>RÉVISÉS</b><span id="statsRevisites">0%</span></div>
+      <div class="stat-card"><b>QUIZ FAITS</b><span id="statsQuizTotal">0</span></div>
+      <div class="stat-card"><b>MEILLEUR SCORE</b><span id="statsMeilleur">0%</span></div>
+      <div class="stat-card"><b>SÉRIE EN COURS</b><span id="statsSerie">0</span></div>
+    </div>
 
-        <div class="dashboard-grid">
-            <div class="panel"><h3>🏆 Mes badges</h3><div id="badgeDisplay" class="badges-list"></div></div>
-            <div class="panel"><h3>⭐ Mes favoris</h3><div id="favorisList"></div></div>
-        </div>
-    </section>
+    <div class="dashboard-grid">
+      <div class="panel"><h3>🏆 Mes badges</h3><div id="badgeDisplay" class="badges-list"></div></div>
+      <div class="panel"><h3>⭐ Mes favoris</h3><div id="favorisList"></div></div>
+    </div>
+  </section>
 
 </main>
 
 <div class="bottom-nav" id="bottomNav">
-    <div class="nav-item active" tabindex="0" onclick="showTab('dashboard')" id="navDashboard"><span class="nav-icon">🏠</span>Accueil</div>
-    <div class="nav-item" tabindex="0" onclick="showTab('cours')" id="navCours"><span class="nav-icon">📖</span>Cours</div>
-    <div class="nav-item" tabindex="0" onclick="showTab('formules')" id="navFormules"><span class="nav-icon">📚</span>Formules</div>
-    <div class="nav-item" tabindex="0" onclick="showTab('entrainer')" id="navEntrainer"><span class="nav-icon">🎯</span>S'entraîner</div>
-    <div class="nav-item" tabindex="0" onclick="showTab('suivi')" id="navSuivi"><span class="nav-icon">📊</span>Suivi</div>
+  <div class="nav-item active" tabindex="0" onclick="showTab('dashboard')" id="navDashboard"><span class="nav-icon">🏠</span>Accueil</div>
+  <div class="nav-item" tabindex="0" onclick="showTab('cours')" id="navCours"><span class="nav-icon">📖</span>Cours</div>
+  <div class="nav-item" tabindex="0" onclick="showTab('formules')" id="navFormules"><span class="nav-icon">📚</span>Formules</div>
+  <div class="nav-item" tabindex="0" onclick="showTab('entrainer')" id="navEntrainer"><span class="nav-icon">🎯</span>S'entraîner</div>
+  <div class="nav-item" tabindex="0" onclick="showTab('suivi')" id="navSuivi"><span class="nav-icon">📊</span>Suivi</div>
 </div>
 
 <script src="ces-maths.js"></script>
