@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Révision CESS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 550px;
+            width: 100%;
+        }
+        .logo {
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 32px;
+            color: #171a1f;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #68707a;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .materias {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            display: block;
+            background: #1c5fa8;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(28,95,168,0.3);
+        }
+        .btn-secondary {
+            background: #6b46c1;
+        }
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(107,70,193,0.3);
+        }
+        .btn-tertiary {
+            background: #e88a00;
+        }
+        .btn-tertiary:hover {
+            box-shadow: 0 6px 20px rgba(232,138,0,0.3);
+        }
+        .btn-green {
+            background: #1e7a3c;
+        }
+        .btn-green:hover {
+            box-shadow: 0 6px 20px rgba(30,122,60,0.3);
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #68707a;
+            border-top: 1px solid #e1e4e8;
+            padding-top: 20px;
+        }
+        .footer a {
+            color: #1c5fa8;
+            text-decoration: none;
+        }
+        .badge {
+            display: inline-block;
+            background: #eaf7ee;
+            color: #1e7a3c;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📚</div>
+        <h1>Révision CESS</h1>
+        <p class="subtitle">Prépare ton Certificat d'Enseignement Secondaire Supérieur</p>
+        
+        <div class="materias">
+            <a href="ces-maths.html" class="btn">📐 Mathématiques <span class="badge">Prêt</span></a>
+            <a href="#" class="btn btn-secondary">📖 Français <span class="badge" style="background: #fbeaea; color: #c81e2c;">Bientôt</span></a>
+            <a href="#" class="btn btn-tertiary">🌍 Histoire/Géo <span class="badge" style="background: #fbeaea; color: #c81e2c;">Bientôt</span></a>
+            <a href="#" class="btn btn-green">🔬 Sciences <span class="badge" style="background: #fbeaea; color: #c81e2c;">Bientôt</span></a>
+            <a href="#" class="btn btn-secondary">🇬🇧 Anglais <span class="badge" style="background: #fbeaea; color: #c81e2c;">Bientôt</span></a>
+        </div>
+        
+        <div class="footer">
+            📚 CESS • 2024 • <a href="https://github.com/Mascotte1208/cess" target="_blank">GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
