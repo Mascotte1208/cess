@@ -1,94 +1,226 @@
 // =========================================================
-// DONNÉES - MATHÉMATIQUES CESS (4E ANNÉE COMPLÈTE)
+// PROGRAMME OFFICIEL DE MATHÉMATIQUES - COMMUNAUTÉ FRANÇAISE
+// 2e DEGRÉ - 3e ET 4e ANNÉES
 // =========================================================
 
 var CHAPITRES = {
-    '4e': [
-        { 
-            id: '4e_algebre', 
-            titre: '🔢 Algèbre', 
-            desc: 'Équations, inéquations, systèmes, factorisation',
-            niveau: 'Fondamental',
+    // =========================================================
+    // 3E ANNÉE
+    // =========================================================
+    '3e': [
+        {
+            id: '3e_fonctions',
+            titre: '📈 Étude des fonctions',
+            desc: 'Graphiques, tableaux, formules, fonction du premier degré',
+            niveau: '3e Année',
+            icone: '📈',
+            objectifs: [
+                'Construire un tableau et un graphique à partir d\'une situation',
+                'Proposer une formule reliant une variable à son image',
+                'Déterminer si un point appartient au graphique d\'une fonction',
+                'Interpréter les coefficients a et b dans f(x) = ax + b',
+                'Dessiner le graphique d\'une fonction du premier degré'
+            ],
+            matieres: [
+                'Distinction entre relation et fonction',
+                'Fonctions du type f(x) = ax, f(x) = ax + b',
+                'Droite d\'équation y = ax + b, x = a',
+                'Équation ax + by + c = 0',
+                'Coefficient angulaire et parallélisme',
+                'Équation d\'une droite passant par un point donné'
+            ],
+            exercices: [
+                { question: 'Quelle est l\'équation d\'une fonction linéaire ?', options: ['y = ax', 'y = ax + b', 'y = x²', 'y = 1/x'], correct: 0, correction: 'Une fonction linéaire est de la forme y = ax' },
+                { question: 'Dans f(x) = 2x + 3, que représente le coefficient 2 ?', options: ['Le coefficient angulaire', 'L\'ordonnée à l\'origine', 'La racine', 'Le terme constant'], correct: 0, correction: '2 est le coefficient angulaire (la pente)' },
+                { question: 'Dans f(x) = 2x + 3, que représente le nombre 3 ?', options: ['L\'ordonnée à l\'origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l\'ordonnée à l\'origine (intersection avec l\'axe des y)' }
+            ]
+        },
+        {
+            id: '3e_algebre',
+            titre: '🔢 Algèbre',
+            desc: 'Équations, systèmes, inéquations, polynômes',
+            niveau: '3e Année',
             icone: '🔢',
-            fiches: [
-                { titre: 'Équations du 1er degré', contenu: 'Résoudre ax + b = c', exemple: '2x + 3 = 7 → x = 2' },
-                { titre: 'Inéquations', contenu: 'Résoudre ax + b < c', exemple: '2x + 3 < 7 → x < 2' },
-                { titre: 'Systèmes d\'équations', contenu: 'Méthode par substitution ou combinaison', exemple: 'x + y = 5, 2x - y = 4 → x = 3, y = 2' },
-                { titre: 'Factorisation', contenu: 'Mise en évidence, produit remarquable', exemple: 'x² - 4 = (x-2)(x+2)' }
+            objectifs: [
+                'Résoudre une équation du premier degré à une inconnue',
+                'Résoudre un système de deux équations à deux inconnues',
+                'Résoudre une inéquation du premier degré',
+                'Utiliser les propriétés des puissances',
+                'Factoriser et développer des polynômes'
+            ],
+            matieres: [
+                'Équations du premier degré : propriétés des égalités',
+                'Systèmes de deux équations à deux inconnues',
+                'Inéquations du premier degré',
+                'Puissances à exposants entiers',
+                'Polynômes : degré, somme, produit, factorisation',
+                'Produits remarquables : (a+b)², (a-b)², a²-b²'
             ],
             exercices: [
                 { question: 'Résoudre : 2x + 3 = 11', options: ['x = 4', 'x = 5', 'x = 3', 'x = 7'], correct: 0, correction: '2x = 8 → x = 4' },
-                { question: 'Résoudre : 3x - 2 = 13', options: ['x = 5', 'x = 4', 'x = 6', 'x = 3'], correct: 0, correction: '3x = 15 → x = 5' },
-                { question: 'Résoudre : 4x - 5 = 15', options: ['x = 5', 'x = 4', 'x = 6', 'x = 3'], correct: 0, correction: '4x = 20 → x = 5' },
-                { question: 'Factoriser : x² - 9', options: ['(x-3)(x+3)', '(x-3)²', '(x+3)²', 'x²-9'], correct: 0, correction: 'Identité remarquable a²-b² = (a-b)(a+b)' }
+                { question: 'Résoudre le système : x + y = 5 et x - y = 1', options: ['(3,2)', '(2,3)', '(4,1)', '(1,4)'], correct: 0, correction: 'Par addition : 2x = 6 → x = 3, y = 2' },
+                { question: 'Factoriser : x² - 9', options: ['(x-3)(x+3)', '(x-3)²', '(x+3)²', 'x²-9'], correct: 0, correction: 'a² - b² = (a-b)(a+b)' }
             ]
         },
-        { 
-            id: '4e_geometrie', 
-            titre: '📐 Géométrie', 
-            desc: 'Triangles, quadrilatères, Pythagore, Thalès',
-            niveau: 'Fondamental',
+        {
+            id: '3e_geometrie',
+            titre: '📐 Géométrie et trigonométrie',
+            desc: 'Pythagore, Thalès, angles, isométrie, similitude',
+            niveau: '3e Année',
             icone: '📐',
-            fiches: [
-                { titre: 'Théorème de Pythagore', contenu: 'a² + b² = c² (triangle rectangle)', exemple: '3² + 4² = 5² → 9 + 16 = 25' },
-                { titre: 'Triangles remarquables', contenu: 'Isocèle, équilatéral, rectangle', exemple: 'Triangle isocèle = 2 côtés égaux' },
-                { titre: 'Quadrilatères', contenu: 'Carré, rectangle, losange, parallélogramme', exemple: 'Carré = 4 côtés égaux, 4 angles droits' },
-                { titre: 'Théorème de Thalès', contenu: 'Règle de proportionnalité', exemple: 'AB/AC = AD/AE' }
+            objectifs: [
+                'Utiliser le théorème de Pythagore',
+                'Reconnaître une configuration de Thalès',
+                'Déterminer la mesure d\'un angle',
+                'Reconnaître des triangles isométriques et semblables',
+                'Utiliser la trigonométrie du triangle rectangle'
+            ],
+            matieres: [
+                'Théorème de Pythagore et sa réciproque',
+                'Nombres irrationnels et racines carrées',
+                'Configurations de Thalès',
+                'Angles au centre, angles inscrits',
+                'Cas d\'isométrie des triangles',
+                'Cas de similitude des triangles',
+                'Trigonométrie : cosinus, sinus, tangente'
             ],
             exercices: [
-                { question: 'Quel est le théorème de Pythagore ?', options: ['a² + b² = c²', 'a + b = c', 'a × b = c', 'a² = b² + c²'], correct: 0, correction: 'a² + b² = c²' },
-                { question: 'Quelle est la somme des angles d\'un triangle ?', options: ['180°', '90°', '360°', '270°'], correct: 0, correction: '180°' },
-                { question: 'Quel quadrilatère a 4 côtés égaux et 4 angles droits ?', options: ['Carré', 'Rectangle', 'Losange', 'Parallélogramme'], correct: 0, correction: 'Le carré' },
-                { question: 'Dans un triangle rectangle, l\'hypoténuse est...', options: ['Le plus grand côté', 'Le plus petit côté', 'Le côté adjacent', 'La hauteur'], correct: 0, correction: 'Le plus grand côté' }
-            ]
-        },
-        { 
-            id: '4e_statistiques', 
-            titre: '📊 Statistiques', 
-            desc: 'Moyenne, médiane, mode, diagrammes',
-            niveau: 'Fondamental',
-            icone: '📊',
-            fiches: [
-                { titre: 'Moyenne', contenu: 'Somme des valeurs / nombre de valeurs', exemple: '3+5+7+9+11 = 35 → 35/5 = 7' },
-                { titre: 'Médiane', contenu: 'Valeur qui coupe la série en 2', exemple: '3,5,7,9,11 → médiane = 7' },
-                { titre: 'Mode', contenu: 'Valeur la plus fréquente', exemple: '3,5,5,7,9 → mode = 5' },
-                { titre: 'Diagrammes', contenu: 'Histogramme, diagramme circulaire, nuage de points', exemple: 'Histogramme = barres' }
-            ],
-            exercices: [
-                { question: 'Quelle est la médiane de 3, 5, 7, 9, 11 ?', options: ['7', '6', '8', '5'], correct: 0, correction: 'La valeur du milieu est 7' },
-                { question: 'Quelle est la moyenne de 4, 6, 8, 10, 12 ?', options: ['8', '7', '9', '6'], correct: 0, correction: '(4+6+8+10+12)/5 = 40/5 = 8' },
-                { question: 'Qu\'est-ce que le mode dans une série statistique ?', options: ['La valeur la plus fréquente', 'La moyenne', 'La médiane', 'L\'étendue'], correct: 0, correction: 'Le mode est la valeur la plus fréquente' },
-                { question: 'Comment calcule-t-on la moyenne ?', options: ['Somme/nombre', 'Nombre/somme', 'Produit/nombre', 'Somme/produit'], correct: 0, correction: 'Somme divisée par le nombre de valeurs' }
-            ]
-        },
-        { 
-            id: '4e_probabilites', 
-            titre: '🎲 Probabilités', 
-            desc: 'Notions de base, arbres de probabilité',
-            niveau: 'Fondamental',
-            icone: '🎲',
-            fiches: [
-                { titre: 'Probabilité', contenu: 'Nombre de cas favorables / nombre de cas possibles', exemple: 'P(pile) = 1/2' },
-                { titre: 'Arbre de probabilité', contenu: 'Représentation des probabilités en arbre', exemple: 'Pile/Face → 2 branches' },
-                { titre: 'Événements', contenu: 'Certain, impossible, probable', exemple: 'P(certain) = 1, P(impossible) = 0' },
-                { titre: 'Loi des grands nombres', contenu: 'La probabilité se stabilise avec un grand nombre d\'expériences', exemple: '1000 lancers de pièce → 50% pile' }
-            ],
-            exercices: [
-                { question: 'Quelle est la probabilité de tomber sur pile avec une pièce ?', options: ['1/2', '1/4', '1/3', '2/3'], correct: 0, correction: 'P(pile) = 1/2' },
-                { question: 'Quelle est la probabilité de tomber sur 3 avec un dé ?', options: ['1/6', '1/3', '1/2', '1/4'], correct: 0, correction: 'P(3) = 1/6' },
-                { question: 'Quelle est la probabilité d\'un événement certain ?', options: ['1', '0', '0.5', '2'], correct: 0, correction: 'Un événement certain a une probabilité de 1' },
-                { question: 'Quelle est la probabilité d\'un événement impossible ?', options: ['0', '1', '0.5', '2'], correct: 0, correction: 'Un événement impossible a une probabilité de 0' }
+                { question: 'Quel est le théorème de Pythagore ?', options: ['a² + b² = c²', 'a + b = c', 'a × b = c', 'a² = b² + c²'], correct: 0, correction: 'Dans un triangle rectangle, a² + b² = c²' },
+                { question: 'Que vaut sin(30°) ?', options: ['0.5', '0.707', '1', '0.866'], correct: 0, correction: 'sin(30°) = 1/2 = 0.5' },
+                { question: 'Quelle est la somme des angles d\'un triangle ?', options: ['180°', '90°', '360°', '270°'], correct: 0, correction: 'La somme des angles d\'un triangle est 180°' }
             ]
         }
     ],
-    '5e': [], // À remplir plus tard
-    '6e': []  // À remplir plus tard
+    // =========================================================
+    // 4E ANNÉE
+    // =========================================================
+    '4e': [
+        {
+            id: '4e_fonctions_ref',
+            titre: '📈 Fonctions de référence',
+            desc: 'Fonctions usuelles, transformations, domaines, zéros',
+            niveau: '4e Année',
+            icone: '📈',
+            objectifs: [
+                'Relier le graphique d\'une fonction à son équation',
+                'Déduire les graphiques de f(x)+k, f(x+k), kf(x)',
+                'Rechercher le domaine et les zéros d\'une fonction',
+                'Déterminer la parité et la croissance d\'une fonction'
+            ],
+            matieres: [
+                'Fonctions de référence : x, x², x³, 1/x, √x, sin x, cos x',
+                'Transformations : f(x)+k, f(x+k), kf(x), f(kx), |f(x)|',
+                'Domaine de définition, zéros d\'une fonction',
+                'Parité, périodicité, croissance, maximum, minimum'
+            ],
+            exercices: [
+                { question: 'Quelle est la fonction de référence pour une parabole ?', options: ['x²', 'x', '1/x', '√x'], correct: 0, correction: 'La fonction x² donne une parabole' },
+                { question: 'Que devient f(x) = x² si on fait f(x) + 3 ?', options: ['La parabole monte de 3', 'La parabole descend de 3', 'La parabole s\'élargit', 'La parabole se rétrécit'], correct: 0, correction: 'f(x)+3 décale la courbe vers le haut' }
+            ]
+        },
+        {
+            id: '4e_algebre_2deg',
+            titre: '🔢 Algèbre - 2e degré',
+            desc: 'Équations du second degré, paraboles, trinômes',
+            niveau: '4e Année',
+            icone: '🔢',
+            objectifs: [
+                'Construire le graphique de y = ax² + bx + c',
+                'Résoudre une équation du deuxième degré',
+                'Déterminer le produit et la somme des racines',
+                'Factoriser un trinôme du deuxième degré'
+            ],
+            matieres: [
+                'Graphique de la fonction du deuxième degré',
+                'Sommet et axe de symétrie de la parabole',
+                'Résolution de l\'équation du deuxième degré',
+                'Produit et somme des racines',
+                'Factorisation des trinômes du deuxième degré'
+            ],
+            exercices: [
+                { question: 'Quelle est la formule du discriminant Δ ?', options: ['b² - 4ac', 'b² + 4ac', 'a² - 4bc', 'c² - 4ab'], correct: 0, correction: 'Δ = b² - 4ac pour une équation ax² + bx + c = 0' },
+                { question: 'Résoudre x² - 4 = 0', options: ['x = 2 ou x = -2', 'x = 2', 'x = -2', 'x = 4'], correct: 0, correction: 'x² = 4 → x = ±2' }
+            ]
+        },
+        {
+            id: '4e_geometrie_vectorielle',
+            titre: '📐 Géométrie vectorielle',
+            desc: 'Vecteurs, produit scalaire, lieux géométriques',
+            niveau: '4e Année',
+            icone: '📐',
+            objectifs: [
+                'Décomposer un vecteur suivant les axes du repère',
+                'Construire la somme et la différence de deux vecteurs',
+                'Calculer un produit scalaire',
+                'Résoudre des problèmes de lieux géométriques'
+            ],
+            matieres: [
+                'Vecteurs : composantes, somme, produit par un nombre',
+                'Relation de Chasles',
+                'Produit scalaire dans le plan',
+                'Lieux géométriques : médiatrice, cercle, parabole',
+                'Équations de lieux'
+            ],
+            exercices: [
+                { question: 'Que représente le produit scalaire de deux vecteurs ?', options: ['Un nombre réel', 'Un vecteur', 'Une distance', 'Un angle'], correct: 0, correction: 'Le produit scalaire est un nombre réel' },
+                { question: 'La médiatrice d\'un segment est...', options: ['L\'ensemble des points équidistants des extrémités', 'La droite qui coupe le segment en son milieu', 'La perpendiculaire au segment', 'Toutes ces réponses'], correct: 0, correction: 'La médiatrice est la perpendiculaire au segment en son milieu' }
+            ]
+        },
+        {
+            id: '4e_trigonometrie',
+            titre: '📐 Trigonométrie avancée',
+            desc: 'Cercle trigonométrique, angles orientés, formules',
+            niveau: '4e Année',
+            icone: '📐',
+            objectifs: [
+                'Faire le lien entre arc et angle',
+                'Utiliser le cercle trigonométrique',
+                'Déterminer le sinus, cosinus, tangente d\'un angle orienté',
+                'Utiliser les formules fondamentales'
+            ],
+            matieres: [
+                'Valeur approchée du nombre π',
+                'Angles et arcs, radian',
+                'Cercle trigonométrique, angle orienté',
+                'Sinus, cosinus, tangente, cotangente',
+                'Angles associés',
+                'Formules fondamentales'
+            ],
+            exercices: [
+                { question: 'Que vaut cos(60°) ?', options: ['0.5', '0.866', '0.707', '1'], correct: 0, correction: 'cos(60°) = 1/2 = 0.5' },
+                { question: 'Que vaut sin² α + cos² α ?', options: ['1', '0', '2', 'α'], correct: 0, correction: 'La formule fondamentale donne toujours 1' }
+            ]
+        },
+        {
+            id: '4e_statistiques',
+            titre: '📊 Traitement numérique de données',
+            desc: 'Statistiques, paramètres, diagrammes',
+            niveau: '4e Année',
+            icone: '📊',
+            objectifs: [
+                'Maîtriser le vocabulaire et les procédures de calcul',
+                'Calculer les valeurs centrales (mode, moyenne, médiane)',
+                'Calculer les paramètres de dispersion',
+                'Interpréter les résultats'
+            ],
+            matieres: [
+                'Tableaux, effectifs, fréquences',
+                'Moyenne, médiane, mode, quartiles',
+                'Diagrammes : bâtonnets, circulaires, histogrammes',
+                'Paramètres de dispersion : étendue, écart-type',
+                'Changement d\'origine et d\'unité'
+            ],
+            exercices: [
+                { question: 'Quelle est la médiane de 3, 5, 7, 9, 11 ?', options: ['7', '6', '8', '5'], correct: 0, correction: 'La médiane est la valeur centrale : 7' },
+                { question: 'Quelle est la moyenne de 4, 6, 8, 10, 12 ?', options: ['8', '7', '9', '6'], correct: 0, correction: '(4+6+8+10+12)/5 = 40/5 = 8' }
+            ]
+        }
+    ]
 };
 
-// ---- QUESTIONS DE QUIZ ----
+// ---- GÉNÉRATION DES QUESTIONS DE QUIZ ----
 var QUESTIONS_QUIZ = [];
 
-// Générer les questions à partir des chapitres
 for (var annee in CHAPITRES) {
     var chapitres = CHAPITRES[annee];
     for (var i = 0; i < chapitres.length; i++) {
@@ -155,7 +287,7 @@ function saveUserData() {
 
 function showTab(tab) {
     currentTab = tab;
-    var tabs = ['dashboard', 'annee4', 'annee5', 'annee6', 'quiz', 'examens', 'revisions'];
+    var tabs = ['dashboard', 'annee3', 'annee4', 'annee5', 'annee6', 'quiz', 'examens', 'revisions'];
     for (var i = 0; i < tabs.length; i++) {
         var el = document.getElementById(tabs[i]);
         if (el) el.classList.add('hidden');
@@ -168,6 +300,7 @@ function showTab(tab) {
     if (btnTarget) btnTarget.classList.add('active');
     
     if (tab === 'dashboard') renderDashboard();
+    if (tab === 'annee3') renderChapitres('3e');
     if (tab === 'annee4') renderChapitres('4e');
     if (tab === 'annee5') renderChapitres('5e');
     if (tab === 'annee6') renderChapitres('6e');
@@ -198,7 +331,7 @@ function renderDashboard() {
     var revisites = 0;
     var tempsTotal = USER_DATA.totalTime || 0;
     
-    var annees = ['4e', '5e', '6e'];
+    var annees = ['3e', '4e', '5e', '6e'];
     for (var a = 0; a < annees.length; a++) {
         var chaps = CHAPITRES[annees[a]] || [];
         totalChapitres += chaps.length;
@@ -230,7 +363,7 @@ function renderDashboard() {
             if (USER_DATA.progress[chaps2[c2].id] && USER_DATA.progress[chaps2[c2].id] >= 100) done++;
         }
         var percent = total > 0 ? Math.round(done / total * 100) : 0;
-        var label = annee === '4e' ? '📖 4e Année' : annee === '5e' ? '📖 5e Année' : '📖 6e Année';
+        var label = annee === '3e' ? '📖 3e Année' : annee === '4e' ? '📖 4e Année' : annee === '5e' ? '📖 5e Année' : '📖 6e Année';
         var color = percent >= 80 ? 'var(--green)' : percent >= 50 ? 'var(--amber)' : 'var(--blue)';
         progressHtml += `
             <div style="margin: 8px 0;">
@@ -310,7 +443,6 @@ function renderChapitres(annee) {
                 <div class="chapitre-desc">${chap.desc}</div>
                 <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 6px;">
                     <span>Niveau: ${chap.niveau}</span>
-                    <span>${chap.fiches ? chap.fiches.length : 0} fiches</span>
                 </div>
                 <div class="chapitre-progress" style="margin-top: 8px;">
                     <span style="width: ${progress}%;"></span>
@@ -355,7 +487,7 @@ function openChapitre(chapitreId) {
     var content = document.createElement('div');
     content.style.cssText = `
         background: var(--surface); border-radius: var(--radius);
-        max-width: 700px; width: 100%; max-height: 90vh;
+        max-width: 750px; width: 100%; max-height: 90vh;
         overflow-y: auto; padding: 30px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         position: relative;
@@ -373,7 +505,7 @@ function openChapitre(chapitreId) {
     
     var html = `
         <h2 style="margin: 0 0 4px 0;">${found.icone} ${found.titre}</h2>
-        <p style="color: var(--muted); margin-bottom: 16px;">${found.desc} • Niveau: ${found.niveau}</p>
+        <p style="color: var(--muted); margin-bottom: 16px;">${found.desc} • ${found.niveau}</p>
         
         <div style="margin: 16px 0; display: flex; gap: 10px; flex-wrap: wrap;">
             <button class="primary-btn" onclick="startChapitreQuiz('${found.id}')">🎯 Quiz du chapitre</button>
@@ -381,26 +513,27 @@ function openChapitre(chapitreId) {
             <button class="ghost-btn" onclick="document.body.removeChild(document.querySelector('div[style*=\\"position: fixed\\"]'))">← Retour</button>
         </div>
         
-        <h3>📝 Fiches de révision</h3>
+        <h3>🎯 Objectifs du chapitre</h3>
+        <ul style="margin: 8px 0 16px 20px; line-height: 1.6;">
     `;
     
-    if (found.fiches) {
-        for (var f = 0; f < found.fiches.length; f++) {
-            var fiche = found.fiches[f];
-            html += `
-                <div style="background: var(--soft); border-radius: 10px; padding: 14px; margin: 8px 0;">
-                    <b>${fiche.titre}</b>
-                    <p style="margin: 4px 0; font-size: 14px;">${fiche.contenu}</p>
-                    <div style="background: var(--surface); border-radius: 6px; padding: 8px 12px; font-size: 13px; border-left: 3px solid var(--blue);">
-                        📌 ${fiche.exemple}
-                    </div>
-                </div>
-            `;
+    if (found.objectifs) {
+        for (var o = 0; o < found.objectifs.length; o++) {
+            html += `<li>${found.objectifs[o]}</li>`;
         }
     }
+    html += `</ul>`;
+    
+    html += `<h3>📝 Matières abordées</h3><ul style="margin: 8px 0 16px 20px; line-height: 1.6;">`;
+    if (found.matieres) {
+        for (var m = 0; m < found.matieres.length; m++) {
+            html += `<li>${found.matieres[m]}</li>`;
+        }
+    }
+    html += `</ul>`;
     
     if (found.exercices) {
-        html += `<h3 style="margin-top: 16px;">🎯 Exercices</h3>`;
+        html += `<h3>🎯 Exercices</h3>`;
         for (var e = 0; e < found.exercices.length; e++) {
             var ex = found.exercices[e];
             html += `
@@ -408,12 +541,12 @@ function openChapitre(chapitreId) {
                     <b>${ex.question}</b>
                     <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
             `;
-            for (var o = 0; o < ex.options.length; o++) {
-                var isCorrect = o === ex.correct;
+            for (var p = 0; p < ex.options.length; p++) {
+                var isCorrect = p === ex.correct;
                 html += `
                     <button style="text-align: left; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; transition: all 0.2s;" 
                             onclick="checkExo(this, ${isCorrect}, '${ex.correction || ''}')">
-                        ${String.fromCharCode(65 + o)}. ${ex.options[o]}
+                        ${String.fromCharCode(65 + p)}. ${ex.options[p]}
                     </button>
                 `;
             }
@@ -447,13 +580,6 @@ function checkExo(btn, isCorrect, correction) {
         btn.style.background = 'var(--red)';
         btn.style.color = 'white';
         btn.style.borderColor = 'var(--red)';
-        // Marquer la bonne réponse
-        var correctIndex = 0;
-        for (var j = 0; j < buttons.length; j++) {
-            var text = buttons[j].textContent;
-            if (text.includes('✅') || text.includes('➡️')) continue;
-            // On ne peut pas facilement identifier la bonne réponse, on laisse le feedback
-        }
         feedback.innerHTML = `<span style="color: var(--red); font-weight: 900;">❌ Incorrect. ${correction ? 'Correction: ' + correction : ''}</span>`;
     }
 }
@@ -479,6 +605,7 @@ function markChapitreDone(chapitreId) {
     renderDashboard();
     var modal = document.querySelector('div[style*="position: fixed; top: 0; left: 0; right: 0; bottom: 0;"]');
     if (modal) document.body.removeChild(modal);
+    renderChapitres('3e');
     renderChapitres('4e');
     renderChapitres('5e');
     renderChapitres('6e');
@@ -748,7 +875,7 @@ function finishExamen() {
             <p style="font-size: 18px; margin: 10px 0;">${currentExamen.score} / ${currentExamen.total} bonnes réponses</p>
             <p style="color: var(--muted);">${message}</p>
             <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
-                <button class="primary-btn" onclick="startExamen('${currentExamen.questions[0]?.annee || '4e'}')">🔄 Refaire l'examen</button>
+                <button class="primary-btn" onclick="startExamen('${currentExamen.questions[0]?.annee || '3e'}')">🔄 Refaire l'examen</button>
                 <button class="ghost-btn" onclick="showTab('dashboard')">📊 Retour au tableau</button>
             </div>
         </div>
@@ -779,7 +906,7 @@ function renderRevisions() {
         }
         done += anneeDone;
         var percent = chaps.length > 0 ? Math.round(anneeDone / chaps.length * 100) : 0;
-        var label = annee === '4e' ? '4e Année' : annee === '5e' ? '5e Année' : '6e Année';
+        var label = annee === '3e' ? '3e Année' : annee === '4e' ? '4e Année' : annee === '5e' ? '5e Année' : '6e Année';
         var color = percent >= 80 ? 'var(--green)' : percent >= 50 ? 'var(--amber)' : 'var(--blue)';
         
         html += `
@@ -810,6 +937,10 @@ function renderRevisions() {
             <div class="progress-bar" style="height: 8px; margin-top: 8px;">
                 <div style="width: ${percentTotal}%; height: 100%; background: linear-gradient(90deg, var(--blue), var(--purple)); border-radius: 4px; transition: width 0.6s ease;"></div>
             </div>
+            <p style="margin-top: 8px; font-size: 13px; color: var(--muted);">
+                ${done} / ${total} chapitres révisés
+                ${percentTotal >= 100 ? '🎉 Tu es prêt pour l\'examen !' : ''}
+            </p>
         </div>
     ` + html;
     
@@ -831,6 +962,7 @@ function clearAllProgress() {
         USER_DATA.totalTime = 0;
         saveUserData();
         renderDashboard();
+        renderChapitres('3e');
         renderChapitres('4e');
         renderChapitres('5e');
         renderChapitres('6e');
@@ -881,6 +1013,6 @@ function startRevision() {
 loadUserData();
 showTab('dashboard');
 
-console.log('📚 CESS - Mathématiques 4e année chargé !');
+console.log('📚 Programme officiel de Mathématiques - 2e degré chargé !');
 console.log('📖 Chapitres disponibles :', Object.keys(CHAPITRES).length);
 console.log('🎯 Questions de quiz :', QUESTIONS_QUIZ.length);
