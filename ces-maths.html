@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📚 CESS - Mathématiques</title>
-    <link rel="stylesheet" href="ces-maths.css">
+    <link rel="stylesheet" href="./ces-maths.css">
 </head>
 <body>
 
@@ -16,7 +16,8 @@
         <button class="nav-btn" onclick="showTab('annee5')" id="tab5e">📖 5e Année</button>
         <button class="nav-btn" onclick="showTab('annee6')" id="tab6e">📖 6e Année</button>
         <button class="nav-btn" onclick="showTab('quiz')" id="tabQuiz">🎯 Quiz</button>
-        <button class="nav-btn" onclick="showTab('examens')" id="tabExamens">📝 Examens blancs</button>
+        <button class="nav-btn" onclick="showTab('examens')" id="tabExamens">📝 Examens</button>
+        <button class="nav-btn" onclick="showTab('revisions')" id="tabRevisions">📝 Révisions</button>
         <button class="nav-btn" onclick="toggleTheme()">🌙</button>
     </div>
 </header>
@@ -59,33 +60,49 @@
 
 <!-- ================= 4E ANNÉE ================= -->
 <section id="annee4" class="tab-content hidden">
-    <h2 class="section-title">📖 4e Année - Mathématiques</h2>
-    <p class="muted">Les fondamentaux pour bien commencer.</p>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📖 4e Année - Mathématiques</h2>
+            <p class="muted">Les fondamentaux pour bien commencer.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
     <div id="chapitres4e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
 </section>
 
 <!-- ================= 5E ANNÉE ================= -->
 <section id="annee5" class="tab-content hidden">
-    <h2 class="section-title">📖 5e Année - Mathématiques</h2>
-    <p class="muted">Approfondissement des concepts.</p>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📖 5e Année - Mathématiques</h2>
+            <p class="muted">Approfondissement des concepts.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
     <div id="chapitres5e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
 </section>
 
 <!-- ================= 6E ANNÉE ================= -->
 <section id="annee6" class="tab-content hidden">
-    <h2 class="section-title">📖 6e Année - Mathématiques</h2>
-    <p class="muted">Maîtrise des concepts pour l'examen.</p>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📖 6e Année - Mathématiques</h2>
+            <p class="muted">Maîtrise des concepts pour l'examen.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
     <div id="chapitres6e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
 </section>
 
 <!-- ================= QUIZ ================= -->
 <section id="quiz" class="tab-content hidden">
-    <h2 class="section-title">🎯 Quiz par matière</h2>
-    <p class="muted">Teste tes connaissances avec des questions par année.</p>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">🎯 Quiz par matière</h2>
+            <p class="muted">Teste tes connaissances avec des questions par année.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
     <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0;">
         <select id="quizAnnee" class="search-bar" style="flex:1; min-width: 150px;" onchange="updateQuizChapitres()">
             <option value="4e">4e Année</option>
@@ -97,15 +114,18 @@
         </select>
         <button class="primary-btn" onclick="startQuiz()">🎯 Lancer le quiz</button>
     </div>
-
     <div id="quizContent"></div>
 </section>
 
 <!-- ================= EXAMENS BLANCS ================= -->
 <section id="examens" class="tab-content hidden">
-    <h2 class="section-title">📝 Examens blancs</h2>
-    <p class="muted">Entraîne-toi dans les conditions du CESS.</p>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📝 Examens blancs</h2>
+            <p class="muted">Entraîne-toi dans les conditions du CESS.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin: 16px 0;">
         <div class="exam-card" onclick="startExamen('4e')">
             <span class="exam-icon">📘</span>
@@ -131,7 +151,7 @@
             </div>
             <button class="ghost-btn">Commencer →</button>
         </div>
-        <div class="exam-card" onclick="startExamen('complet')" style="border-color: var(--purple);">
+        <div class="exam-card" onclick="startExamen('complet')" style="border-color: #6b46c1;">
             <span class="exam-icon">📚</span>
             <div class="exam-info">
                 <b>Examen complet CESS</b>
@@ -140,13 +160,27 @@
             <button class="ghost-btn">Commencer →</button>
         </div>
     </div>
-
     <div id="examenContent"></div>
+</section>
+
+<!-- ================= RÉVISIONS ================= -->
+<section id="revisions" class="tab-content hidden">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📝 Mes révisions</h2>
+            <p class="muted">Toutes tes révisions en un coup d'œil.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+            <button class="danger-btn" onclick="clearAllProgress()">🗑️ Tout effacer</button>
+        </div>
+    </div>
+    <div id="revisionsContent"></div>
 </section>
 
 </main>
 
-<script src="ces-maths.js"></script>
+<script src="./ces-maths.js"></script>
 
 </body>
 </html>
