@@ -1,6 +1,3 @@
-/* =========================================================
-   TOKENS — inspiré du cahier à petits carreaux (Séyès)
-   ========================================================= */
 :root{
     --paper:#f8f8f4;
     --paper-line:#dbe3ea;
@@ -70,7 +67,6 @@ body{
     *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
 }
 
-/* ---------- header ---------- */
 .ces-header{
     background:var(--ink);
     color:#fbfbf9;
@@ -122,7 +118,6 @@ body{
 .section-title{font-family:var(--font-head);font-size:25px;font-weight:700;letter-spacing:-0.3px;}
 .muted{color:var(--ink-soft);font-size:13.5px;margin-top:4px;}
 
-/* ---------- hero ---------- */
 .hero{
     background:var(--sheet);
     border:1px solid var(--paper-line-strong);
@@ -199,7 +194,6 @@ body{
 }
 .formule-mini b{font-family:var(--font-head);display:block;margin-bottom:3px;color:var(--bleu);}
 
-/* ---------- sélecteur d'année : reliure de classeur ---------- */
 .annee-selector{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:26px;}
 .annee-card{
     background:var(--sheet);
@@ -243,7 +237,6 @@ body{
 .statut-cours{background:var(--ambre-clair);color:var(--ambre);}
 .statut-vu{background:var(--paper-line);color:var(--ink-soft);}
 
-/* ---------- FICHES IMAGES (CORRIGÉ POUR PROPORTIONS) ---------- */
 .groupe-fiches{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -252,7 +245,7 @@ body{
 }
 .groupe-fiches img{
     width:100%;
-    height:auto;                 /* GARDE LES PROPORTIONS ! */
+    height:auto;
     border-radius:12px;
     border:1px solid var(--paper-line-strong);
     box-shadow:var(--shadow);
@@ -265,7 +258,6 @@ body{
     box-shadow:0 8px 24px rgba(30,42,56,0.15);
 }
 
-/* ---------- formules ---------- */
 .search-bar{padding:11px 14px;border:1px solid var(--paper-line-strong);border-radius:9px;background:var(--sheet);color:var(--ink);font-size:13.5px;font-family:var(--font-body);width:100%;}
 .search-bar:focus{outline:2px solid var(--bleu);outline-offset:1px;}
 
@@ -291,7 +283,6 @@ body{
 .formule-actions button{border:none;background:transparent;color:var(--ink-soft);cursor:pointer;font-size:12.5px;font-weight:700;font-family:var(--font-body);padding:4px 6px;}
 .formule-actions button:hover{color:var(--ambre);}
 
-/* ---------- entraînement ---------- */
 .block-entrainement{border:1px solid var(--paper-line-strong);box-shadow:none;}
 .block-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
 .block-icon{font-size:22px;width:38px;height:38px;border-radius:9px;background:var(--paper);display:flex;align-items:center;justify-content:center;}
@@ -342,7 +333,6 @@ body{
 .progress-thin > div{height:100%;background:var(--bleu);border-radius:2px;transition:width .3s ease;}
 .quiz-topline{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft);font-weight:700;}
 
-/* ---------- modal chapitre ---------- */
 .modal-backdrop{
     position:fixed;inset:0;background:rgba(20,26,34,0.55);
     z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;
@@ -371,7 +361,6 @@ body{
 .modal-body ul{margin:0 0 14px 20px;font-size:13.5px;line-height:1.65;}
 .modal-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;}
 
-/* ---------- bottom nav ---------- */
 .bottom-nav{
     position:fixed;bottom:0;left:0;right:0;background:var(--sheet);
     display:flex;justify-content:space-around;padding:9px 0 max(9px, env(safe-area-inset-bottom));
