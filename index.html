@@ -56,7 +56,7 @@
             <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
         </div>
 
-        <!-- Choix de la matière -->
+        <!-- Choix de la matière (Maths ou Géo) -->
         <div id="choixMatiere" class="annee-selector"></div>
 
         <!-- Choix de l'année -->
@@ -181,6 +181,7 @@
     <div class="nav-item" tabindex="0" onclick="showTab('suivi')" id="navSuivi"><span class="nav-icon">📊</span>Suivi</div>
 </div>
 
+<!-- IMPORTANT : On charge la géographie AVANT le moteur principal -->
 <script src="geo-data.js"></script>
 <script src="ces-maths.js"></script>
 </body>
