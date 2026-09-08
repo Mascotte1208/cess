@@ -243,12 +243,27 @@ body{
 .statut-cours{background:var(--ambre-clair);color:var(--ambre);}
 .statut-vu{background:var(--paper-line);color:var(--ink-soft);}
 
-.groupe-fiches{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:14px;}
-.fiche-tile{
-    background:var(--paper);border:1px dashed var(--paper-line-strong);border-radius:10px;
-    padding:16px 10px;text-align:center;font-size:12.5px;font-weight:700;color:var(--ink-soft);
+/* ---------- FICHES IMAGES (CORRIGÉ POUR PROPORTIONS) ---------- */
+.groupe-fiches{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:16px;
+    margin-top:14px;
 }
-.fiche-tile span{display:block;font-size:22px;margin-bottom:6px;}
+.groupe-fiches img{
+    width:100%;
+    height:auto;                 /* GARDE LES PROPORTIONS ! */
+    border-radius:12px;
+    border:1px solid var(--paper-line-strong);
+    box-shadow:var(--shadow);
+    cursor:zoom-in;
+    background:var(--sheet);
+    transition:transform .2s ease, box-shadow .2s ease;
+}
+.groupe-fiches img:hover{
+    transform:scale(1.02);
+    box-shadow:0 8px 24px rgba(30,42,56,0.15);
+}
 
 /* ---------- formules ---------- */
 .search-bar{padding:11px 14px;border:1px solid var(--paper-line-strong);border-radius:9px;background:var(--sheet);color:var(--ink);font-size:13.5px;font-family:var(--font-body);width:100%;}
