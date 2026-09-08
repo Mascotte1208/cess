@@ -698,6 +698,14 @@ var currentExamen = { index: 0, questions: [], answers: [], score: 0, total: 0, 
 var currentChapitreId = null;
 
 // =========================================================
+// FONCTION PRINCIPALE $ POUR RÉCUPÉRER LES ÉLÉMENTS
+// =========================================================
+
+function $(id) {
+    return document.getElementById(id);
+}
+
+// =========================================================
 // CHARGEMENT & SAUVEGARDE
 // =========================================================
 
@@ -722,27 +730,34 @@ function saveUserData() {
 }
 
 // =========================================================
-// NAVIGATION
+// NAVIGATION - CORRIGÉE
 // =========================================================
 
 function showTab(tab) {
     currentTab = tab;
+    
+    // Cacher toutes les sections
     var tabs = ['dashboard', 'revision', 'formules', 'quiz', 'examens', 'stats', 'favoris'];
     for (var i = 0; i < tabs.length; i++) {
         var el = document.getElementById(tabs[i]);
         if (el) el.classList.add('hidden');
+        
         var btn = document.getElementById('tab' + tabs[i].charAt(0).toUpperCase() + tabs[i].slice(1));
         if (btn) btn.classList.remove('active');
     }
+    
+    // Afficher la section cible
     var target = document.getElementById(tab);
     if (target) target.classList.remove('hidden');
+    
     var btnTarget = document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1));
     if (btnTarget) btnTarget.classList.add('active');
     
+    // Charger le contenu
     if (tab === 'dashboard') renderDashboard();
     if (tab === 'revision') renderRevision();
     if (tab === 'formules') renderFormules();
-    if (tab === 'quiz') updateQuizChapitres();
+    if (tab === 'quiz') { updateQuizChapitres(); }
     if (tab === 'stats') renderStats();
     if (tab === 'favoris') renderFavoris();
 }
@@ -781,24 +796,39 @@ function renderDashboard() {
         }
     }
     
-    document.getElementById('totalChapitres').textContent = totalChapitres;
-    document.getElementById('revisites').textContent = totalChapitres > 0 ? Math.round(revisites / totalChapitres * 100) + '%' : '0%';
+    var totalEl = document.getElementById('totalChapitres');
+    if (totalEl) totalEl.textContent = totalChapitres;
+    
+    var revEl = document.getElementById('revisites');
+    if (revEl) revEl.textContent = totalChapitres > 0 ? Math.round(revisites / totalChapitres * 100) + '%' : '0%';
     
     var quizTotal = Object.keys(USER_DATA.quizResults || {}).length;
     var quizOk = 0;
     for (var key in USER_DATA.quizResults) {
         if (USER_DATA.quizResults[key] >= 80) quizOk++;
     }
-    document.getElementById('quizReussis').textContent = quizTotal > 0 ? Math.round(quizOk / quizTotal * 100) + '%' : '0%';
-    document.getElementById('tempsTotal').textContent = Math.floor(tempsTotal / 60) + 'h' + (tempsTotal % 60) + 'm';
-    document.getElementById('streakDisplay').textContent = streak;
-    document.getElementById('favorisCount').textContent = favorisFormules.length + favorisChapitres.length;
-    document.getElementById('formulesCount').textContent = 66;
+    
+    var quizEl = document.getElementById('quizReussis');
+    if (quizEl) quizEl.textContent = quizTotal > 0 ? Math.round(quizOk / quizTotal * 100) + '%' : '0%';
+    
+    var tempsEl = document.getElementById('tempsTotal');
+    if (tempsEl) tempsEl.textContent = Math.floor(tempsTotal / 60) + 'h' + (tempsTotal % 60) + 'm';
+    
+    var streakEl = document.getElementById('streakDisplay');
+    if (streakEl) streakEl.textContent = streak;
+    
+    var favsEl = document.getElementById('favorisCount');
+    if (favsEl) favsEl.textContent = favorisFormules.length + favorisChapitres.length;
+    
+    var formulesEl = document.getElementById('formulesCount');
+    if (formulesEl) formulesEl.textContent = 66;
     
     var badges = getBadges();
     var unlocked = badges.filter(function(b) { return b.unlocked; });
-    document.getElementById('badgeCount').textContent = unlocked.length;
+    var badgeEl = document.getElementById('badgeCount');
+    if (badgeEl) badgeEl.textContent = unlocked.length;
     
+    // Progression par année
     var progressHtml = '';
     for (var a2 = 0; a2 < annees.length; a2++) {
         var annee = annees[a2];
@@ -813,8 +843,10 @@ function renderDashboard() {
         var color = percent >= 80 ? '#1e7a3c' : percent >= 50 ? '#e8a400' : '#1c5fa8';
         progressHtml += '<div style="margin: 8px 0;"><div style="display: flex; justify-content: space-between; font-size: 13px;"><span>' + label + '</span><span style="font-weight: 900;">' + percent + '%</span></div><div style="height: 6px; background: var(--soft); border-radius: 3px; overflow: hidden;"><div style="width: ' + percent + '%; height: 100%; background: ' + color + '; border-radius: 3px; transition: width 0.6s ease;"></div></div></div>';
     }
-    document.getElementById('progressionAnnees').innerHTML = progressHtml;
+    var progEl = document.getElementById('progressionAnnees');
+    if (progEl) progEl.innerHTML = progressHtml;
     
+    // Chapitres urgents
     var urgents = [];
     for (var a3 = 0; a3 < annees.length; a3++) {
         var chaps3 = CHAPITRES[annees[a3]] || [];
@@ -836,7 +868,8 @@ function renderDashboard() {
             urgentHtml += '<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line);"><span>' + chap.icone + ' ' + chap.titre + '</span><span style="color: #c81e2c; font-weight: 900;">' + (USER_DATA.progress[chap.id] || 0) + '%</span></div>';
         }
     }
-    document.getElementById('chapitresUrgents').innerHTML = urgentHtml;
+    var urgentEl = document.getElementById('chapitresUrgents');
+    if (urgentEl) urgentEl.innerHTML = urgentHtml;
     
     // Badges
     var badgeHtml = '';
@@ -848,7 +881,8 @@ function renderDashboard() {
             badgeHtml += '<div class="badge-item ' + (badge.unlocked ? 'unlocked' : 'locked') + '"><span class="badge-icon">' + badge.icon + '</span> ' + badge.name + '</div>';
         }
     }
-    document.getElementById('badgeDisplay').innerHTML = badgeHtml;
+    var badgeDisplay = document.getElementById('badgeDisplay');
+    if (badgeDisplay) badgeDisplay.innerHTML = badgeHtml;
 }
 
 // =========================================================
@@ -883,12 +917,15 @@ function getBadges() {
 // =========================================================
 
 function renderRevision() {
-    document.getElementById('contenuAnnee').innerHTML = '';
+    var container = document.getElementById('contenuAnnee');
+    if (container) container.innerHTML = '';
 }
 
 function showAnnee(annee) {
     var container = document.getElementById('contenuAnnee');
     var chapitres = CHAPITRES[annee] || [];
+    
+    if (!container) return;
     
     if (chapitres.length === 0) {
         container.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">📚 Aucun chapitre pour cette année.</div>';
@@ -924,7 +961,12 @@ function showAnnee(annee) {
 // =========================================================
 
 function renderFormules() {
-    var search = document.getElementById('formuleSearch') ? document.getElementById('formuleSearch').value.toLowerCase() : '';
+    var searchInput = document.getElementById('formuleSearch');
+    var search = searchInput ? searchInput.value.toLowerCase() : '';
+    var list = document.getElementById('formulesList');
+    
+    if (!list) return;
+    
     var html = '';
     var total = 0;
     
@@ -954,9 +996,9 @@ function renderFormules() {
     }
     
     if (total === 0) {
-        document.getElementById('formulesList').innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">Aucune formule trouvée.</div>';
+        list.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">Aucune formule trouvée.</div>';
     } else {
-        document.getElementById('formulesList').innerHTML = html;
+        list.innerHTML = html;
     }
 }
 
@@ -965,8 +1007,9 @@ function rechercherFormule() {
 }
 
 function filtrerFormules(categorie) {
-    document.getElementById('formuleSearch').value = '';
-    // On filtre visuellement
+    var searchInput = document.getElementById('formuleSearch');
+    if (searchInput) searchInput.value = '';
+    
     var cards = document.querySelectorAll('#formulesList .formule-card');
     for (var i = 0; i < cards.length; i++) {
         var card = cards[i];
@@ -1095,12 +1138,12 @@ function checkExo(btn, isCorrect, correction) {
         btn.style.background = '#1e7a3c';
         btn.style.color = 'white';
         btn.style.borderColor = '#1e7a3c';
-        feedback.innerHTML = '<span style="color: #1e7a3c; font-weight: 900;">✅ Correct ! ' + (correction ? correction : '') + '</span>';
+        if (feedback) feedback.innerHTML = '<span style="color: #1e7a3c; font-weight: 900;">✅ Correct ! ' + (correction ? correction : '') + '</span>';
     } else {
         btn.style.background = '#c81e2c';
         btn.style.color = 'white';
         btn.style.borderColor = '#c81e2c';
-        feedback.innerHTML = '<span style="color: #c81e2c; font-weight: 900;">❌ Incorrect. ' + (correction ? 'Correction: ' + correction : '') + '</span>';
+        if (feedback) feedback.innerHTML = '<span style="color: #c81e2c; font-weight: 900;">❌ Incorrect. ' + (correction ? 'Correction: ' + correction : '') + '</span>';
     }
 }
 
@@ -1132,8 +1175,12 @@ function markChapitreDone(chapitreId) {
 // =========================================================
 
 function updateQuizChapitres() {
-    var annee = document.getElementById('quizAnnee').value;
+    var anneeSelect = document.getElementById('quizAnnee');
     var chapitreSelect = document.getElementById('quizChapitre');
+    
+    if (!anneeSelect || !chapitreSelect) return;
+    
+    var annee = anneeSelect.value;
     var chapitres = CHAPITRES[annee] || [];
     chapitreSelect.innerHTML = '<option value="all">Tous les chapitres</option>';
     for (var i = 0; i < chapitres.length; i++) {
@@ -1142,8 +1189,13 @@ function updateQuizChapitres() {
 }
 
 function startQuiz() {
-    var annee = document.getElementById('quizAnnee').value;
-    var chapitre = document.getElementById('quizChapitre').value;
+    var anneeSelect = document.getElementById('quizAnnee');
+    var chapitreSelect = document.getElementById('quizChapitre');
+    
+    if (!anneeSelect || !chapitreSelect) return;
+    
+    var annee = anneeSelect.value;
+    var chapitre = chapitreSelect.value;
     
     var questions = QUESTIONS_QUIZ.filter(function(q) { 
         if (annee !== 'all' && q.annee !== annee) return false;
@@ -1165,6 +1217,8 @@ function startQuiz() {
 
 function renderQuiz() {
     var container = document.getElementById('quizContent');
+    if (!container) return;
+    
     if (currentQuiz.index >= currentQuiz.total) {
         showQuizResult();
         return;
@@ -1207,7 +1261,9 @@ function answerQuiz(index) {
     
     var feedback = document.getElementById('quizFeedback');
     var correction = q.correction || '';
-    feedback.innerHTML = '<div class="quiz-result ' + (isCorrect ? 'correct' : 'wrong') + '">' + (isCorrect ? '✅ Bonne réponse !' : '❌ Mauvaise réponse.') + (correction ? '<div style="margin-top: 4px; font-size: 13px;">' + correction + '</div>' : '') + '</div><button class="primary-btn" onclick="nextQuizQuestion()" style="margin-top: 10px;">➡️ Question suivante</button>';
+    if (feedback) {
+        feedback.innerHTML = '<div class="quiz-result ' + (isCorrect ? 'correct' : 'wrong') + '">' + (isCorrect ? '✅ Bonne réponse !' : '❌ Mauvaise réponse.') + (correction ? '<div style="margin-top: 4px; font-size: 13px;">' + correction + '</div>' : '') + '</div><button class="primary-btn" onclick="nextQuizQuestion()" style="margin-top: 10px;">➡️ Question suivante</button>';
+    }
 }
 
 function nextQuizQuestion() {
@@ -1217,6 +1273,8 @@ function nextQuizQuestion() {
 
 function showQuizResult() {
     var container = document.getElementById('quizContent');
+    if (!container) return;
+    
     var percent = Math.round(currentQuiz.score / currentQuiz.total * 100);
     var message = percent >= 80 ? '🌟 Excellent !' : percent >= 60 ? '👍 Bon travail !' : '📚 Continue à t\'entraîner !';
     
@@ -1286,6 +1344,8 @@ function startExamen(niveau) {
     currentExamen.timeLeft = niveau === 'complet' ? 5400 : niveau === '6e' ? 3000 : niveau === '5e' ? 2400 : 1800;
     
     var container = document.getElementById('examenContent');
+    if (!container) return;
+    
     container.innerHTML = '<div style="margin-bottom: 16px;"><div style="display: flex; justify-content: space-between; font-size: 14px;"><span>⏱️ <span id="examenTimer">' + formatTime(currentExamen.timeLeft) + '</span></span><span>Question <span id="examenProgress">1</span> / ' + currentExamen.total + '</span><span>Score: <span id="examenScore">0</span></span></div><div style="height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden;"><div id="examenBar" style="width: 0%; height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.3s;"></div></div></div><div id="examenQuestion"></div>';
     
     renderExamenQuestion();
@@ -1315,9 +1375,16 @@ function renderExamenQuestion() {
     }
     
     var q = currentExamen.questions[currentExamen.index];
-    document.getElementById('examenProgress').textContent = currentExamen.index + 1;
-    document.getElementById('examenScore').textContent = currentExamen.score;
-    document.getElementById('examenBar').style.width = (currentExamen.index / currentExamen.total * 100) + '%';
+    var progressEl = document.getElementById('examenProgress');
+    var scoreEl = document.getElementById('examenScore');
+    var barEl = document.getElementById('examenBar');
+    var questionEl = document.getElementById('examenQuestion');
+    
+    if (progressEl) progressEl.textContent = currentExamen.index + 1;
+    if (scoreEl) scoreEl.textContent = currentExamen.score;
+    if (barEl) barEl.style.width = (currentExamen.index / currentExamen.total * 100) + '%';
+    
+    if (!questionEl) return;
     
     var html = '<div class="quiz-question">';
     html += '<div class="question-text">' + q.question + '</div>';
@@ -1327,7 +1394,7 @@ function renderExamenQuestion() {
     }
     html += '</div><div id="examenFeedback"></div></div>';
     
-    document.getElementById('examenQuestion').innerHTML = html;
+    questionEl.innerHTML = html;
 }
 
 function answerExamen(index) {
@@ -1343,10 +1410,13 @@ function answerExamen(index) {
     }
     
     if (isCorrect) currentExamen.score++;
-    document.getElementById('examenScore').textContent = currentExamen.score;
+    var scoreEl = document.getElementById('examenScore');
+    if (scoreEl) scoreEl.textContent = currentExamen.score;
     
     var feedback = document.getElementById('examenFeedback');
-    feedback.innerHTML = '<div class="quiz-result ' + (isCorrect ? 'correct' : 'wrong') + '">' + (isCorrect ? '✅ Bonne réponse !' : '❌ Mauvaise réponse.') + '</div><button class="primary-btn" onclick="nextExamenQuestion()" style="margin-top: 10px;">➡️ Question suivante</button>';
+    if (feedback) {
+        feedback.innerHTML = '<div class="quiz-result ' + (isCorrect ? 'correct' : 'wrong') + '">' + (isCorrect ? '✅ Bonne réponse !' : '❌ Mauvaise réponse.') + '</div><button class="primary-btn" onclick="nextExamenQuestion()" style="margin-top: 10px;">➡️ Question suivante</button>';
+    }
 }
 
 function nextExamenQuestion() {
@@ -1364,6 +1434,9 @@ function finishExamen() {
     USER_DATA.quizResults[examId] = percent;
     saveUserData();
     
+    var container = document.getElementById('examenContent');
+    if (!container) return;
+    
     var html = '<div style="text-align: center; padding: 30px 0;">';
     html += '<div style="font-size: 64px; margin-bottom: 10px;">' + (percent >= 80 ? '🎉' : percent >= 60 ? '📈' : '📚') + '</div>';
     html += '<h2>Examen terminé !</h2>';
@@ -1375,7 +1448,7 @@ function finishExamen() {
     html += '<button class="ghost-btn" onclick="showTab(\'dashboard\')">📊 Retour</button>';
     html += '</div></div>';
     
-    document.getElementById('examenContent').innerHTML = html;
+    container.innerHTML = html;
     renderDashboard();
 }
 
@@ -1395,17 +1468,27 @@ function renderStats() {
         }
     }
     
-    document.getElementById('statsTotalChapitres').textContent = totalChapitres;
-    document.getElementById('statsRevisites').textContent = totalChapitres > 0 ? Math.round(revisites / totalChapitres * 100) + '%' : '0%';
-    document.getElementById('statsQuizTotal').textContent = Object.keys(USER_DATA.quizResults || {}).length;
+    var el1 = document.getElementById('statsTotalChapitres');
+    if (el1) el1.textContent = totalChapitres;
+    
+    var el2 = document.getElementById('statsRevisites');
+    if (el2) el2.textContent = totalChapitres > 0 ? Math.round(revisites / totalChapitres * 100) + '%' : '0%';
+    
+    var el3 = document.getElementById('statsQuizTotal');
+    if (el3) el3.textContent = Object.keys(USER_DATA.quizResults || {}).length;
     
     var meilleur = 0;
     for (var key in USER_DATA.quizResults) {
         if (USER_DATA.quizResults[key] > meilleur) meilleur = USER_DATA.quizResults[key];
     }
-    document.getElementById('statsMeilleur').textContent = meilleur + '%';
-    document.getElementById('statsTemps').textContent = Math.floor((USER_DATA.totalTime || 0) / 60) + 'h';
-    document.getElementById('statsSerie').textContent = USER_DATA.streak || 0;
+    var el4 = document.getElementById('statsMeilleur');
+    if (el4) el4.textContent = meilleur + '%';
+    
+    var el5 = document.getElementById('statsTemps');
+    if (el5) el5.textContent = Math.floor((USER_DATA.totalTime || 0) / 60) + 'h';
+    
+    var el6 = document.getElementById('statsSerie');
+    if (el6) el6.textContent = USER_DATA.streak || 0;
     
     // Performance par catégorie
     var perfHtml = '';
@@ -1423,7 +1506,8 @@ function renderStats() {
         var color2 = percent2 >= 80 ? '#1e7a3c' : percent2 >= 50 ? '#e8a400' : '#c81e2c';
         perfHtml += '<div style="margin: 6px 0;"><div style="display: flex; justify-content: space-between;"><span>' + label2 + '</span><span style="font-weight: 900; color: ' + color2 + ';">' + percent2 + '%</span></div><div style="height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden;"><div style="width: ' + percent2 + '%; height: 100%; background: ' + color2 + '; border-radius: 2px; transition: width 0.6s ease;"></div></div></div>';
     }
-    document.getElementById('categoryPerformance').innerHTML = perfHtml || '<div style="color: var(--muted);">Aucune donnée.</div>';
+    var perfEl = document.getElementById('categoryPerformance');
+    if (perfEl) perfEl.innerHTML = perfHtml || '<div style="color: var(--muted);">Aucune donnée.</div>';
     
     // Points faibles
     var weakHtml = '';
@@ -1446,7 +1530,8 @@ function renderStats() {
             weakHtml += '<div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--line);"><span>' + weaks[w].titre + '</span><span style="color: #c81e2c; font-weight: 900;">' + weaks[w].progress + '%</span></div>';
         }
     }
-    document.getElementById('weakCategories').innerHTML = weakHtml;
+    var weakEl = document.getElementById('weakCategories');
+    if (weakEl) weakEl.innerHTML = weakHtml;
 }
 
 // =========================================================
@@ -1467,7 +1552,8 @@ function renderFavoris() {
             }
         }
     }
-    document.getElementById('favorisFormules').innerHTML = count > 0 ? htmlFormules : '<div style="color: var(--muted); padding: 10px;">Aucune formule favorite.</div>';
+    var favFormEl = document.getElementById('favorisFormules');
+    if (favFormEl) favFormEl.innerHTML = count > 0 ? htmlFormules : '<div style="color: var(--muted); padding: 10px;">Aucune formule favorite.</div>';
     
     // Chapitres favoris
     var htmlChapitres = '';
@@ -1482,7 +1568,8 @@ function renderFavoris() {
             }
         }
     }
-    document.getElementById('favorisChapitres').innerHTML = count2 > 0 ? htmlChapitres : '<div style="color: var(--muted); padding: 10px;">Aucun chapitre favori.</div>';
+    var favChapEl = document.getElementById('favorisChapitres');
+    if (favChapEl) favChapEl.innerHTML = count2 > 0 ? htmlChapitres : '<div style="color: var(--muted); padding: 10px;">Aucun chapitre favori.</div>';
 }
 
 // =========================================================
