@@ -1,5 +1,5 @@
 /* =========================================================
-   STYLES GÉNÉRAUX - VERSION DYNAMIQUE
+   STYLES GÉNÉRAUX
 ========================================================= */
 
 :root {
@@ -63,12 +63,12 @@ body.dark {
 .ces-header {
     background: var(--dark);
     color: #fff;
-    padding: 12px 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -77,7 +77,7 @@ body.dark {
 
 .ces-header .brand {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     background: linear-gradient(135deg, #fff, #88ccff);
     -webkit-background-clip: text;
@@ -88,11 +88,11 @@ body.dark {
     background: transparent;
     border: 1px solid rgba(255,255,255,.15);
     color: #fff;
-    border-radius: 10px;
-    padding: 6px 12px;
+    border-radius: 8px;
+    padding: 5px 10px;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .nav-btn:hover {
@@ -107,7 +107,7 @@ body.dark {
 }
 
 .lane {
-    height: 4px;
+    height: 3px;
     background: linear-gradient(90deg, var(--blue), var(--purple), var(--amber), var(--red));
     background-size: 300% 100%;
     animation: gradientMove 4s ease infinite;
@@ -125,7 +125,7 @@ body.dark {
 .ces-app {
     max-width: 1200px;
     margin: auto;
-    padding: 24px 18px 40px;
+    padding: 20px 16px 40px;
 }
 
 .tab-content {
@@ -148,33 +148,16 @@ body.dark {
 .hero {
     background: linear-gradient(135deg, var(--blue), var(--purple));
     color: #fff;
-    border-radius: 24px;
-    padding: 30px;
+    border-radius: 20px;
+    padding: 24px;
     display: flex;
     justify-content: space-between;
     align-items: end;
-    gap: 24px;
+    gap: 20px;
     box-shadow: var(--shadow);
     margin-bottom: 16px;
     position: relative;
     overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255,.05);
-    border-radius: 50%;
-    animation: floatBubble 20s ease-in-out infinite;
-}
-
-@keyframes floatBubble {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-30px, -20px) scale(1.2); }
 }
 
 .hero .highlight {
@@ -193,15 +176,15 @@ body.dark {
 }
 
 .hero h1 {
-    margin: 7px 0 8px;
-    font-size: 28px;
+    margin: 6px 0;
+    font-size: 24px;
     line-height: 1.05;
 }
 
 .hero p {
     margin: 0;
     color: rgba(255,255,255,.7);
-    font-size: 14px;
+    font-size: 13px;
     max-width: 600px;
 }
 
@@ -219,43 +202,37 @@ body.dark {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .stat-card {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 14px;
+    padding: 12px;
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
 
 .stat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
 .stat-card b {
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--muted);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .stat-card span {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 900;
     display: block;
-    animation: countUp .6s var(--ease);
-}
-
-@keyframes countUp {
-    from { opacity: 0; transform: scale(.8); }
-    to { opacity: 1; transform: scale(1); }
 }
 
 /* =========================================================
@@ -266,18 +243,18 @@ body.dark {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 16px;
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
 
 .panel:hover {
-    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
 }
 
 .panel h3 {
-    margin: 0 0 12px 0;
-    font-size: 16px;
+    margin: 0 0 10px 0;
+    font-size: 15px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -292,8 +269,9 @@ body.dark {
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 10px 18px;
+    padding: 9px 16px;
     font-weight: 900;
+    font-size: 13px;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: 0 4px 15px rgba(28,95,168,.2);
@@ -309,8 +287,9 @@ body.dark {
     color: var(--ink);
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 10px 18px;
+    padding: 9px 16px;
     font-weight: 900;
+    font-size: 13px;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -325,8 +304,9 @@ body.dark {
     color: var(--red);
     border: 1px solid var(--red);
     border-radius: 10px;
-    padding: 10px 18px;
+    padding: 9px 16px;
     font-weight: 900;
+    font-size: 13px;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -337,14 +317,49 @@ body.dark {
 }
 
 /* =========================================================
-   CHAPITRES - DYNAMIQUE
+   ANNÉES CARDS
+========================================================= */
+
+.annee-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.annee-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.annee-card .annee-icon {
+    font-size: 28px;
+}
+
+.annee-card b {
+    display: block;
+    font-size: 16px;
+}
+
+.annee-card span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* =========================================================
+   CHAPITRES
 ========================================================= */
 
 .chapitre-card {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 16px;
+    padding: 14px 16px;
     transition: var(--transition);
     cursor: pointer;
     position: relative;
@@ -363,8 +378,8 @@ body.dark {
 }
 
 .chapitre-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,.08);
 }
 
 .chapitre-card:hover::before {
@@ -375,12 +390,12 @@ body.dark {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .chapitre-card .chapitre-title {
     font-weight: 900;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .chapitre-card .chapitre-badge {
@@ -414,8 +429,8 @@ body.dark {
 
 .chapitre-card .chapitre-desc {
     color: var(--muted);
-    font-size: 13px;
-    margin: 4px 0 10px 0;
+    font-size: 12px;
+    margin: 4px 0 8px 0;
 }
 
 .chapitre-card .chapitre-progress {
@@ -423,7 +438,7 @@ body.dark {
     background: var(--soft);
     border-radius: 2px;
     overflow: hidden;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .chapitre-card .chapitre-progress span {
@@ -434,12 +449,124 @@ body.dark {
     transition: width .8s var(--ease);
 }
 
-.chapitre-card .chapitre-stats {
+/* =========================================================
+   FORMULES
+========================================================= */
+
+.categorie-formule {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 16px;
     display: flex;
-    justify-content: space-between;
-    font-size: 11px;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.categorie-formule:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.categorie-formule span:first-child {
+    font-size: 28px;
+}
+
+.categorie-formule b {
+    display: block;
+    font-size: 15px;
+}
+
+.categorie-formule span {
+    font-size: 12px;
     color: var(--muted);
-    margin-top: 6px;
+}
+
+.formule-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    transition: var(--transition);
+}
+
+.formule-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.formule-card .formule-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.formule-card .formule-icon {
+    font-size: 28px;
+}
+
+.formule-card .formule-title {
+    font-weight: 900;
+    font-size: 16px;
+    flex: 1;
+}
+
+.formule-card .formule-categorie {
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: var(--soft);
+}
+
+.formule-card .formule-definition {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 8px 0;
+}
+
+.formule-card .formule-math {
+    background: var(--soft);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    margin: 6px 0;
+    color: var(--blue);
+}
+
+.formule-card .formule-exemple {
+    background: var(--blue-light);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.formule-card .formule-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.formule-card .formule-actions button {
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: transparent;
+    cursor: pointer;
+    font-size: 11px;
+    transition: var(--transition);
+}
+
+.formule-card .formule-actions button:hover {
+    background: var(--soft);
 }
 
 /* =========================================================
@@ -450,20 +577,15 @@ body.dark {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 20px;
+    padding: 18px;
     margin-bottom: 12px;
     transition: var(--transition);
 }
 
-.quiz-question:hover {
-    box-shadow: var(--shadow);
-}
-
 .quiz-question .question-text {
     font-weight: 900;
-    font-size: 17px;
-    margin-bottom: 12px;
-    color: var(--ink);
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .quiz-options {
@@ -474,14 +596,13 @@ body.dark {
 
 .quiz-options button {
     text-align: left;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border: 2px solid var(--line);
     border-radius: 10px;
     background: var(--surface);
     cursor: pointer;
     transition: var(--transition);
     font-size: 14px;
-    color: var(--ink);
 }
 
 .quiz-options button:hover:not(.locked) {
@@ -516,11 +637,11 @@ body.dark {
 }
 
 .quiz-result {
-    margin-top: 12px;
-    padding: 12px 16px;
+    margin-top: 10px;
+    padding: 10px 14px;
     border-radius: 10px;
     font-weight: 600;
-    animation: fadeSlide .3s var(--ease);
+    font-size: 14px;
 }
 
 .quiz-result.correct {
@@ -543,10 +664,10 @@ body.dark {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 16px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -557,7 +678,7 @@ body.dark {
 }
 
 .exam-card .exam-icon {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .exam-card .exam-info {
@@ -566,11 +687,11 @@ body.dark {
 
 .exam-card .exam-info b {
     display: block;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .exam-card .exam-info span {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--muted);
 }
 
@@ -579,37 +700,19 @@ body.dark {
 ========================================================= */
 
 .search-bar {
-    padding: 10px 14px;
+    padding: 8px 14px;
     border: 2px solid var(--line);
     border-radius: 10px;
     background: var(--surface);
     color: var(--ink);
-    width: 100%;
-    font-size: 14px;
+    font-size: 13px;
     transition: var(--transition);
 }
 
 .search-bar:focus {
     border-color: var(--blue);
     outline: none;
-    box-shadow: 0 0 0 4px rgba(28,95,168,.12);
-}
-
-/* =========================================================
-   PROGRESS BAR
-========================================================= */
-
-.progress-bar {
-    height: 6px;
-    background: var(--soft);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.progress-bar .progress-fill {
-    height: 100%;
-    border-radius: 3px;
-    transition: width .8s var(--ease);
+    box-shadow: 0 0 0 3px rgba(28,95,168,.1);
 }
 
 /* =========================================================
@@ -620,9 +723,9 @@ body.dark {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 14px;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     background: var(--soft);
     border: 2px solid var(--line);
@@ -646,41 +749,28 @@ body.dark {
     filter: grayscale(1);
 }
 
-.badge-item .badge-icon {
-    font-size: 20px;
-}
-
 /* =========================================================
    MISC
 ========================================================= */
 
 .section-title {
-    font-size: 24px;
-    margin: 0 0 4px 0;
+    font-size: 22px;
+    margin: 0 0 2px 0;
     background: linear-gradient(135deg, var(--blue), var(--purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .muted {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--muted);
-    margin: 0 0 14px 0;
+    margin: 0 0 12px 0;
 }
 
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--soft);
-    border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--blue);
-    border-radius: 3px;
-}
+/* Scroll */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--soft); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
 /* =========================================================
    RESPONSIVE
@@ -688,19 +778,17 @@ body.dark {
 
 @media(max-width: 700px) {
     .ces-header .brand { font-size: 16px; }
-    .nav-btn { font-size: 11px; padding: 4px 8px; }
+    .nav-btn { font-size: 10px; padding: 4px 8px; }
     .hero { flex-direction: column; align-items: stretch; }
-    .hero h1 { font-size: 22px; }
+    .hero h1 { font-size: 20px; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat-card span { font-size: 18px; }
-    .exam-card { flex-wrap: wrap; }
-    .chapitre-card { padding: 12px; }
+    .stat-card span { font-size: 17px; }
+    .formule-card { padding: 12px; }
 }
 
 @media(max-width: 480px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .ces-header { flex-direction: column; align-items: stretch; }
     .ces-header > div:last-child { display: flex; flex-wrap: wrap; gap: 4px; }
-    .nav-btn { flex: 1; text-align: center; font-size: 10px; padding: 4px 6px; }
-    .hero { padding: 20px; }
+    .nav-btn { flex: 1; text-align: center; font-size: 9px; padding: 4px 6px; }
 }
