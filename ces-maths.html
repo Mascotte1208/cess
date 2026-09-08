@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 CESS - Mathématiques</title>
+    <link rel="stylesheet" href="ces-maths.css">
+</head>
+<body>
+
+<header class="ces-header">
+    <div class="brand" onclick="goHome()">📚 CESS - Mathématiques</div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="nav-btn" onclick="showTab('dashboard')" id="tabDashboard">📊 Tableau de bord</button>
+        <button class="nav-btn" onclick="showTab('annee4')" id="tab4e">📖 4e Année</button>
+        <button class="nav-btn" onclick="showTab('annee5')" id="tab5e">📖 5e Année</button>
+        <button class="nav-btn" onclick="showTab('annee6')" id="tab6e">📖 6e Année</button>
+        <button class="nav-btn" onclick="showTab('quiz')" id="tabQuiz">🎯 Quiz</button>
+        <button class="nav-btn" onclick="showTab('examens')" id="tabExamens">📝 Examens blancs</button>
+        <button class="nav-btn" onclick="toggleTheme()">🌙</button>
+    </div>
+</header>
+
+<div class="lane"></div>
+
+<main class="ces-app">
+
+<!-- ================= TABLEAU DE BORD ================= -->
+<section id="dashboard" class="tab-content">
+    <div class="hero">
+        <div>
+            <div class="eyebrow">📚 CESS - MATHÉMATIQUES</div>
+            <h1>Prépare ton CESS en mathématiques</h1>
+            <p>Révise par année, teste tes connaissances avec des quiz et suis ta progression.</p>
+        </div>
+        <div class="actions">
+            <button class="primary-btn" onclick="startRevision()">🚀 Démarrer la révision</button>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card"><b>📖 Chapitres</b><span id="totalChapitres">0</span></div>
+        <div class="stat-card"><b>✅ Révisés</b><span id="revisites">0%</span></div>
+        <div class="stat-card"><b>🎯 Quiz réussis</b><span id="quizReussis">0%</span></div>
+        <div class="stat-card"><b>⏱️ Temps</b><span id="tempsTotal">0h</span></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+        <div class="panel">
+            <h3>📊 Progression par année</h3>
+            <div id="progressionAnnees"></div>
+        </div>
+        <div class="panel">
+            <h3>🔥 Chapitres à réviser</h3>
+            <div id="chapitresUrgents"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 4E ANNÉE ================= -->
+<section id="annee4" class="tab-content hidden">
+    <h2 class="section-title">📖 4e Année - Mathématiques</h2>
+    <p class="muted">Les fondamentaux pour bien commencer.</p>
+
+    <div id="chapitres4e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
+</section>
+
+<!-- ================= 5E ANNÉE ================= -->
+<section id="annee5" class="tab-content hidden">
+    <h2 class="section-title">📖 5e Année - Mathématiques</h2>
+    <p class="muted">Approfondissement des concepts.</p>
+
+    <div id="chapitres5e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
+</section>
+
+<!-- ================= 6E ANNÉE ================= -->
+<section id="annee6" class="tab-content hidden">
+    <h2 class="section-title">📖 6e Année - Mathématiques</h2>
+    <p class="muted">Maîtrise des concepts pour l'examen.</p>
+
+    <div id="chapitres6e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz" class="tab-content hidden">
+    <h2 class="section-title">🎯 Quiz par matière</h2>
+    <p class="muted">Teste tes connaissances avec des questions par année.</p>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0;">
+        <select id="quizAnnee" class="search-bar" style="flex:1; min-width: 150px;" onchange="updateQuizChapitres()">
+            <option value="4e">4e Année</option>
+            <option value="5e">5e Année</option>
+            <option value="6e">6e Année</option>
+        </select>
+        <select id="quizChapitre" class="search-bar" style="flex:1; min-width: 150px;">
+            <option value="all">Tous les chapitres</option>
+        </select>
+        <button class="primary-btn" onclick="startQuiz()">🎯 Lancer le quiz</button>
+    </div>
+
+    <div id="quizContent"></div>
+</section>
+
+<!-- ================= EXAMENS BLANCS ================= -->
+<section id="examens" class="tab-content hidden">
+    <h2 class="section-title">📝 Examens blancs</h2>
+    <p class="muted">Entraîne-toi dans les conditions du CESS.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin: 16px 0;">
+        <div class="exam-card" onclick="startExamen('4e')">
+            <span class="exam-icon">📘</span>
+            <div class="exam-info">
+                <b>Examen 4e Année</b>
+                <span>20 questions • 30 min</span>
+            </div>
+            <button class="ghost-btn">Commencer →</button>
+        </div>
+        <div class="exam-card" onclick="startExamen('5e')">
+            <span class="exam-icon">📗</span>
+            <div class="exam-info">
+                <b>Examen 5e Année</b>
+                <span>25 questions • 40 min</span>
+            </div>
+            <button class="ghost-btn">Commencer →</button>
+        </div>
+        <div class="exam-card" onclick="startExamen('6e')">
+            <span class="exam-icon">📕</span>
+            <div class="exam-info">
+                <b>Examen 6e Année</b>
+                <span>30 questions • 50 min</span>
+            </div>
+            <button class="ghost-btn">Commencer →</button>
+        </div>
+        <div class="exam-card" onclick="startExamen('complet')" style="border-color: var(--purple);">
+            <span class="exam-icon">📚</span>
+            <div class="exam-info">
+                <b>Examen complet CESS</b>
+                <span>50 questions • 90 min</span>
+            </div>
+            <button class="ghost-btn">Commencer →</button>
+        </div>
+    </div>
+
+    <div id="examenContent"></div>
+</section>
+
+</main>
+
+<script src="ces-maths.js"></script>
+
+</body>
+</html>
