@@ -2,13 +2,12 @@
 // APP PRINCIPALE : GESTION DES MATIÈRES (Maths + Géo)
 // =========================================================
 
-// Fusion des données Maths et Géo
+// 1. Fusion des données Maths (définies ci-dessous) et Géo (chargées depuis geo-data.js)
 var MATIERES = {
-    'maths': CHAPITRES,   // Vos données Maths déjà présentes dans ce fichier
-    'geographie': GEO_CHAPITRES // Les données Géo chargées depuis geo-data.js
+    'maths': CHAPITRES,
+    'geographie': GEO_CHAPITRES
 };
 
-// Infos pour l'affichage des onglets
 var MATIERE_INFO = {
     'maths': { nom: 'Mathématiques', icone: '📐' },
     'geographie': { nom: 'Géographie', icone: '🌍' }
@@ -28,7 +27,7 @@ var currentTab = 'dashboard';
 var currentQuiz = { index:0, questions:[], score:0, total:0 };
 var currentExamen = { index:0, questions:[], score:0, total:0, timer:null, timeLeft:0, niveau:'3e' };
 
-// Génération des questions de quiz (Maths + Géo)
+// 2. Génération des questions de quiz (depuis les deux matières)
 var QUESTIONS_QUIZ = [];
 for (var matiere in MATIERES){
     for (var annee in MATIERES[matiere]){
@@ -417,10 +416,144 @@ function finishExamen(){
 }
 
 // =========================================================
-// FORMULES
+// FORMULES & DONNÉES MATHS
 // =========================================================
-// [Votre code de FORMULES_DATA et renderFormules doit être ici / inséré depuis le fichier précédent]
-// (Je l'ai volontairement retiré de ce message pour éviter de le couper, gardez le vôtre ou ajoutez le bloc précédent)
+
+var FORMULES_DATA = {
+    algebre: [
+        {id:'alg_1', titre:'Identité remarquable', definition:'(a+b)² = a² + 2ab + b²', exemple:'(x+3)² = x² + 6x + 9', icone:'🔢', categorie:'Algèbre'},
+        {id:'alg_2', titre:'Différence de carrés', definition:'a² - b² = (a-b)(a+b)', exemple:'x² - 9 = (x-3)(x+3)', icone:'🔢', categorie:'Algèbre'},
+        {id:'alg_3', titre:'Discriminant', definition:'Δ = b² - 4ac', exemple:'Pour x² + 2x - 3, Δ = 16', icone:'🔢', categorie:'Algèbre'},
+        {id:'alg_4', titre:'Racines du 2nd degré', definition:'x = (-b ± √Δ)/2a', exemple:'x = (-2 ± 4)/2 → 1 ou -3', icone:'🔢', categorie:'Algèbre'}
+    ],
+    geometrie: [
+        {id:'geo_1', titre:'Théorème de Pythagore', definition:'a² + b² = c² (triangle rectangle)', exemple:'3² + 4² = 5²', icone:'📐', categorie:'Géométrie'},
+        {id:'geo_2', titre:'Théorème de Thalès', definition:'AB/AC = AD/AE (si BD // CE)', exemple:'Calculer une longueur inconnue', icone:'📐', categorie:'Géométrie'},
+        {id:'geo_3', titre:'Distance entre deux points', definition:'d = √[(xB-xA)² + (yB-yA)²]', exemple:'A(0,0), B(3,4) → d = 5', icone:'📐', categorie:'Géométrie'},
+        {id:'geo_4', titre:'Équation du cercle', definition:'(x-a)² + (y-b)² = r²', exemple:'Centre (0,0), rayon 3 → x²+y²=9', icone:'📐', categorie:'Géométrie'}
+    ],
+    trigonometrie: [
+        {id:'trigo_1', titre:'Sinus', definition:'sin(α) = opposé / hypoténuse', exemple:'sin(30°) = 0.5', icone:'📐', categorie:'Trigonométrie'},
+        {id:'trigo_2', titre:'Cosinus', definition:'cos(α) = adjacent / hypoténuse', exemple:'cos(60°) = 0.5', icone:'📐', categorie:'Trigonométrie'},
+        {id:'trigo_3', titre:'Tangente', definition:'tan(α) = opposé / adjacent', exemple:'tan(45°) = 1', icone:'📐', categorie:'Trigonométrie'},
+        {id:'trigo_4', titre:'Relation fondamentale', definition:'sin²α + cos²α = 1', exemple:'Formule à connaître par cœur', icone:'📐', categorie:'Trigonométrie'}
+    ],
+    analyse: [
+        {id:'ana_1', titre:'Dérivée d\u2019une puissance', definition:"(xⁿ)' = n·xⁿ⁻¹", exemple:"(x³)' = 3x²", icone:'📈', categorie:'Analyse'},
+        {id:'ana_2', titre:'Dérivée d\u2019un produit', definition:"(uv)' = u'v + uv'", exemple:"(x²·x)' → règle du produit", icone:'📈', categorie:'Analyse'},
+        {id:'ana_3', titre:'Dérivée d\u2019un quotient', definition:"(u/v)' = (u'v - uv')/v²", exemple:'Utile pour les fonctions rationnelles', icone:'📈', categorie:'Analyse'},
+        {id:'ana_4', titre:'Primitive d\u2019une puissance', definition:'∫xⁿ dx = xⁿ⁺¹/(n+1) + C', exemple:'∫x dx = x²/2 + C', icone:'📈', categorie:'Analyse'},
+        {id:'ana_5', titre:'Intégrale définie', definition:'∫ₐᵇ f(x)dx = F(b) - F(a)', exemple:'Aire sous la courbe entre a et b', icone:'📈', categorie:'Analyse'}
+    ],
+    vecteurs: [
+        {id:'vec_1', titre:'Produit scalaire', definition:'u·v = ||u|| × ||v|| × cos(α)', exemple:'Si orthogonaux, u·v = 0', icone:'➡️', categorie:'Vecteurs'}
+    ],
+    statistiques: [
+        {id:'stat_1', titre:'Moyenne', definition:'x̄ = Σxi / n', exemple:'(4+6+8)/3 = 6', icone:'📊', categorie:'Statistiques'},
+        {id:'stat_2', titre:'Écart-type', definition:'σ = √Variance', exemple:'Mesure la dispersion', icone:'📊', categorie:'Statistiques'}
+    ],
+    complexes: [
+        {id:'comp_1', titre:'Module', definition:'|z| = √(a² + b²)', exemple:'|3+4i| = 5', icone:'ℂ', categorie:'Nombres complexes'}
+    ]
+};
+
+// 3. DÉFINITION DES CHAPITRES DE MATHS
+var CHAPITRES = {
+    '3e': [
+        {id:'3e_fonctions', titre:"1. Approche graphique d'une fonction", desc:'UAA3 — Comprendre les machines, les graphiques', niveau:'3e', icone:'📈', color:'#3182ce',
+            cours:`<h4>C'est quoi une fonction ?</h4><p>Une fonction est comme une <b>machine à transformer les nombres</b>.</p><h4>Vocabulaire</h4><ul><li><b>Antécédent (x)</b> : le nombre qui entre.</li><li><b>Image (y ou f(x))</b> : le nombre qui sort.</li></ul>`,
+            objectifs:['Comprendre la notion de fonction'], matieres:['Vocabulaire'], 
+            exercices:[{question:"Qu'est-ce qu'une fonction ?", options:['Une relation qui donne au plus une image par antécédent','Une relation qui donne plusieurs images','Une machine qui additionne','Un tableau de valeurs'], correct:0, correction:'Une fonction associe à chaque x au plus un seul y.'}]},
+        {id:'3e_algebre', titre:'2. Polynômes & Factorisation', desc:'UAA5 — Calculs et identités', niveau:'3e', icone:'🔢', color:'#e53e3e',
+            cours:`<h4>Produits remarquables</h4><ul><li><b>(a + b)²</b> = a² + 2ab + b²</li><li><b>a² - b²</b> = (a - b)(a + b)</li></ul>`,
+            objectifs:['Maîtriser les produits remarquables'], matieres:['Identités remarquables'],
+            exercices:[{question:'Factoriser : x² - 9', options:['(x-3)(x+3)','(x-3)²','(x+3)²','x²-9'], correct:0, correction:'a² - b² = (a-b)(a+b)'}]},
+        {id:'3e_pythagore', titre:'3. Théorème de Pythagore', desc:'UAA2 — Le triangle rectangle', niveau:'3e', icone:'📐', color:'#805ad5',
+            cours:`<h4>Le théorème</h4><p>a² + b² = c²</p>`,
+            objectifs:['Utiliser le théorème'], matieres:['Triangle rectangle'],
+            exercices:[{question:'Quel est le théorème de Pythagore ?', options:['a² + b² = c²','a + b = c','a × b = c','a² = b² + c²'], correct:0, correction:'Dans un triangle rectangle, a² + b² = c²'}]},
+        {id:'3e_thales', titre:'4. Théorème de Thalès', desc:'UAA1 — Les proportions', niveau:'3e', icone:'📐', color:'#319795',
+            cours:`<h4>Le théorème</h4><p>AB / AC = AD / AE</p>`,
+            objectifs:['Reconnaître une configuration'], matieres:['Proportions'],
+            exercices:[{question:'Dans une configuration de Thalès, si AB/AC = AD/AE, que peut-on en déduire ?', options:['BD // CE','AB // CD','AC // DE','AB // DE'], correct:0, correction:'D\u2019après Thalès, BD // CE'}]}
+    ],
+    '4e': [
+        {id:'4e_polynomes', titre:'1. Équations du 2e degré', desc:'UAA5 — Discriminant', niveau:'4e', icone:'🔢', color:'#e53e3e',
+            cours:`<h4>Le discriminant</h4><p><b>Δ = b² - 4ac</b></p>`,
+            objectifs:['Calculer le discriminant'], matieres:['Discriminant'],
+            exercices:[{question:'Quelle est la formule du discriminant Δ ?', options:['b² - 4ac','b² + 4ac','a² - 4bc','c² - 4ab'], correct:0, correction:'Δ = b² - 4ac'}]},
+        {id:'4e_vecteurs', titre:'2. Calcul vectoriel', desc:'UAA3 — Produit scalaire', niveau:'4e', icone:'➡️', color:'#805ad5',
+            cours:`<h4>Produit scalaire</h4><p>u·v = ||u|| × ||v|| × cos(α)</p>`,
+            objectifs:['Calculer un produit scalaire'], matieres:['Produit scalaire'],
+            exercices:[{question:'Le produit scalaire de deux vecteurs orthogonaux vaut...', options:['0','1','-1','∞'], correct:0, correction:'Il est nul.'}]}
+    ],
+    '5e': [
+        {id:'5e_limites', titre:'1. Limites de fonctions', desc:'UAA1 — Analyse', niveau:'5e', icone:'📈', color:'#3182ce',
+            cours:`<h4>Formes indéterminées</h4><p><b>0/0</b>, <b>∞/∞</b>, <b>∞ - ∞</b></p>`,
+            objectifs:['Lever une forme indéterminée'], matieres:['Limites'],
+            exercices:[{question:'Limite de 1/x quand x → +∞ ?', options:['0','+∞','1','-∞'], correct:0, correction:'Elle tend vers 0.'}]},
+        {id:'5e_derivees', titre:'2. Introduction à la dérivée', desc:'UAA1 — Taux de variation', niveau:'5e', icone:'📐', color:'#e53e3e',
+            cours:`<h4>Dérivées usuelles</h4><ul><li>(xⁿ)' = n·xⁿ⁻¹</li></ul>`,
+            objectifs:['Dériver une fonction'], matieres:['Dérivée'],
+            exercices:[{question:'Dérivée de x³ ?', options:['3x²','x²','3x','x³'], correct:0, correction:'(x³)\' = 3x²'}]}
+    ],
+    '6e': [
+        {id:'6e_derivees', titre:'1. Dérivées et étude de fonctions', desc:'UAA1 — Règles', niveau:'6e', icone:'📐', color:'#e53e3e',
+            cours:`<h4>Signe de la dérivée</h4><p>Si f'(x) > 0, f est croissante.</p>`,
+            objectifs:['Étudier le signe'], matieres:['Tableau de variation'],
+            exercices:[{question:'Si f\u2019(x) > 0 sur un intervalle, alors f est...', options:['Croissante','Décroissante','Constante','Négative'], correct:0, correction:'Une dérivée positive = croissance.'}]},
+        {id:'6e_integrales', titre:'2. Intégrales', desc:'UAA2 — Aire', niveau:'6e', icone:'∫', color:'#805ad5',
+            cours:`<h4>Primitive</h4><p>∫ xⁿ dx = xⁿ⁺¹/(n+1) + C</p>`,
+            objectifs:['Calculer une primitive'], matieres:['Primitives'],
+            exercices:[{question:'Primitive de x ?', options:['x²/2','x²','2x','1'], correct:0, correction:'∫x dx = x²/2 + C'}]}
+    ]
+};
+
+// =========================================================
+// FORMULES & RECHERCHE
+// =========================================================
+function renderFormules(){
+    var search = document.getElementById('formuleSearch').value.toLowerCase();
+    var html = '', total = 0;
+    for (var cat in FORMULES_DATA){
+        for (var i=0; i<FORMULES_DATA[cat].length; i++){
+            var f = FORMULES_DATA[cat][i];
+            if (search && f.titre.toLowerCase().indexOf(search) === -1 && f.definition.toLowerCase().indexOf(search) === -1) continue;
+            total++;
+            var estFavori = favorisFormules.indexOf(f.id) !== -1;
+            var colorVar = cat === 'algebre' ? '--rouge' : cat === 'geometrie' ? '--bleu' : cat === 'trigonometrie' ? '--ambre' : cat === 'analyse' ? '--violet' : cat === 'vecteurs' ? '--teal' : cat === 'statistiques' ? '--ambre' : '--vert';
+            var colorLight = cat === 'algebre' ? '--rouge-clair' : cat === 'geometrie' ? '--bleu-clair' : cat === 'trigonometrie' ? '--ambre-clair' : cat === 'analyse' ? '--violet-clair' : cat === 'vecteurs' ? '--teal-clair' : cat === 'statistiques' ? '--ambre-clair' : '--vert-clair';
+            html += `<div class="formule-card" data-cat="${cat}">
+                <div class="formule-header">
+                    <span class="formule-icon">${f.icone}</span>
+                    <span class="formule-title">${f.titre}</span>
+                    <span class="formule-categorie" style="background:var(${colorLight});color:var(${colorVar});">${f.categorie}</span>
+                </div>
+                <div class="formule-definition">${f.definition}</div>
+                <div class="formule-math">${f.exemple}</div>
+                <div class="formule-actions"><button onclick="toggleFavoriFormule('${f.id}')">${estFavori?'⭐':'☆'} Favori</button></div>
+            </div>`;
+        }
+    }
+    document.getElementById('formulesCount').textContent = total;
+    document.getElementById('formulesList').innerHTML = total === 0 ? '<div style="text-align:center;padding:40px;color:var(--ink-soft);">Aucune formule trouvée.</div>' : html;
+}
+function rechercherFormule(){ renderFormules(); }
+function filtrerFormules(categorie, btn){
+    document.getElementById('formuleSearch').value = '';
+    var pills = document.querySelectorAll('.filtres-pills .pill');
+    for (var i=0;i<pills.length;i++) pills[i].classList.remove('active');
+    if (btn) btn.classList.add('active');
+    renderFormules();
+    var cards = document.querySelectorAll('#formulesList .formule-card');
+    for (var c=0; c<cards.length; c++) cards[c].style.display = (categorie === 'all' || cards[c].getAttribute('data-cat') === categorie) ? 'block' : 'none';
+}
+function toggleFavoriFormule(id){
+    var index = favorisFormules.indexOf(id);
+    if (index !== -1) favorisFormules.splice(index, 1); else favorisFormules.push(id);
+    saveUserData();
+    renderFormules();
+}
 
 // =========================================================
 // UTILITAIRES
