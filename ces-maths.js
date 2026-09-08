@@ -29,7 +29,7 @@ var CHAPITRES = {
             exercices: [
                 { question: 'Quelle est l equation d une fonction lineaire', options: ['y = ax', 'y = ax + b', 'y = x2', 'y = 1/x'], correct: 0, correction: 'Une fonction lineaire est de la forme y = ax' },
                 { question: 'Dans f(x) = 2x + 3, que represente le coefficient 2', options: ['Le coefficient angulaire', 'L ordonnee a l origine', 'La racine', 'Le terme constant'], correct: 0, correction: '2 est le coefficient angulaire (la pente)' },
-                { question: 'Dans f(x) = 2x + 3, que represente le nombre 3', options: ['L ordonnee a l origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l ordonnee a l origine (intersection avec l axe des y)' }
+                { question: 'Dans f(x) = 2x + 3, que represente le nombre 3', options: ['L ordonnee a l origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l ordonnee a l origine' }
             ]
         },
         {
@@ -132,7 +132,7 @@ var CHAPITRES = {
                 'Factorisation des trinomes du deuxieme degre'
             ],
             exercices: [
-                { question: 'Quelle est la formule du discriminant Δ', options: ['b2 - 4ac', 'b2 + 4ac', 'a2 - 4bc', 'c2 - 4ab'], correct: 0, correction: 'Δ = b2 - 4ac pour une equation ax2 + bx + c = 0' },
+                { question: 'Quelle est la formule du discriminant Δ', options: ['b2 - 4ac', 'b2 + 4ac', 'a2 - 4bc', 'c2 - 4ab'], correct: 0, correction: 'Δ = b2 - 4ac' },
                 { question: 'Resoudre x2 - 4 = 0', options: ['x = 2 ou x = -2', 'x = 2', 'x = -2', 'x = 4'], correct: 0, correction: 'x2 = 4 donc x = ±2' }
             ]
         },
