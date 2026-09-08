@@ -527,22 +527,6 @@ function finishExamen(){
 }
 
 // =========================================================
-// UTILITAIRES
-// =========================================================
-function shuffle(array){ 
-    var copy = array.slice(); 
-    for (var i=copy.length-1;i>0;i--){ 
-        var j = Math.floor(Math.random()*(i+1)); 
-        var temp = copy[i]; 
-        copy[i] = copy[j]; 
-        copy[j] = temp; 
-    } 
-    return copy; 
-}
-
-function startRevision(){ showTab('cours'); }
-
-// =========================================================
 // JEU DES CAPITALES
 // =========================================================
 var currentCapitales = { index:0, questions:[], score:0, total:0 };
@@ -645,6 +629,121 @@ function showCapitalesResult() {
         </div>`;
     renderSuivi();
 }
+
+// =========================================================
+// EXAMEN BLANC CESS (Format Jury)
+// =========================================================
+
+var currentCessExam = { index:0, questions:[], score:0, total:0 };
+
+function startExamenCess() {
+    if (typeof EXAMENS_CESS === 'undefined' || EXAMENS_CESS.length === 0) {
+        alert('Données de l\'examen non chargées.');
+        return;
+    }
+
+    var questions = [];
+    for (var i = 0; i < EXAMENS_CESS.length; i++) {
+        var exam = EXAMENS_CESS[i];
+        for (var j = 0; j < exam.exercices.length; j++) {
+            questions.push({
+                titre: exam.titre,
+                type: exam.exercices[j].type,
+                question: exam.exercices[j].question,
+                correction: exam.exercices[j].correction
+            });
+        }
+    }
+
+    currentCessExam.questions = questions;
+    currentCessExam.index = 0;
+    currentCessExam.score = 0;
+    currentCessExam.total = questions.length;
+    showTab('entrainer');
+    renderCessQuestion();
+}
+
+function renderCessQuestion() {
+    var container = document.getElementById('quizContent');
+    if (currentCessExam.index >= currentCessExam.total) {
+        showCessResult();
+        return;
+    }
+
+    var q = currentCessExam.questions[currentCessExam.index];
+
+    var html = `<div class="quiz-question">
+        <div class="quiz-topline" style="margin-bottom:10px;">
+            <span>Question ${currentCessExam.index + 1} / ${currentCessExam.total}</span>
+            <span>Score : ${currentCessExam.score}</span>
+        </div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:5px;">${q.titre}</div>
+        <div class="question-text">${q.question}</div>
+        <textarea id="cessResponse" rows="8" style="width:100%;padding:12px;border:2px solid var(--paper-line-strong);border-radius:10px;background:var(--paper);font-size:14px;" placeholder="Écrivez votre réponse ici..."></textarea>
+        <div style="margin-top:12px;">
+            <button class="primary-btn" onclick="submitCessAnswer()">📤 Valider ma réponse</button>
+        </div>
+    </div>`;
+
+    container.innerHTML = html;
+}
+
+function submitCessAnswer() {
+    var q = currentCessExam.questions[currentCessExam.index];
+    var response = document.getElementById('cessResponse').value;
+
+    var feedback = document.createElement('div');
+    feedback.style.cssText = 'margin-top:10px;padding:12px;border-radius:9px;';
+    feedback.style.background = 'var(--rouge-clair)';
+    feedback.style.color = 'var(--rouge)';
+    feedback.style.borderLeft = '4px solid var(--rouge)';
+
+    feedback.innerHTML = `<b>Exemple de structure attendue :</b><br>${q.correction}<br><br>
+    <span style="font-size:12px;">Votre réponse : ${response.length > 0 ? response.substring(0, 100) + '...' : "(Vide)"}</span>`;
+    
+    document.querySelector('.primary-btn').style.display = 'none';
+    
+    var btn = document.createElement('button');
+    btn.className = 'primary-btn';
+    btn.style.marginTop = '10px';
+    btn.innerHTML = 'Question suivante →';
+    btn.onclick = nextCessQuestion;
+    
+    document.querySelector('.quiz-question').appendChild(feedback);
+    document.querySelector('.quiz-question').appendChild(btn);
+}
+
+function nextCessQuestion() {
+    currentCessExam.index++;
+    renderCessQuestion();
+}
+
+function showCessResult() {
+    var container = document.getElementById('quizContent');
+    container.innerHTML = `<div class="panel" style="text-align:center;">
+        <h2>🔴 Examen blanc terminé !</h2>
+        <p style="margin:12px 0;font-size:16px;">Vous avez complété toutes les questions. La correction détaillée est affichée dans chaque question.</p>
+        <button class="primary-btn" onclick="startExamenCess()">Recommencer</button>
+        <button class="ghost-btn" style="margin-left:8px;" onclick="showTab('entrainer')">Retour</button>
+    </div>`;
+    renderSuivi();
+}
+
+// =========================================================
+// UTILITAIRES
+// =========================================================
+function shuffle(array){ 
+    var copy = array.slice(); 
+    for (var i=copy.length-1;i>0;i--){ 
+        var j = Math.floor(Math.random()*(i+1)); 
+        var temp = copy[i]; 
+        copy[i] = copy[j]; 
+        copy[j] = temp; 
+    } 
+    return copy; 
+}
+
+function startRevision(){ showTab('cours'); }
 
 // =========================================================
 // INITIALISATION (optimisée)
