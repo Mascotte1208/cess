@@ -1,73 +1,71 @@
 // =========================================================
-// DONNÉES DU PROGRAMME DE GÉOGRAPHIE - VERSION ENRICHIE
+// DONNÉES DU PROGRAMME DE GÉOGRAPHIE (Édition CESS - Enrichie)
 // =========================================================
+
 var GEO_CHAPITRES = {
     '3e': [
         {
             id: 'geo3_risques',
             titre: "1. Risques naturels & technologiques",
-            desc: "Comprendre les aléas, la vulnérabilité et les aménagements.",
+            desc: "UAA2 - Les aléas, la vulnérabilité et la gestion des risques.",
             niveau: '3e',
             icone: '🌋',
-            color: '#0e7c86',
+            color: '#c0392b',
             cours: `
-                <h4>🔹 La notion de "Risque"</h4>
-                <p>Un <b>risque</b> est la rencontre entre un <b>aléa</b> (un phénomène naturel ou technologique dangereux) et un <b>enjeu</b> (la présence humaine, des infrastructures, des activités).</p>
-                <p><b>Formule clé :</b> Risque = Aléa × Vulnérabilité</p>
+                <h4>🔹 Lire les risques (L'exemple de Mocoa)</h4>
+                <p>En avril 2017, une coulée de boue a tué plus de 300 personnes à Mocoa (Colombie). Ce n'est pas seulement un phénomène naturel, c'est un <b>risque</b>.</p>
+                <p><b>Risque = Aléa (pluies torrentielles) × Vulnérabilité (construction en zone inondable)</b></p>
                 <br>
                 <h4>🔹 Les types d'aléas</h4>
                 <ul>
-                    <li><b>Aléas naturels :</b> Séismes, volcans, cyclones, coulées de boue, inondations, sécheresses...</li>
-                    <li><b>Aléas technologiques :</b> Pollution industrielle, explosion, rupture de barrage, accident nucléaire...</li>
+                    <li><b>Naturels :</b> Séismes, volcans, inondations, cyclones, sécheresses.</li>
+                    <li><b>Technologiques :</b> Rupture de barrage, accident nucléaire, pollution industrielle.</li>
                 </ul>
                 <br>
-                <h4>🔹 La vulnérabilité</h4>
-                <p>La <b>vulnérabilité</b> désigne la fragilité d'un territoire face à un aléa. Elle dépend de la densité de population, de la qualité des constructions, des infrastructures présentes, etc.</p>
-                <br>
-                <h4>🔹 L'aménagement du territoire</h4>
-                <p>Pour se protéger, l'Homme met en place des <b>aménagements</b> : construction de digues, de barrages, de murs anti-inondations, plans d'évacuation, etc.</p>
+                <h4>🔹 La vulnérabilité et la résilience</h4>
+                <p>La <b>vulnérabilité</b> est la fragilité d'un territoire (densité, qualité des bâtiments). La <b>résilience</b> est la capacité à se relever après une catastrophe (plans d'évacuation, assurances).</p>
             `,
             objectifs: [
-                'Distinguer un aléa naturel d\'un aléa technologique',
-                'Comprendre la notion de vulnérabilité d\'un territoire',
-                'Décrire la répartition spatiale d\'un risque'
+                'Distinguer aléa, risque et vulnérabilité',
+                'Expliquer la répartition de la population à risque',
+                'Lire une carte des aléas et la croiser avec la densité'
             ],
             matieres: [
                 'Aléas naturels et technologiques',
-                'Vulnérabilité et enjeux',
-                'Aménagements pour se prémunir des risques'
+                'Vulnérabilité et résilience',
+                'Gestion du risque et aménagement'
             ],
             exercices: [
-                { question: 'Qu\'est-ce qu\'un aléa ?', options: ['Un phénomène dangereux', 'La population', 'Un aménagement', 'Un type de climat'], correct: 0, correction: 'L\'aléa est le phénomène dangereux lui-même.' },
-                { question: 'Que désigne la vulnérabilité ?', options: ['La fragilité face à un aléa', 'La taille de la population', 'Le climat', 'Le nombre de routes'], correct: 0, correction: 'La vulnérabilité est la fragilité du territoire.' },
-                { question: 'Un volcan sur une île déserte est un...', options: ['Aléa sans risque', 'Risque maximal', 'Aléa technologique', 'Aucun aléa'], correct: 0, correction: 'Pas d\'enjeu humain = pas de risque.' }
+                { question: 'Un aléa est...', options: ['Un phénomène dangereux potentiel', 'Un dégât causé', 'La population touchée', 'Une zone inondable'], correct: 0, correction: 'L\'aléa est le phénomène, le risque est la rencontre avec des enjeux humains.' },
+                { question: 'La vulnérabilité d\'un territoire dépend...', options: ['De sa densité de population et de ses infrastructures', 'De son climat uniquement', 'De sa latitude', 'De son PIB'], correct: 0, correction: 'La vulnérabilité est liée aux enjeux humains.' }
             ]
         },
         {
             id: 'geo3_volcans',
             titre: "2. Séismes & Volcans",
-            desc: "La tectonique des plaques et les zones à risque.",
+            desc: "UAA2 - La tectonique des plaques et les zones à risque.",
             niveau: '3e',
             icone: '🌍',
-            color: '#c0392b',
+            color: '#e53e3e',
             cours: `
                 <h4>🔹 La tectonique des plaques</h4>
-                <p>La surface de la Terre est divisée en plaques rigides qui se déplacent lentement. La plupart des séismes et des volcans se situent aux <b>frontières de ces plaques</b>.</p>
+                <p>La plupart des séismes et des volcans se situent aux <b>frontières des plaques tectoniques</b> (zones de convergence, divergence ou coulissage).</p>
                 <br>
-                <h4>🔹 Le "Cercle de feu" du Pacifique</h4>
-                <p>Zone de forte activité sismique et volcanique qui entoure l'océan Pacifique. Elle correspond aux limites de la plaque Pacifique.</p>
+                <h4>🔹 Le Cercle de feu du Pacifique</h4>
+                <p>Il entoure l'océan Pacifique et correspond à la subduction de la plaque Pacifique. Le Japon, l'Indonésie et le Chili sont très exposés.</p>
                 <br>
-                <h4>🔹 Vocabulaire</h4>
+                <h4>🔹 Le vocabulaire sismique</h4>
                 <ul>
-                    <li><b>Épicentre :</b> Point à la surface où le séisme est le plus fort.</li>
-                    <li><b>Magnitude :</b> Force d'un séisme (échelle de Richter).</li>
-                    <li><b>Nuée ardente :</b> Nuage de gaz et de cendres brûlantes.</li>
+                    <li><b>Épicentre :</b> Point en surface où le séisme est le plus violent.</li>
+                    <li><b>Magnitude :</b> Échelle de Richter (force du séisme).</li>
+                    <li><b>Tsunami :</b> Vague géante provoquée par un séisme sous-marin.</li>
+                    <li><b>Nuée ardente :</b> Nuage de gaz et de cendres brûlantes qui dévale un volcan.</li>
                 </ul>
             `,
             objectifs: [
-                'Localiser les grandes zones sismiques et volcaniques',
-                'Expliquer la répartition des séismes par la tectonique des plaques',
-                'Utiliser le vocabulaire spécifique (épicentre, magnitude...)'
+                'Expliquer les séismes par la tectonique des plaques',
+                'Utiliser le vocabulaire : épicentre, magnitude, tsunami',
+                'Comparer la localisation des séismes et des volcans'
             ],
             matieres: [
                 'Tectonique des plaques',
@@ -75,81 +73,81 @@ var GEO_CHAPITRES = {
                 'Volcanisme effusif et explosif'
             ],
             exercices: [
-                { question: 'À quoi est liée la répartition des séismes et des volcans ?', options: ['Aux frontières des plaques tectoniques', 'À la latitude', 'À l\'altitude', 'À la proximité des océans'], correct: 0, correction: 'Les frontières de plaques sont les zones les plus actives.' },
-                { question: 'Que mesure la magnitude d\'un séisme ?', options: ['Sa force', 'Sa profondeur', 'Sa durée', 'Sa localisation'], correct: 0, correction: 'La magnitude mesure l\'énergie libérée par le séisme.' }
-            ]
-        },
-        {
-            id: 'geo3_population',
-            titre: "3. Population & Urbanisation",
-            desc: "Répartition de la population et croissance des villes.",
-            niveau: '3e',
-            icone: '🏙️',
-            color: '#3182ce',
-            cours: `
-                <h4>🔹 La répartition de la population</h4>
-                <p>La population mondiale est très inégalement répartie. On trouve des <b>foyers de peuplement</b> (Asie de l'Est, Europe, Asie du Sud) et des zones très peu peuplées (déserts, hautes montagnes, forêts denses).</p>
-                <br>
-                <h4>🔹 L'urbanisation</h4>
-                <p>C'est l'augmentation de la proportion de la population qui vit en ville. Aujourd'hui, plus de la moitié de l'humanité vit en ville. On parle de <b>métropolisation</b> quand les grandes villes concentrent de plus en plus de fonctions et de population.</p>
-                <br>
-                <h4>🔹 Vocabulaire</h4>
-                <ul>
-                    <li><b>Densité de population :</b> nombre d'habitants au km².</li>
-                    <li><b>Exode rural :</b> départ des campagnes vers les villes.</li>
-                    <li><b>Mégalopole :</b> vaste ensemble urbain continu.</li>
-                </ul>
-            `,
-            objectifs: [
-                'Localiser les grands foyers de peuplement',
-                'Comprendre le processus d\'urbanisation',
-                'Utiliser le vocabulaire de la population'
-            ],
-            matieres: [
-                'Répartition de la population mondiale',
-                'Urbanisation et métropolisation',
-                'Densité et exode rural'
-            ],
-            exercices: [
-                { question: 'Qu\'est-ce que l\'urbanisation ?', options: ['L\'augmentation de la population urbaine', 'La construction de routes', 'Le départ vers les campagnes', 'La baisse de la population'], correct: 0, correction: 'L\'urbanisation est la croissance de la part de population vivant en ville.' },
-                { question: 'Qu\'est-ce qu\'une densité de population ?', options: ['Le nombre d\'habitants au km²', 'Le nombre total d\'habitants', 'La superficie d\'un pays', 'Le taux de natalité'], correct: 0, correction: 'La densité = nombre d\'habitants divisé par la superficie.' }
+                { question: 'À quoi est liée la répartition des séismes et volcans ?', options: ['Aux frontières des plaques', 'À la proximité de l\'équateur', 'À l\'altitude', 'Aux grands fleuves'], correct: 0, correction: 'Les plaques tectoniques expliquent leur localisation.' },
+                { question: 'Un tsunami est causé par...', options: ['Un séisme sous-marin', 'Une éruption volcanique', 'Une tempête', 'Un glissement de terrain'], correct: 0, correction: 'Un tsunami est généralement provoqué par un séisme sous-marin.' }
             ]
         },
         {
             id: 'geo3_climats',
-            titre: "4. Climats et milieux",
-            desc: "Les grands climats de la Terre et leurs caractéristiques.",
+            titre: "3. Climats & Bioclimats",
+            desc: "UAA1 - Les climats et les milieux naturels.",
             niveau: '3e',
             icone: '🌡️',
             color: '#38a169',
             cours: `
-                <h4>🔹 Les grands types de climats</h4>
+                <h4>🔹 Facteurs climatiques</h4>
                 <ul>
-                    <li><b>Climat équatorial :</b> chaud et très humide toute l'année (forêt amazonienne).</li>
-                    <li><b>Climat tropical :</b> saison sèche et saison des pluies.</li>
-                    <li><b>Climat désertique :</b> très sec, grandes amplitudes thermiques.</li>
-                    <li><b>Climat méditerranéen :</b> étés chauds et secs, hivers doux et pluvieux.</li>
-                    <li><b>Climat océanique :</b> doux et humide (Belgique).</li>
-                    <li><b>Climat continental :</b> hivers froids, étés chauds.</li>
-                    <li><b>Climat polaire :</b> très froid toute l'année.</li>
+                    <li><b>Latitude :</b> Plus on s'éloigne de l'équateur, plus il fait froid.</li>
+                    <li><b>Altitude :</b> Plus on monte, plus il fait froid.</li>
+                    <li><b>Continentalité :</b> À l'intérieur des terres, écarts de température plus grands.</li>
+                    <li><b>Courants marins :</b> Le Gulf Stream réchauffe l'Europe de l'Ouest.</li>
                 </ul>
                 <br>
-                <h4>🔹 Facteurs du climat</h4>
-                <p>Latitude, altitude, distance à la mer, courants marins et relief influencent le climat d'un lieu.</p>
+                <h4>🔹 Les grands types de climats</h4>
+                <ul>
+                    <li><b>Équatorial :</b> Chaud et humide toute l'année (forêt dense).</li>
+                    <li><b>Tropical :</b> Alternance saison sèche/humide (savane).</li>
+                    <li><b>Désertique :</b> Très sec, grandes amplitudes.</li>
+                    <li><b>Méditerranéen :</b> Étés chauds et secs, hivers doux et pluvieux.</li>
+                    <li><b>Océanique :</b> Doux et humide (Belgique).</li>
+                    <li><b>Continental :</b> Hivers froids, étés chauds.</li>
+                    <li><b>Polaire :</b> Très froid toute l'année.</li>
+                </ul>
             `,
             objectifs: [
-                'Reconnaître les grands types de climats',
-                'Relier climat et végétation',
-                'Comprendre les facteurs qui influencent le climat'
+                'Identifier les facteurs climatiques',
+                'Relier climat et paysage naturel',
+                'Lire un diagramme ombrothermique'
             ],
             matieres: [
-                'Types de climats',
-                'Facteurs climatiques',
-                'Milieux naturels'
+                'Facteurs du climat',
+                'Zones climatiques et biomes',
+                'Cartes climatiques'
             ],
             exercices: [
-                { question: 'Quel climat caractérise la Belgique ?', options: ['Océanique', 'Méditerranéen', 'Désertique', 'Équatorial'], correct: 0, correction: 'La Belgique a un climat océanique : doux et humide.' },
-                { question: 'Quel climat est chaud et humide toute l\'année ?', options: ['Équatorial', 'Désertique', 'Polaire', 'Continental'], correct: 0, correction: 'Le climat équatorial est chaud et très humide toute l\'année.' }
+                { question: 'Quel climat caractérise la Belgique ?', options: ['Océanique', 'Méditerranéen', 'Continental', 'Tropical'], correct: 0, correction: 'La Belgique a un climat océanique, doux et humide.' },
+                { question: 'Le Gulf Stream a pour effet de...', options: ['Réchauffer l\'Europe de l\'Ouest', 'Refroidir l\'Arctique', 'Assécher le Sahara', 'Créer des moussons'], correct: 0, correction: 'Le Gulf Stream apporte de la chaleur à l\'Europe occidentale.' }
+            ]
+        },
+        {
+            id: 'geo3_fonctions',
+            titre: "4. Les fonctions du territoire",
+            desc: "UAA3 - Logement, emploi, transport, tourisme.",
+            niveau: '3e',
+            icone: '🏙️',
+            color: '#3182ce',
+            cours: `
+                <h4>🔹 Qu'est-ce qu'une fonction ?</h4>
+                <p>Une fonction est un usage du territoire : <b>logement, santé, emploi, tourisme, loisir, transport, information...</b> Ces fonctions sont inégalement réparties.</p>
+                <br>
+                <h4>🔹 Les facteurs de localisation</h4>
+                <p>Pourquoi une activité s'installe-t-elle ici ? À cause d'<b>atouts</b> (main-d'œuvre, transports, proximité) ou de <b>contraintes</b> (coût du terrain, réglementations).</p>
+                <br>
+                <h4>🔹 L'étalement urbain</h4>
+                <p>La croissance des villes en périphérie crée des <b>migrations pendulaires</b> (domicile-travail) et allonge les <b>distances-temps</b>.</p>
+            `,
+            objectifs: [
+                'Identifier les fonctions d\'un territoire',
+                'Analyser les facteurs de localisation',
+                'Comprendre le rôle des infrastructures de transport'
+            ],
+            matieres: [
+                'Fonctions du territoire',
+                'Facteurs de localisation',
+                'Réseaux de transport'
+            ],
+            exercices: [
+                { question: 'La fonction "santé" correspond à...', options: ['Les hôpitaux et cliniques', 'Les bureaux et entreprises', 'Les parcs et jardins', 'Les routes et autoroutes'], correct: 0, correction: 'La fonction santé est exercée par les hôpitaux.' }
             ]
         }
     ],
@@ -157,284 +155,203 @@ var GEO_CHAPITRES = {
         {
             id: 'geo4_eau',
             titre: "1. L'accès à l'eau",
-            desc: "Inégale répartition des ressources en eau et gestion.",
+            desc: "UAA1 - L'inégale répartition de l'eau et le stress hydrique.",
             niveau: '4e',
             icone: '💧',
             color: '#1d4ed8',
             cours: `
-                <h4>🔹 Une ressource vitale inégalement répartie</h4>
-                <p>L'eau douce représente seulement environ 2,5 % de l'eau totale sur Terre. Sa répartition dépend des climats, des précipitations et des nappes souterraines.</p>
+                <h4>🔹 L'eau, une ressource vitale inégalement répartie</h4>
+                <p>L'eau douce ne représente que 2,5% de l'eau totale. Elle est inégalement répartie : certains pays sont en situation de <b>stress hydrique</b>.</p>
                 <br>
-                <h4>🔹 Stress hydrique</h4>
-                <p>Quand la demande en eau dépasse les ressources disponibles, on parle de <b>stress hydrique</b>. Cela touche de nombreuses régions arides et semi-arides.</p>
+                <h4>🔹 Le bassin hydrographique</h4>
+                <p>Le bassin versant d'un fleuve est l'ensemble des terres qui alimentent ce fleuve. Les pays en amont (source) et en aval (embouchure) dépendent du même cours d'eau, ce qui crée des tensions.</p>
                 <br>
-                <h4>🔹 Exemple : Mexico</h4>
-                <p>La ville pompe trop d'eau dans ses nappes souterraines, ce qui provoque l'affaissement du sol.</p>
+                <h4>🔹 L'exemple de Mexico</h4>
+                <p>Mexico pompe excessivement ses nappes phréatiques, ce qui provoque l'affaissement du sol, des fuites et une contamination de l'eau.</p>
             `,
             objectifs: [
                 'Décrire la répartition de la ressource en eau',
-                'Comprendre la notion de stress hydrique',
-                'Identifier les enjeux liés à l\'accès à l\'eau'
+                'Expliquer le concept de stress hydrique',
+                'Analyser les conflits d\'usage de l\'eau'
             ],
             matieres: [
-                'Ressources en eau',
+                'Bassins hydrographiques et nappes aquifères',
                 'Stress hydrique',
-                'Gestion de l\'eau'
+                'Gestion de l'eau et aménagements'
             ],
             exercices: [
-                { question: 'Qu\'est-ce qu\'une nappe aquifère ?', options: ['Une réserve d\'eau souterraine', 'Un fleuve', 'Un lac artificiel', 'Une usine de traitement'], correct: 0, correction: 'Une nappe aquifère est une réserve d\'eau souterraine.' },
-                { question: 'Pourquoi Mexico s\'affaisse-t-elle ?', options: ['Car elle pompe trop d\'eau dans ses nappes', 'Car il y a trop de pluies', 'Car elle est sur un volcan', 'Car elle est construite sur du sable'], correct: 0, correction: 'L\'épuisement des nappes provoque l\'affaissement du sol.' }
+                { question: 'Une nappe aquifère est...', options: ['Une nappe d\'eau souterraine', 'Un fleuve', 'Un lac de barrage', 'Une usine de dessalement'], correct: 0, correction: 'Une nappe aquifère est une réserve d\'eau souterraine.' },
+                { question: 'Pourquoi Mexico s\'enfonce-t-elle ?', options: ['Car elle puise trop d\'eau dans le sous-sol', 'Parce qu\'elle est sur une faille', 'Car elle est trop peuplée', 'Car il pleut trop'], correct: 0, correction: 'Le pompage excessif des nappes provoque l\'affaissement du sol.' }
             ]
         },
         {
-            id: 'geo4_energie',
-            titre: "2. Les ressources énergétiques",
-            desc: "Énergies fossiles, renouvelables et transition énergétique.",
-            niveau: '4e',
-            icone: '⚡',
-            color: '#d69e2e',
-            cours: `
-                <h4>🔹 Les énergies fossiles</h4>
-                <p>Pétrole, gaz naturel et charbon. Elles sont non renouvelables et émettent beaucoup de CO₂.</p>
-                <br>
-                <h4>🔹 Les énergies renouvelables</h4>
-                <ul>
-                    <li>Solaire</li>
-                    <li>Éolien</li>
-                    <li>Hydraulique</li>
-                    <li>Biomasse</li>
-                    <li>Géothermie</li>
-                </ul>
-                <br>
-                <h4>🔹 La transition énergétique</h4>
-                <p>C'est le passage progressif des énergies fossiles vers des énergies plus propres et renouvelables pour lutter contre le changement climatique.</p>
-            `,
-            objectifs: [
-                'Distinguer énergies fossiles et renouvelables',
-                'Comprendre les enjeux de la transition énergétique',
-                'Identifier les avantages et inconvénients de chaque source'
-            ],
-            matieres: [
-                'Énergies fossiles',
-                'Énergies renouvelables',
-                'Transition énergétique'
-            ],
-            exercices: [
-                { question: 'Quelle énergie n\'est pas renouvelable ?', options: ['Le pétrole', 'Le solaire', 'L\'éolien', 'L\'hydraulique'], correct: 0, correction: 'Le pétrole est une énergie fossile non renouvelable.' },
-                { question: 'Qu\'est-ce que la transition énergétique ?', options: ['Le passage aux énergies renouvelables', 'L\'augmentation de la production de pétrole', 'La construction de centrales à charbon', 'La baisse de la consommation d\'électricité'], correct: 0, correction: 'C\'est le passage progressif vers des énergies plus propres.' }
-            ]
-        },
-        {
-            id: 'geo4_agriculture',
-            titre: "3. Agriculture et alimentation",
-            desc: "Systèmes agricoles et sécurité alimentaire.",
+            id: 'geo4_nourriture',
+            titre: "2. L'accès à la nourriture",
+            desc: "UAA1 - Les systèmes agricoles et la sécurité alimentaire.",
             niveau: '4e',
             icone: '🌾',
-            color: '#38a169',
+            color: '#d69e2e',
             cours: `
                 <h4>🔹 Les types d'agriculture</h4>
                 <ul>
-                    <li><b>Agriculture intensive :</b> fort rendement, beaucoup d'intrants (engrais, pesticides), souvent destinée à l'exportation.</li>
-                    <li><b>Agriculture extensive :</b> grands espaces, faible rendement à l'hectare.</li>
-                    <li><b>Agriculture vivrière :</b> destinée principalement à l'alimentation de la famille.</li>
+                    <li><b>Vivrière :</b> Nourrit la famille, souvent en Afrique/Asie.</li>
+                    <li><b>Commerciale ou intensive :</b> Rendements élevés, usage d'engrais et pesticides, destinée à la vente (exportation).</li>
+                    <li><b>Extensive :</b> Grands espaces, faibles rendements (élevage, céréales).</li>
                 </ul>
                 <br>
-                <h4>🔹 Sécurité alimentaire</h4>
-                <p>C'est la capacité d'une population à se nourrir correctement et de façon durable. Elle dépend de la production, de l'accès aux aliments et de leur qualité.</p>
+                <h4>🔹 La sécurité alimentaire</h4>
+                <p>Elle est assurée quand chaque personne a accès à une nourriture suffisante, saine et nutritive. Elle dépend de la production, des revenus, des transports et des conflits.</p>
+                <br>
+                <h4>🔹 Les contraintes</h4>
+                <p>Pauvreté, changement climatique (sécheresses), spéculation, gaspillage alimentaire.</p>
             `,
             objectifs: [
-                'Différencier les types d\'agriculture',
-                'Comprendre la notion de sécurité alimentaire',
-                'Relier agriculture et enjeux environnementaux'
+                'Différencier les systèmes agricoles',
+                'Comprendre les enjeux de la sécurité alimentaire',
+                'Mettre en évidence des contraintes'
             ],
             matieres: [
-                'Agriculture intensive / extensive',
-                'Sécurité alimentaire',
-                'Impact environnemental de l\'agriculture'
+                'Agriculture vivrière et commerciale',
+                'Agriculture intensive et extensive',
+                'Sécurité alimentaire'
             ],
             exercices: [
-                { question: 'Qu\'est-ce que l\'agriculture vivrière ?', options: ['Celle destinée à nourrir la famille', 'Celle destinée à l\'exportation', 'Celle qui utilise beaucoup d\'engrais', 'Celle pratiquée uniquement en Europe'], correct: 0, correction: 'L\'agriculture vivrière sert principalement à nourrir le producteur et sa famille.' }
+                { question: 'L\'agriculture vivrière...', options: ['Nourrit principalement la famille', 'Est destinée à l\'exportation', 'Utilise beaucoup d\'engrais', 'Nécessite de grands espaces'], correct: 0, correction: 'L\'agriculture vivrière est destinée à l\'auto-consommation.' }
             ]
         },
         {
-            id: 'geo4_developpement',
-            titre: "4. Inégalités de développement",
-            desc: "Pays du Nord / Sud, IDH et indicateurs de développement.",
+            id: 'geo4_amenagement',
+            titre: "3. Aménagement du territoire",
+            desc: "UAA3 - Les fonctions d'un territoire et leur gestion.",
             niveau: '4e',
-            icone: '📊',
-            color: '#805ad5',
+            icone: '🏗️',
+            color: '#0e7c86',
             cours: `
-                <h4>🔹 Pays du Nord et pays du Sud</h4>
-                <p>On distingue encore souvent les pays développés (Nord) et les pays en développement (Sud), même si cette division est de plus en plus nuancée.</p>
+                <h4>🔹 Les fonctions d'un territoire</h4>
+                <p>Un territoire remplit des fonctions : <b>habiter, travailler, se soigner, se déplacer, se divertir</b>. L'aménagement du territoire organise ces fonctions.</p>
                 <br>
-                <h4>🔹 L'IDH (Indice de Développement Humain)</h4>
-                <p>Indicateur créé par l'ONU qui combine trois dimensions :</p>
-                <ul>
-                    <li>Espérance de vie</li>
-                    <li>Niveau d'éducation</li>
-                    <li>Niveau de vie (revenu)</li>
-                </ul>
+                <h4>🔹 L'accessibilité</h4>
+                <p>Elle se mesure par le <b>distance-temps</b> (le temps nécessaire pour se rendre à un service). Les réseaux de transport sont essentiels.</p>
                 <br>
-                <h4>🔹 Autres indicateurs</h4>
-                <p>PIB par habitant, taux d'alphabétisation, accès à l'eau potable, mortalité infantile...</p>
+                <h4>🔹 L'exemple des aéroports wallons</h4>
+                <p>L'aéroport de Charleroi (CRL) et celui de Liège (LGG) ont des spécialisations différentes (low-cost vs fret). Leur site présente des <b>atouts</b> (autoroutes, main-d'œuvre) et des <b>contraintes</b> (nuisances sonores, capacité des pistes).</p>
             `,
             objectifs: [
-                'Comprendre la notion de développement',
-                'Utiliser l\'IDH comme indicateur',
-                'Identifier les inégalités Nord/Sud'
+                'Identifier les fonctions d\'un territoire',
+                'Analyser l\'accessibilité et les réseaux',
+                'Comparer des aménagements (atouts/contraintes)'
             ],
             matieres: [
-                'IDH',
-                'Indicateurs de développement',
-                'Inégalités mondiales'
+                'Fonctions du territoire',
+                'Réseaux de transport',
+                'Aménagement du territoire'
             ],
             exercices: [
-                { question: 'Que mesure l\'IDH ?', options: ['Le développement humain (santé, éducation, revenu)', 'Uniquement la richesse', 'La superficie d\'un pays', 'Le nombre d\'habitants'], correct: 0, correction: 'L\'IDH combine espérance de vie, éducation et niveau de vie.' }
+                { question: 'Le distance-temps est...', options: ['Le temps nécessaire pour se rendre à un service', 'La distance en kilomètres', 'Le coût du trajet', 'La vitesse maximale'], correct: 0, correction: 'Le distance-temps est un indicateur d\'accessibilité.' }
             ]
         }
     ],
     '5e': [
         {
+            id: 'geo5_energie',
+            titre: "1. Les ressources énergétiques",
+            desc: "UAA1 - Énergies fossiles, renouvelables et flux mondiaux.",
+            niveau: '5e',
+            icone: '⚡',
+            color: '#d69e2e',
+            cours: `
+                <h4>🔹 Énergies fossiles vs renouvelables</h4>
+                <ul>
+                    <li><b>Fossiles :</b> Pétrole, gaz, charbon. Non renouvelables, émetteurs de CO₂.</li>
+                    <li><b>Renouvelables :</b> Solaire, éolien, hydraulique, biomasse, géothermie.</li>
+                </ul>
+                <br>
+                <h4>🔹 Flux et mondialisation</h4>
+                <p>La production d'énergie est inégalement répartie (Moyen-Orient, Russie, USA). Les <b>flux</b> de pétrole et de gaz (oléoducs, méthaniers, navires) relient les zones de production aux zones de consommation.</p>
+                <br>
+                <h4>🔹 L'exemple du Laos</h4>
+                <p>Le Laos produit de l'hydroélectricité (barrage sur le Mékong) et exporte 90% de son électricité vers la Thaïlande. Ceci apporte des devises mais crée un risque (rupture de barrage) et des impacts environnementaux.</p>
+            `,
+            objectifs: [
+                'Distinguer énergies fossiles et renouvelables',
+                'Caractériser des flux énergétiques',
+                'Comprendre les enjeux de la transition énergétique'
+            ],
+            matieres: [
+                'Énergies fossiles et renouvelables',
+                'Flux et mondialisation',
+                'Transition énergétique'
+            ],
+            exercices: [
+                { question: 'Quelle énergie n\'est pas renouvelable ?', options: ['Le charbon', 'Le solaire', 'L\'éolien', 'L\'hydraulique'], correct: 0, correction: 'Le charbon est une énergie fossile épuisable.' }
+            ]
+        },
+        {
             id: 'geo5_mondialisation',
-            titre: "1. La mondialisation",
-            desc: "Flux, acteurs et conséquences de la mondialisation.",
+            titre: "2. La mondialisation",
+            desc: "UAA1 - Les flux et les acteurs de la mondialisation.",
             niveau: '5e',
             icone: '🌐',
             color: '#3182ce',
             cours: `
                 <h4>🔹 Qu'est-ce que la mondialisation ?</h4>
-                <p>C'est l'intensification des échanges (marchandises, capitaux, informations, personnes) à l'échelle de la planète.</p>
+                <p>Interdépendance croissante entre les territoires via des flux de marchandises, capitaux, informations et personnes.</p>
                 <br>
                 <h4>🔹 Les acteurs</h4>
                 <ul>
                     <li>Firmes transnationales (FTN)</li>
-                    <li>États</li>
-                    <li>Organisations internationales (OMC, FMI, ONU...)</li>
-                    <li>ONG</li>
+                    <li>Organisations internationales (OMC, FMI, ONU)</li>
+                    <li>États et régions</li>
+                    <li>ONG (Organisations non gouvernementales)</li>
                 </ul>
                 <br>
-                <h4>🔹 Conséquences</h4>
-                <p>Accélération des échanges, délocalisations, interdépendance des économies, mais aussi inégalités et uniformisation culturelle.</p>
+                <h4>🔹 Les conséquences</h4>
+                <p>Délocalisations, interdépendances, uniformisation culturelle, mais aussi inégalités et tensions géopolitiques.</p>
             `,
             objectifs: [
                 'Définir la mondialisation',
-                'Identifier les principaux acteurs',
-                'Comprendre les effets positifs et négatifs'
+                'Identifier les acteurs et les flux',
+                'Évaluer les conséquences positives et négatives'
             ],
             matieres: [
                 'Flux mondiaux',
                 'Firmes transnationales',
-                'Conséquences de la mondialisation'
+                'Délocalisations'
             ],
             exercices: [
-                { question: 'Qu\'est-ce qu\'une firme transnationale (FTN) ?', options: ['Une entreprise présente dans plusieurs pays', 'Une entreprise locale', 'Une organisation humanitaire', 'Un État'], correct: 0, correction: 'Une FTN est une entreprise qui a des activités dans plusieurs pays.' }
-            ]
-        },
-        {
-            id: 'geo5_climat',
-            titre: "2. Changements climatiques",
-            desc: "Causes, conséquences et réponses au réchauffement.",
-            niveau: '5e',
-            icone: '🌡️',
-            color: '#e53e3e',
-            cours: `
-                <h4>🔹 Le réchauffement climatique</h4>
-                <p>Augmentation de la température moyenne de la Terre due principalement aux gaz à effet de serre d'origine humaine (CO₂, méthane...).</p>
-                <br>
-                <h4>🔹 Conséquences</h4>
-                <ul>
-                    <li>Fonte des glaciers et de la banquise</li>
-                    <li>Élévation du niveau des mers</li>
-                    <li>Événements extrêmes plus fréquents</li>
-                    <li>Menaces sur la biodiversité</li>
-                </ul>
-                <br>
-                <h4>🔹 Réponses</h4>
-                <p>Accords internationaux (Accord de Paris), transition énergétique, adaptation des territoires.</p>
-            `,
-            objectifs: [
-                'Comprendre les causes du réchauffement',
-                'Identifier les principales conséquences',
-                'Connaître les réponses possibles'
-            ],
-            matieres: [
-                'Effet de serre',
-                'Conséquences du réchauffement',
-                'Accords climatiques'
-            ],
-            exercices: [
-                { question: 'Quelle est la principale cause du réchauffement climatique actuel ?', options: ['Les gaz à effet de serre d\'origine humaine', 'Les éruptions volcaniques', 'Les taches solaires', 'Les courants marins'], correct: 0, correction: 'Les émissions de gaz à effet de serre liées aux activités humaines sont la cause principale.' }
+                { question: 'Une firme transnationale est...', options: ['Une entreprise implantée dans plusieurs pays', 'Une entreprise locale', 'Une ONG', 'Un État'], correct: 0, correction: 'Une FTN a des activités dans plusieurs pays.' }
             ]
         },
         {
             id: 'geo5_migrations',
             titre: "3. Les migrations",
-            desc: "Causes, types et enjeux des migrations internationales.",
+            desc: "UAA1 - Les flux de population et leurs causes.",
             niveau: '5e',
             icone: '🧳',
             color: '#805ad5',
             cours: `
                 <h4>🔹 Types de migrations</h4>
                 <ul>
-                    <li><b>Migrations économiques :</b> recherche de travail ou de meilleures conditions de vie.</li>
-                    <li><b>Migrations contraintes :</b> guerres, persécutions, catastrophes (réfugiés).</li>
+                    <li><b>Économique :</b> Recherche d'un emploi ou de meilleures conditions de vie.</li>
+                    <li><b>Contrainte :</b> Guerres, persécutions, catastrophes naturelles.</li>
                 </ul>
                 <br>
-                <h4>🔹 Facteurs</h4>
-                <p><b>Facteurs de départ (push)</b> : pauvreté, conflits, manque d'opportunités.<br>
-                <b>Facteurs d'attraction (pull)</b> : emplois, sécurité, études, regroupement familial.</p>
-                <br>
-                <h4>🔹 Enjeux</h4>
-                <p>Intégration, tensions politiques, apports économiques et culturels, droit d'asile.</p>
+                <h4>🔹 Facteurs "push" et "pull"</h4>
+                <p><b>Push :</b> pauvreté, conflits, chômage, catastrophes (repousse).<br>
+                <b>Pull :</b> emplois, sécurité, études, liberté (attire).</p>
             `,
             objectifs: [
                 'Différencier les types de migrations',
-                'Comprendre les facteurs push et pull',
-                'Identifier les enjeux liés aux migrations'
+                'Analyser les facteurs push/pull',
+                'Comprendre les enjeux migratoires'
             ],
             matieres: [
                 'Migrations économiques et contraintes',
-                'Facteurs push / pull',
-                'Enjeux migratoires'
+                'Facteurs push/pull',
+                'Intégration et politiques migratoires'
             ],
             exercices: [
-                { question: 'Qu\'est-ce qu\'un facteur "push" ?', options: ['Un facteur qui pousse à quitter un pays', 'Un facteur qui attire vers un pays', 'Un type de visa', 'Une organisation internationale'], correct: 0, correction: 'Les facteurs push sont ceux qui poussent les gens à partir.' }
-            ]
-        },
-        {
-            id: 'geo5_ue',
-            titre: "4. L'Union européenne",
-            desc: "Construction, fonctionnement et enjeux de l'UE.",
-            niveau: '5e',
-            icone: '🇪🇺',
-            color: '#1d4ed8',
-            cours: `
-                <h4>🔹 Construction européenne</h4>
-                <p>L'UE est née après la Seconde Guerre mondiale pour garantir la paix et favoriser la coopération économique. Elle compte aujourd'hui 27 États membres.</p>
-                <br>
-                <h4>🔹 Principales institutions</h4>
-                <ul>
-                    <li>Commission européenne</li>
-                    <li>Parlement européen</li>
-                    <li>Conseil de l'Union européenne</li>
-                    <li>Conseil européen</li>
-                </ul>
-                <br>
-                <h4>🔹 Enjeux actuels</h4>
-                <p>Élargissement, politique migratoire, transition écologique, souveraineté stratégique.</p>
-            `,
-            objectifs: [
-                'Connaître les grandes étapes de la construction européenne',
-                'Identifier les principales institutions',
-                'Comprendre les enjeux actuels de l\'UE'
-            ],
-            matieres: [
-                'Histoire de l\'UE',
-                'Institutions européennes',
-                'Enjeux contemporains'
-            ],
-            exercices: [
-                { question: 'Combien d\'États membres compte l\'UE actuellement ?', options: ['27', '28', '25', '30'], correct: 0, correction: 'L\'UE compte 27 États membres depuis le Brexit.' }
+                { question: 'Un facteur "push" est...', options: ['Un élément qui pousse à quitter son pays', 'Un élément qui attire vers un pays', 'Un visa', 'Une association'], correct: 0, correction: 'Les facteurs push sont des éléments négatifs qui poussent au départ.' }
             ]
         }
     ],
@@ -442,137 +359,139 @@ var GEO_CHAPITRES = {
         {
             id: 'geo6_durable',
             titre: "1. Développement durable",
-            desc: "Les trois piliers et les Objectifs de Développement Durable.",
+            desc: "UAA - Les trois piliers et les ODD.",
             niveau: '6e',
             icone: '♻️',
             color: '#38a169',
             cours: `
                 <h4>🔹 Les trois piliers</h4>
                 <ul>
-                    <li><b>Économique</b> : croissance et prospérité</li>
-                    <li><b>Social</b> : équité, santé, éducation</li>
-                    <li><b>Environnemental</b> : préservation des ressources et des écosystèmes</li>
+                    <li><b>Économique :</b> rentabilité et prospérité.</li>
+                    <li><b>Social :</b> équité et bien-être des populations.</li>
+                    <li><b>Environnemental :</b> préservation de la planète.</li>
                 </ul>
                 <br>
-                <h4>🔹 Les ODD (Objectifs de Développement Durable)</h4>
-                <p>17 objectifs adoptés par l'ONU en 2015 pour éradiquer la pauvreté, protéger la planète et garantir la prospérité d'ici 2030.</p>
+                <h4>🔹 Les ODD</h4>
+                <p>17 Objectifs de Développement Durable adoptés par l'ONU en 2015 pour 2030. Ils visent à éradiquer la pauvreté, protéger la planète et assurer la prospérité pour tous.</p>
             `,
             objectifs: [
-                'Connaître les trois piliers du développement durable',
-                'Comprendre les ODD',
-                'Relier les enjeux locaux et mondiaux'
+                'Connaître les trois piliers',
+                'Relier les enjeux aux ODD',
+                'Argumenter sur des choix durables'
             ],
             matieres: [
                 'Piliers du développement durable',
-                'Objectifs de Développement Durable',
-                'Transition écologique'
+                'ODD',
+                'Économie circulaire'
             ],
             exercices: [
-                { question: 'Quels sont les trois piliers du développement durable ?', options: ['Économique, social, environnemental', 'Politique, militaire, culturel', 'Nord, Sud, Est', 'Production, consommation, exportation'], correct: 0, correction: 'Les trois piliers sont économique, social et environnemental.' }
+                { question: 'Le développement durable repose sur...', options: ['Trois piliers : économique, social, environnemental', 'Deux piliers : économie et politique', 'Le PIB uniquement', 'Les énergies fossiles'], correct: 0, correction: 'Les trois piliers sont économique, social et environnemental.' }
+            ]
+        },
+        {
+            id: 'geo6_amenagement_territoire',
+            titre: "2. Aménagement du territoire",
+            desc: "UAA3 - Conflits d'usage et gestion des fonctions.",
+            niveau: '6e',
+            icone: '🏙️',
+            color: '#1d4ed8',
+            cours: `
+                <h4>🔹 Le conflit d'usage</h4>
+                <p>Lorsqu'un territoire doit remplir plusieurs fonctions (logement, industrie, loisirs), il existe des <b>conflits d'usage</b> entre les acteurs.</p>
+                <br>
+                <h4>🔹 L'exemple de la clinique du MontLégia (Liège)</h4>
+                <p>Le CHC a regroupé ses trois cliniques en un seul site (MontLégia) pour rationaliser. Ce choix a tenu compte des contraintes urbanistiques, de la mobilité, mais a des conséquences pour les patients et les riverains.</p>
+                <br>
+                <h4>🔹 Plan d'affectation du sol</h4>
+                <p>Document qui définit les usages autorisés des sols (zone d'habitat, zone industrielle, zone verte). Il encadre l'aménagement.</p>
+            `,
+            objectifs: [
+                'Identifier les fonctions et conflits d\'usage',
+                'Analyser la pertinence d\'un aménagement',
+                'Comprendre les outils de gestion du territoire'
+            ],
+            matieres: [
+                'Conflits d\'usage',
+                'Schéma d\'aménagement',
+                'Plan d\'affectation du sol'
+            ],
+            exercices: [
+                { question: 'Un conflit d\'usage survient quand...', options: ['Deux fonctions différentes se disputent le même espace', 'Il y a un tremblement de terre', 'Le climat change', 'Une autoroute est construite'], correct: 0, correction: 'Les conflits d\'usage surgissent lorsque différents acteurs veulent utiliser le même terrain.' }
             ]
         },
         {
             id: 'geo6_geopolitique',
-            titre: "2. Géopolitique et conflits",
-            desc: "Puissance, ressources et tensions internationales.",
+            titre: "3. Géopolitique et conflits",
+            desc: "UAA - Puissance, ressources et tensions.",
             niveau: '6e',
             icone: '🕊️',
             color: '#c0392b',
             cours: `
-                <h4>🔹 Qu'est-ce que la géopolitique ?</h4>
-                <p>Étude des rivalités de pouvoir sur un territoire. Elle analyse les rapports de force entre États et acteurs.</p>
+                <h4>🔹 La notion de puissance</h4>
+                <p>Un État est puissant s'il dispose d'influence militaire, économique, diplomatique et culturelle.</p>
                 <br>
-                <h4>🔹 Sources de conflits</h4>
+                <h4>🔹 Les tensions</h4>
                 <ul>
-                    <li>Contrôle des ressources (pétrole, eau, minerais)</li>
+                    <li>Contrôle des ressources (eau, énergie, terres rares)</li>
                     <li>Frontières contestées</li>
-                    <li>Identités et nationalismes</li>
-                    <li>Rivalités de puissance</li>
+                    <li>Rivalités idéologiques</li>
                 </ul>
+                <br>
+                <h4>🔹 La géographie prospective</h4>
+                <p>Elle tente d'imaginer les territoires de demain pour anticiper les conflits et les besoins.</p>
             `,
             objectifs: [
-                'Comprendre la notion de géopolitique',
-                'Identifier les principales sources de conflits',
-                'Analyser un conflit à partir de ses enjeux territoriaux'
+                'Comprendre la notion de puissance',
+                'Identifier les sources de tensions',
+                'Se projeter dans le futur (prospective)'
             ],
             matieres: [
-                'Notion de puissance',
+                'Puissance et influence',
                 'Ressources et conflits',
-                'Enjeux territoriaux'
+                'Géographie prospective'
             ],
             exercices: [
-                { question: 'Qu\'est-ce que la géopolitique ?', options: ['L\'étude des rivalités de pouvoir sur un territoire', 'L\'étude des climats', 'L\'étude des populations uniquement', 'L\'étude des routes commerciales anciennes'], correct: 0, correction: 'La géopolitique analyse les rapports de force liés au territoire.' }
+                { question: 'La géopolitique étudie...', options: ['Les rivalités de pouvoir sur un territoire', 'Les climats', 'Les systèmes agricoles', 'Les statistiques'], correct: 0, correction: 'La géopolitique analyse les rapports de force liés au territoire.' }
             ]
         },
         {
-            id: 'geo6_villes',
-            titre: "3. Villes et métropolisation",
-            desc: "Croissance urbaine, métropoles et inégalités spatiales.",
+            id: 'geo6_essai',
+            titre: "4. L'argumentation géographique",
+            desc: "UAA - Méthodologie de l'examen.",
             niveau: '6e',
-            icone: '🌆',
+            icone: '📝',
             color: '#805ad5',
             cours: `
-                <h4>🔹 La métropolisation</h4>
-                <p>Processus par lequel les grandes villes concentrent de plus en plus de population, d'activités et de fonctions de commandement.</p>
-                <br>
-                <h4>🔹 Les grandes métropoles mondiales</h4>
-                <p>New York, Londres, Tokyo, Paris, Shanghai... Elles forment un réseau de villes globales interconnectées.</p>
-                <br>
-                <h4>🔹 Inégalités urbaines</h4>
-                <p>Dans de nombreuses métropoles, on observe une forte ségrégation socio-spatiale (quartiers riches / quartiers pauvres).</p>
-            `,
-            objectifs: [
-                'Comprendre le processus de métropolisation',
-                'Identifier les caractéristiques des villes globales',
-                'Analyser les inégalités urbaines'
-            ],
-            matieres: [
-                'Métropolisation',
-                'Villes globales',
-                'Ségrégation urbaine'
-            ],
-            exercices: [
-                { question: 'Qu\'est-ce que la métropolisation ?', options: ['La concentration croissante des fonctions dans les grandes villes', 'La disparition des villes', 'Le retour vers les campagnes', 'La construction de villages'], correct: 0, correction: 'La métropolisation est la concentration de population et de fonctions dans les grandes villes.' }
-            ]
-        },
-        {
-            id: 'geo6_environnement',
-            titre: "4. Enjeux environnementaux",
-            desc: "Biodiversité, pollution, ressources et solutions.",
-            niveau: '6e',
-            icone: '🌿',
-            color: '#0e7c86',
-            cours: `
-                <h4>🔹 Principaux enjeux</h4>
+                <h4>🔹 Structurer un texte argumentatif</h4>
+                <p>Pour réussir l'examen (voir Question 2 du Jury CESS) :</p>
                 <ul>
-                    <li>Perte de biodiversité</li>
-                    <li>Pollution de l'air, de l'eau et des sols</li>
-                    <li>Surexploitation des ressources</li>
-                    <li>Déforestation</li>
+                    <li><b>Introduction :</b> Annonce claire du sujet.</li>
+                    <li><b>Développement :</b> 2 à 3 arguments géographiques (atouts, contraintes).</li>
+                    <li><b>Conclusion :</b> Synthèse et ouverture.</li>
                 </ul>
                 <br>
-                <h4>🔹 Solutions</h4>
-                <p>Aires protégées, économie circulaire, sobriété, énergies renouvelables, accords internationaux.</p>
+                <h4>🔹 Utiliser le vocabulaire précis</h4>
+                <p>Utiliser les mots <b>"Atout"</b> et <b>"Contrainte"</b>, et justifier avec des faits précis (localisation, distance-temps, spécialisation).</p>
             `,
             objectifs: [
-                'Identifier les grands enjeux environnementaux',
-                'Comprendre le lien entre activités humaines et dégradation',
-                'Connaître des solutions possibles'
+                'Structurer un texte argumentatif',
+                'Justifier avec des exemples géographiques',
+                'Maîtriser le vocabulaire spécifique'
             ],
             matieres: [
-                'Biodiversité',
-                'Pollution',
-                'Solutions durables'
+                'Méthodologie',
+                'Argumentation',
+                'Atouts / Contraintes'
             ],
             exercices: [
-                { question: 'Qu\'est-ce que la biodiversité ?', options: ['La diversité des êtres vivants et des écosystèmes', 'Uniquement le nombre d\'animaux', 'La quantité de forêts', 'Le climat d\'une région'], correct: 0, correction: 'La biodiversité désigne la variété des espèces et des milieux.' }
+                { question: 'Pour un aéroport, une contrainte est...', options: ['Les nuisances sonores', 'La proximité d\'une autoroute', 'La main-d\'œuvre disponible', 'L\'espace disponible'], correct: 0, correction: 'Les nuisances sonores sont une contrainte pour l\'environnement et les riverains.' }
             ]
         }
     ]
 };
 
 // =========================================================
-// JEU DES CAPITALES
+// JEU DES CAPITALES (Enrichi)
 // =========================================================
 var CAPITALES = [
     { pays: "France", capitale: "Paris", continent: "Europe" },
@@ -621,4 +540,30 @@ var CAPITALES = [
     { pays: "Nigeria", capitale: "Abuja", continent: "Afrique" },
     { pays: "Kenya", capitale: "Nairobi", continent: "Afrique" },
     { pays: "Éthiopie", capitale: "Addis-Abeba", continent: "Afrique" }
+];
+
+// =========================================================
+// EXAMEN BLANC TYPE CESS (Question 2)
+// =========================================================
+var EXAMENS_CESS = [
+    {
+        id: 'cess_aeroports',
+        titre: "Les aéroports wallons (CRL et LGG)",
+        exercices: [
+            { 
+                question: "Q1. Tableau Atouts/Contraintes pour CRL", 
+                type: 'texte',
+                options: [],
+                correct: 0,
+                correction: "Voir la grille de correction."
+            },
+            { 
+                question: "Q2. Rédigez un texte argumentatif sur la spécialisation des aéroports wallons en utilisant les mots atout et contrainte.", 
+                type: 'texte',
+                options: [],
+                correct: 0,
+                correction: "Le texte doit comporter une introduction, un développement, une conclusion et utiliser les mots clés."
+            }
+        ]
+    }
 ];
