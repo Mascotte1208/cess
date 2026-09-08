@@ -730,14 +730,14 @@ function saveUserData() {
 }
 
 // =========================================================
-// NAVIGATION - CORRIGÉE
+// NAVIGATION - CORRIGÉE (avec 'fiches' ajouté)
 // =========================================================
 
 function showTab(tab) {
     currentTab = tab;
     
     // Cacher toutes les sections
-    var tabs = ['dashboard', 'revision', 'formules', 'quiz', 'examens', 'stats', 'favoris'];
+    var tabs = ['dashboard', 'revision', 'formules', 'fiches', 'quiz', 'examens', 'stats', 'favoris'];
     for (var i = 0; i < tabs.length; i++) {
         var el = document.getElementById(tabs[i]);
         if (el) el.classList.add('hidden');
@@ -757,6 +757,7 @@ function showTab(tab) {
     if (tab === 'dashboard') renderDashboard();
     if (tab === 'revision') renderRevision();
     if (tab === 'formules') renderFormules();
+    if (tab === 'fiches') { /* Rien à charger dynamiquement, le HTML est déjà prêt */ }
     if (tab === 'quiz') { updateQuizChapitres(); }
     if (tab === 'stats') renderStats();
     if (tab === 'favoris') renderFavoris();
