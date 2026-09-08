@@ -14,6 +14,7 @@
         <button class="nav-btn" onclick="showTab('dashboard')" id="tabDashboard">📊 Tableau de bord</button>
         <button class="nav-btn" onclick="showTab('revision')" id="tabRevision">📖 Révision</button>
         <button class="nav-btn" onclick="showTab('formules')" id="tabFormules">📚 Formules</button>
+        <button class="nav-btn" onclick="showTab('fiches')" id="tabFiches">🖼️ Fiches</button>
         <button class="nav-btn" onclick="showTab('quiz')" id="tabQuiz">🎯 Quiz</button>
         <button class="nav-btn" onclick="showTab('examens')" id="tabExamens">📝 Examens</button>
         <button class="nav-btn" onclick="showTab('stats')" id="tabStats">📊 Stats</button>
@@ -61,7 +62,6 @@
         </div>
     </div>
 
-    <!-- Badges -->
     <div class="panel" style="margin-top: 20px;">
         <h3>🏆 Mes badges</h3>
         <div id="badgeDisplay" style="display: flex; gap: 12px; flex-wrap: wrap; padding: 10px 0;"></div>
@@ -113,7 +113,6 @@
         </div>
     </div>
 
-    <!-- Catégories de formules -->
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 16px 0;">
         <div class="categorie-formule" onclick="filtrerFormules('algebre')" style="border-left: 4px solid #c81e2c;">
             <span>🔢</span>
@@ -146,6 +145,47 @@
     </div>
 
     <div id="formulesList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px;"></div>
+</section>
+
+<!-- ================= FICHES DE RÉVISION (NOUVEAU) ================= -->
+<section id="fiches" class="tab-content hidden">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">🖼️ Fiches de révision visuelles</h2>
+            <p class="muted">Les notions essentielles résumées en images.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
+
+    <div class="fiches-container">
+        <!-- Thème 1 : Géométrie -->
+        <h3 style="margin-top: 20px; color: #1c5fa8;">📐 Géométrie du triangle</h3>
+        <div class="groupe-fiches">
+            <img src="pythagore.jpg" alt="Théorème de Pythagore">
+            <img src="thales.jpg" alt="Théorème de Thalès">
+            <img src="trigonometrie.jpg" alt="Sinus, Cosinus, Tangente">
+        </div>
+
+        <!-- Thème 2 : Algèbre et Analyse -->
+        <h3 style="margin-top: 30px; color: #c81e2c;">🔢 Algèbre et Analyse</h3>
+        <div class="groupe-fiches">
+            <img src="discriminant.jpg" alt="Discriminant du second degré">
+            <img src="derivee.jpg" alt="Dérivée et tangente">
+        </div>
+
+        <!-- Thème 3 : Vecteurs et Complexes -->
+        <h3 style="margin-top: 30px; color: #6b46c1;">➡️ Vecteurs et Complexes</h3>
+        <div class="groupe-fiches">
+            <img src="produit_scalaire.jpg" alt="Produit scalaire">
+            <img src="plan_complexe.jpg" alt="Plan complexe">
+        </div>
+
+        <!-- Thème 4 : Trigonométrie -->
+        <h3 style="margin-top: 30px; color: #e8a400;">📐 Cercle trigonométrique</h3>
+        <div class="groupe-fiches">
+            <img src="cercle_trigo.jpg" alt="Cercle trigonométrique">
+        </div>
+    </div>
 </section>
 
 <!-- ================= QUIZ ================= -->
