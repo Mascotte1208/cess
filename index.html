@@ -14,6 +14,8 @@
         <button class="nav-btn" onclick="showTab('dashboard')" id="tabDashboard">📊 Tableau de bord</button>
         <button class="nav-btn" onclick="showTab('annee3')" id="tab3e">📖 3e Année</button>
         <button class="nav-btn" onclick="showTab('annee4')" id="tab4e">📖 4e Année</button>
+        <button class="nav-btn" onclick="showTab('annee5')" id="tab5e">📖 5e Année</button>
+        <button class="nav-btn" onclick="showTab('annee6')" id="tab6e">📖 6e Année</button>
         <button class="nav-btn" onclick="showTab('quiz')" id="tabQuiz">🎯 Quiz</button>
         <button class="nav-btn" onclick="showTab('examens')" id="tabExamens">📝 Examens</button>
         <button class="nav-btn" onclick="showTab('revisions')" id="tabRevisions">📝 Révisions</button>
@@ -30,7 +32,7 @@
     <div class="hero">
         <div>
             <div class="eyebrow">📚 PROGRAMME OFFICIEL - MATHÉMATIQUES</div>
-            <h1>2e Degré - 3e et 4e Années</h1>
+            <h1>2e et 3e Degrés - 3e à 6e Années</h1>
             <p>Révise selon le programme officiel de la Communauté Française.</p>
         </div>
         <div class="actions">
@@ -81,6 +83,30 @@
     <div id="chapitres4e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
 </section>
 
+<!-- ================= 5E ANNÉE ================= -->
+<section id="annee5" class="tab-content hidden">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📖 5e Année - Mathématiques</h2>
+            <p class="muted">Programme officiel - Analyse, Fonctions exponentielles et logarithmes, Nombres complexes, Géométrie analytique.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
+    <div id="chapitres5e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
+</section>
+
+<!-- ================= 6E ANNÉE ================= -->
+<section id="annee6" class="tab-content hidden">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+        <div>
+            <h2 class="section-title">📖 6e Année - Mathématiques</h2>
+            <p class="muted">Programme officiel - Dérivées, Intégrales, Équations différentielles, Probabilités et statistiques avancées.</p>
+        </div>
+        <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
+    </div>
+    <div id="chapitres6e" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px;"></div>
+</section>
+
 <!-- ================= QUIZ ================= -->
 <section id="quiz" class="tab-content hidden">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
@@ -94,6 +120,8 @@
         <select id="quizAnnee" class="search-bar" style="flex:1; min-width: 150px;" onchange="updateQuizChapitres()">
             <option value="3e">3e Année</option>
             <option value="4e">4e Année</option>
+            <option value="5e">5e Année</option>
+            <option value="6e">6e Année</option>
         </select>
         <select id="quizChapitre" class="search-bar" style="flex:1; min-width: 150px;">
             <option value="all">Tous les chapitres</option>
@@ -129,11 +157,27 @@
             </div>
             <button class="ghost-btn">Commencer →</button>
         </div>
+        <div class="exam-card" onclick="startExamen('5e')">
+            <span class="exam-icon">📙</span>
+            <div class="exam-info">
+                <b>Examen 5e Année</b>
+                <span>25 questions • 40 min</span>
+            </div>
+            <button class="ghost-btn">Commencer →</button>
+        </div>
+        <div class="exam-card" onclick="startExamen('6e')">
+            <span class="exam-icon">📕</span>
+            <div class="exam-info">
+                <b>Examen 6e Année</b>
+                <span>30 questions • 50 min</span>
+            </div>
+            <button class="ghost-btn">Commencer →</button>
+        </div>
         <div class="exam-card" onclick="startExamen('complet')" style="border-color: #6b46c1;">
             <span class="exam-icon">📚</span>
             <div class="exam-info">
                 <b>Examen complet</b>
-                <span>45 questions • 70 min</span>
+                <span>50 questions • 90 min</span>
             </div>
             <button class="ghost-btn">Commencer →</button>
         </div>
