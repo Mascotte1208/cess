@@ -1,12 +1,9 @@
 // =========================================================
-// PROGRAMME OFFICIEL COMPLET DE MATHÉMATIQUES
+// PROGRAMME OFFICIEL COMPLET DE MATHEMATIQUES
 // 3e, 4e, 5e ET 6e ANNÉES - TOUS LES CHAPITRES
 // =========================================================
 
 var CHAPITRES = {
-    // =========================================================
-    // 3E ANNÉE - 7 CHAPITRES
-    // =========================================================
     '3e': [
         {
             id: '3e_fonctions',
@@ -216,9 +213,6 @@ var CHAPITRES = {
             ]
         }
     ],
-    // =========================================================
-    // 4E ANNÉE - 8 CHAPITRES
-    // =========================================================
     '4e': [
         {
             id: '4e_fonctions_ref',
@@ -430,9 +424,6 @@ var CHAPITRES = {
             ]
         }
     ],
-    // =========================================================
-    // 5E ANNÉE - 3 CHAPITRES
-    // =========================================================
     '5e': [
         {
             id: '5e_analyse',
@@ -502,9 +493,6 @@ var CHAPITRES = {
             ]
         }
     ],
-    // =========================================================
-    // 6E ANNÉE - 3 CHAPITRES
-    // =========================================================
     '6e': [
         {
             id: '6e_derivees',
@@ -575,7 +563,7 @@ var CHAPITRES = {
     ]
 };
 
-// ---- GÉNÉRATION DES QUESTIONS DE QUIZ ----
+// ---- GENERATION DES QUESTIONS DE QUIZ ----
 var QUESTIONS_QUIZ = [];
 
 for (var annee in CHAPITRES) {
@@ -599,7 +587,100 @@ for (var annee in CHAPITRES) {
     }
 }
 
-// ---- DONNEES UTILISATEUR ----
+// =========================================================
+// DONNÉES DES FORMULES (66 FORMULES)
+// =========================================================
+
+var FORMULES_DATA = {
+    algebre: [
+        { id: 'alg_1', titre: 'Équation du premier degré', definition: 'ax + b = 0 → x = -b/a', exemple: '2x + 4 = 0 → x = -2', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_2', titre: 'Système d\'équations', definition: 'x + y = a, x - y = b', exemple: 'x = (a+b)/2, y = (a-b)/2', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_3', titre: 'Produit remarquable (a+b)²', definition: '(a+b)² = a² + 2ab + b²', exemple: '(x+3)² = x² + 6x + 9', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_4', titre: 'Produit remarquable (a-b)²', definition: '(a-b)² = a² - 2ab + b²', exemple: '(x-3)² = x² - 6x + 9', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_5', titre: 'Produit remarquable a²-b²', definition: 'a² - b² = (a-b)(a+b)', exemple: 'x² - 9 = (x-3)(x+3)', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_6', titre: 'Discriminant Δ', definition: 'Δ = b² - 4ac', exemple: 'Pour x² + 2x - 3, Δ = 4 + 12 = 16', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_7', titre: 'Racines du second degré', definition: 'x = (-b ± √Δ)/2a', exemple: 'x = (-2 ± 4)/2 → x = 1 ou -3', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_8', titre: 'Forme canonique', definition: 'a(x - α)² + β', exemple: 'x² + 6x + 5 = (x+3)² - 4', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_9', titre: 'Somme des racines', definition: 'S = -b/a', exemple: 'x² - 5x + 6 = 0 → S = 5', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_10', titre: 'Produit des racines', definition: 'P = c/a', exemple: 'x² - 5x + 6 = 0 → P = 6', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_11', titre: 'Puissance a^n × a^m', definition: 'a^n × a^m = a^(n+m)', exemple: '2³ × 2⁴ = 2⁷', icone: '🔢', categorie: 'Algèbre' },
+        { id: 'alg_12', titre: 'Puissance (a^n)^m', definition: '(a^n)^m = a^(n×m)', exemple: '(2³)⁴ = 2¹²', icone: '🔢', categorie: 'Algèbre' }
+    ],
+    geometrie: [
+        { id: 'geo_1', titre: 'Théorème de Pythagore', definition: 'a² + b² = c² (triangle rectangle)', exemple: '3² + 4² = 5²', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_2', titre: 'Réciproque de Pythagore', definition: 'Si a² + b² = c² alors triangle rectangle', exemple: 'Vérifier 3² + 4² = 5²', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_3', titre: 'Théorème de Thalès', definition: 'AB/AC = AD/AE', exemple: 'Calculer une longueur inconnue', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_4', titre: 'Diagonale d\'un carré', definition: 'd = a√2', exemple: 'a = 1 → d = √2', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_5', titre: 'Hauteur triangle équilatéral', definition: 'h = a√3/2', exemple: 'a = 2 → h = √3', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_6', titre: 'Diagonale d\'un cube', definition: 'd = a√3', exemple: 'a = 1 → d = √3', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_7', titre: 'Aire d\'un triangle', definition: 'A = (base × hauteur)/2', exemple: 'base=5, hauteur=4 → A=10', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_8', titre: 'Aire d\'un rectangle', definition: 'A = L × l', exemple: 'L=5, l=3 → A=15', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_9', titre: 'Aire d\'un carré', definition: 'A = c²', exemple: 'c=4 → A=16', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_10', titre: 'Volume d\'un cube', definition: 'V = a³', exemple: 'a=3 → V=27', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_11', titre: 'Médiatrice d\'un segment', definition: 'Ensemble des points équidistants', exemple: 'MA = MB', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_12', titre: 'Cercle', definition: 'Ensemble des points à distance r de O', exemple: 'x² + y² = r²', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_13', titre: 'Arc capable', definition: 'Points d\'où l\'on voit un segment sous un angle', exemple: 'Angle constant', icone: '📐', categorie: 'Géométrie' },
+        { id: 'geo_14', titre: 'Somme des angles d\'un triangle', definition: '180°', exemple: '60+60+60 = 180', icone: '📐', categorie: 'Géométrie' }
+    ],
+    trigonometrie: [
+        { id: 'trigo_1', titre: 'Sinus', definition: 'sin(α) = opposé/hypoténuse', exemple: 'sin(30°) = 0.5', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_2', titre: 'Cosinus', definition: 'cos(α) = adjacent/hypoténuse', exemple: 'cos(60°) = 0.5', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_3', titre: 'Tangente', definition: 'tan(α) = opposé/adjacent', exemple: 'tan(45°) = 1', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_4', titre: 'sin² α + cos² α = 1', definition: 'Formule fondamentale', exemple: 'sin²(30°) + cos²(30°) = 1', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_5', titre: 'tan α = sin α/cos α', definition: 'Rapport fondamental', exemple: 'tan(45°) = sin(45°)/cos(45°) = 1', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_6', titre: 'sin(30°)', definition: '1/2', exemple: '0.5', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_7', titre: 'cos(30°)', definition: '√3/2', exemple: '0.866', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_8', titre: 'sin(45°)', definition: '√2/2', exemple: '0.707', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_9', titre: 'cos(60°)', definition: '1/2', exemple: '0.5', icone: '📐', categorie: 'Trigonométrie' },
+        { id: 'trigo_10', titre: 'Conversion degrés-radians', definition: 'π rad = 180°', exemple: 'π/2 rad = 90°', icone: '📐', categorie: 'Trigonométrie' }
+    ],
+    analyse: [
+        { id: 'ana_1', titre: 'Dérivée de x^n', definition: 'f\'(x) = n×x^(n-1)', exemple: '(x²)\' = 2x', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_2', titre: 'Dérivée de e^x', definition: '(e^x)\' = e^x', exemple: 'e^x reste inchangé', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_3', titre: 'Dérivée de ln(x)', definition: '(ln x)\' = 1/x', exemple: 'ln(2x)\' = 1/x', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_4', titre: 'Dérivée d\'une somme', definition: '(f+g)\' = f\' + g\'', exemple: '(x²+x)\' = 2x+1', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_5', titre: 'Dérivée d\'un produit', definition: '(fg)\' = f\'g + fg\'', exemple: '(x²×x)\' = 2x×x + x²×1 = 3x²', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_6', titre: 'Primitive de x^n', definition: '∫x^n dx = x^(n+1)/(n+1) + C', exemple: '∫x dx = x²/2 + C', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_7', titre: 'Primitive de e^x', definition: '∫e^x dx = e^x + C', exemple: '∫e^x dx = e^x + C', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_8', titre: 'Primitive de 1/x', definition: '∫1/x dx = ln|x| + C', exemple: '∫1/x dx = ln|x| + C', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_9', titre: 'e^0', definition: 'e^0 = 1', exemple: 'e^0 = 1', icone: '📈', categorie: 'Analyse' },
+        { id: 'ana_10', titre: 'ln(1)', definition: 'ln(1) = 0', exemple: 'ln(1) = 0', icone: '📈', categorie: 'Analyse' }
+    ],
+    vecteurs: [
+        { id: 'vec_1', titre: 'Vecteur AB', definition: 'AB = B - A', exemple: 'A(1,2), B(3,4) → AB = (2,2)', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_2', titre: 'Somme de vecteurs', definition: 'u + v = (u1+v1, u2+v2)', exemple: '(1,2) + (3,4) = (4,6)', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_3', titre: 'Produit scalaire', definition: 'u·v = u1×v1 + u2×v2', exemple: '(1,2)·(3,4) = 3+8 = 11', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_4', titre: 'Norme d\'un vecteur', definition: '||u|| = √(u1² + u2²)', exemple: '||(3,4)|| = 5', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_5', titre: 'Vecteurs orthogonaux', definition: 'u·v = 0', exemple: '(1,0)·(0,1) = 0', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_6', titre: 'Relation de Chasles', definition: 'AB + BC = AC', exemple: 'A→B + B→C = A→C', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_7', titre: 'Projection d\'un vecteur', definition: 'proj_u(v) = (u·v)/||u||² × u', exemple: 'Projection orthogonale', icone: '➡️', categorie: 'Vecteurs' },
+        { id: 'vec_8', titre: 'Produit scalaire et angle', definition: 'u·v = ||u||×||v||×cos(α)', exemple: 'cos(α) = u·v/(||u||×||v||)', icone: '➡️', categorie: 'Vecteurs' }
+    ],
+    statistiques: [
+        { id: 'stat_1', titre: 'Moyenne', definition: 'x̄ = Σxi/n', exemple: '(4+6+8)/3 = 6', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_2', titre: 'Médiane', definition: 'Valeur centrale', exemple: '3,5,7 → médiane = 5', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_3', titre: 'Mode', definition: 'Valeur la plus fréquente', exemple: '3,5,5,7 → mode = 5', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_4', titre: 'Variance', definition: 'σ² = Σ(xi - x̄)²/n', exemple: 'Mesure la dispersion', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_5', titre: 'Écart-type', definition: 'σ = √σ²', exemple: 'Racine de la variance', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_6', titre: 'Étendue', definition: 'Max - Min', exemple: '3,5,7,9 → étendue = 6', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_7', titre: 'Effectif cumulé', definition: 'Somme des effectifs', exemple: 'Suivi des cumuls', icone: '📊', categorie: 'Statistiques' },
+        { id: 'stat_8', titre: 'Fréquence', definition: 'Effectif/Total', exemple: '5/20 = 25%', icone: '📊', categorie: 'Statistiques' }
+    ],
+    complexes: [
+        { id: 'comp_1', titre: 'Définition de i', definition: 'i² = -1', exemple: '√-1 = i', icone: 'ℂ', categorie: 'Nombres complexes' },
+        { id: 'comp_2', titre: 'Forme algébrique', definition: 'z = a + ib', exemple: '3 + 4i', icone: 'ℂ', categorie: 'Nombres complexes' },
+        { id: 'comp_3', titre: 'Conjugué', definition: 'conj(z) = a - ib', exemple: 'conj(3+4i) = 3-4i', icone: 'ℂ', categorie: 'Nombres complexes' },
+        { id: 'comp_4', titre: 'Module', definition: '|z| = √(a² + b²)', exemple: '|3+4i| = 5', icone: 'ℂ', categorie: 'Nombres complexes' }
+    ]
+};
+
+var favorisFormules = JSON.parse(localStorage.getItem('favorisFormules') || '[]');
+var favorisChapitres = JSON.parse(localStorage.getItem('favorisChapitres') || '[]');
+
+// =========================================================
+// DONNEES UTILISATEUR
+// =========================================================
+
 var USER_DATA = {
     progress: {},
     quizResults: {},
@@ -607,8 +688,7 @@ var USER_DATA = {
     revisions: {},
     chapitreScores: {},
     examensCompleted: {},
-    streak: 0,
-    badges: []
+    streak: 0
 };
 
 // ---- ETAT ----
@@ -647,7 +727,7 @@ function saveUserData() {
 
 function showTab(tab) {
     currentTab = tab;
-    var tabs = ['dashboard', 'annee3', 'annee4', 'annee5', 'annee6', 'quiz', 'examens', 'revisions'];
+    var tabs = ['dashboard', 'revision', 'formules', 'quiz', 'examens', 'stats', 'favoris'];
     for (var i = 0; i < tabs.length; i++) {
         var el = document.getElementById(tabs[i]);
         if (el) el.classList.add('hidden');
@@ -660,12 +740,11 @@ function showTab(tab) {
     if (btnTarget) btnTarget.classList.add('active');
     
     if (tab === 'dashboard') renderDashboard();
-    if (tab === 'annee3') renderChapitres('3e');
-    if (tab === 'annee4') renderChapitres('4e');
-    if (tab === 'annee5') renderChapitres('5e');
-    if (tab === 'annee6') renderChapitres('6e');
+    if (tab === 'revision') renderRevision();
+    if (tab === 'formules') renderFormules();
     if (tab === 'quiz') updateQuizChapitres();
-    if (tab === 'revisions') renderRevisions();
+    if (tab === 'stats') renderStats();
+    if (tab === 'favoris') renderFavoris();
 }
 
 function goHome() {
@@ -713,6 +792,8 @@ function renderDashboard() {
     document.getElementById('quizReussis').textContent = quizTotal > 0 ? Math.round(quizOk / quizTotal * 100) + '%' : '0%';
     document.getElementById('tempsTotal').textContent = Math.floor(tempsTotal / 60) + 'h' + (tempsTotal % 60) + 'm';
     document.getElementById('streakDisplay').textContent = streak;
+    document.getElementById('favorisCount').textContent = favorisFormules.length + favorisChapitres.length;
+    document.getElementById('formulesCount').textContent = 66;
     
     var badges = getBadges();
     var unlocked = badges.filter(function(b) { return b.unlocked; });
@@ -798,21 +879,25 @@ function getBadges() {
 }
 
 // =========================================================
-// RENDU DES CHAPITRES
+// RÉVISION PAR ANNÉE
 // =========================================================
 
-function renderChapitres(annee) {
-    var containerId = 'chapitres' + annee;
-    var container = document.getElementById(containerId);
-    if (!container) return;
-    
+function renderRevision() {
+    document.getElementById('contenuAnnee').innerHTML = '';
+}
+
+function showAnnee(annee) {
+    var container = document.getElementById('contenuAnnee');
     var chapitres = CHAPITRES[annee] || [];
+    
     if (chapitres.length === 0) {
         container.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">📚 Aucun chapitre pour cette année.</div>';
         return;
     }
     
-    var html = '';
+    var html = '<h3 style="margin: 16px 0 8px 0;">' + (annee === '3e' ? '3e' : annee === '4e' ? '4e' : annee === '5e' ? '5e' : '6e') + ' Année</h3>';
+    html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px;">';
+    
     for (var i = 0; i < chapitres.length; i++) {
         var chap = chapitres[i];
         var progress = USER_DATA.progress[chap.id] || 0;
@@ -826,11 +911,83 @@ function renderChapitres(annee) {
         html += '<span class="chapitre-badge ' + status + '">' + statusLabel + '</span>';
         html += '</div>';
         html += '<div class="chapitre-desc">' + chap.desc + '</div>';
-        html += '<div class="chapitre-stats"><span>Niveau: ' + chap.niveau + '</span><span>' + (chap.exercices ? chap.exercices.length : 0) + ' exercices</span></div>';
+        html += '<div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px;"><span>Niveau: ' + chap.niveau + '</span><span>' + (chap.exercices ? chap.exercices.length : 0) + ' exercices</span></div>';
         html += '<div class="chapitre-progress"><span style="width: ' + progress + '%;"></span></div>';
         html += '</div>';
     }
+    html += '</div>';
     container.innerHTML = html;
+}
+
+// =========================================================
+// ENCYCLOPÉDIE DES FORMULES
+// =========================================================
+
+function renderFormules() {
+    var search = document.getElementById('formuleSearch') ? document.getElementById('formuleSearch').value.toLowerCase() : '';
+    var html = '';
+    var total = 0;
+    
+    for (var categorie in FORMULES_DATA) {
+        var formules = FORMULES_DATA[categorie];
+        for (var i = 0; i < formules.length; i++) {
+            var f = formules[i];
+            if (search && f.titre.toLowerCase().indexOf(search) === -1 && f.definition.toLowerCase().indexOf(search) === -1) continue;
+            total++;
+            
+            var estFavori = favorisFormules.indexOf(f.id) !== -1;
+            var color = categorie === 'algebre' ? '#c81e2c' : categorie === 'geometrie' ? '#1c5fa8' : categorie === 'trigonometrie' ? '#e8a400' : categorie === 'analyse' ? '#6b46c1' : categorie === 'vecteurs' ? '#0e7c86' : categorie === 'statistiques' ? '#e88a00' : '#2a7a5a';
+            
+            html += '<div class="formule-card">';
+            html += '<div class="formule-header">';
+            html += '<span class="formule-icon">' + f.icone + '</span>';
+            html += '<span class="formule-title">' + f.titre + '</span>';
+            html += '<span class="formule-categorie" style="background: ' + color + '20; color: ' + color + ';">' + f.categorie + '</span>';
+            html += '</div>';
+            html += '<div class="formule-definition">📖 ' + f.definition + '</div>';
+            html += '<div class="formule-math">' + f.exemple + '</div>';
+            html += '<div class="formule-actions">';
+            html += '<button onclick="toggleFavoriFormule(\'' + f.id + '\')">' + (estFavori ? '⭐' : '☆') + ' Favori</button>';
+            html += '</div>';
+            html += '</div>';
+        }
+    }
+    
+    if (total === 0) {
+        document.getElementById('formulesList').innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">Aucune formule trouvée.</div>';
+    } else {
+        document.getElementById('formulesList').innerHTML = html;
+    }
+}
+
+function rechercherFormule() {
+    renderFormules();
+}
+
+function filtrerFormules(categorie) {
+    document.getElementById('formuleSearch').value = '';
+    // On filtre visuellement
+    var cards = document.querySelectorAll('#formulesList .formule-card');
+    for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var cat = card.querySelector('.formule-categorie');
+        if (cat) {
+            var display = cat.textContent.toLowerCase() === categorie.toLowerCase() ? 'block' : 'none';
+            card.style.display = display;
+        }
+    }
+}
+
+function toggleFavoriFormule(id) {
+    var index = favorisFormules.indexOf(id);
+    if (index !== -1) {
+        favorisFormules.splice(index, 1);
+    } else {
+        favorisFormules.push(id);
+    }
+    localStorage.setItem('favorisFormules', JSON.stringify(favorisFormules));
+    renderFormules();
+    renderDashboard();
 }
 
 // =========================================================
@@ -871,6 +1028,7 @@ function openChapitre(chapitreId) {
     html += '<div style="margin: 16px 0; display: flex; gap: 10px; flex-wrap: wrap;">';
     html += '<button class="primary-btn" onclick="startChapitreQuiz(\'' + found.id + '\')">🎯 Quiz du chapitre</button>';
     html += '<button class="ghost-btn" onclick="markChapitreDone(\'' + found.id + '\')">✅ Marquer comme révisé</button>';
+    html += '<button class="ghost-btn" onclick="toggleFavoriChapitre(\'' + found.id + '\')">⭐ Favori</button>';
     html += '<button class="ghost-btn" onclick="document.body.removeChild(this.parentElement.parentElement.parentElement)">← Retour</button>';
     html += '</div>';
     
@@ -909,6 +1067,17 @@ function openChapitre(chapitreId) {
     content.prepend(closeBtn);
     modal.appendChild(content);
     document.body.appendChild(modal);
+}
+
+function toggleFavoriChapitre(id) {
+    var index = favorisChapitres.indexOf(id);
+    if (index !== -1) {
+        favorisChapitres.splice(index, 1);
+    } else {
+        favorisChapitres.push(id);
+    }
+    localStorage.setItem('favorisChapitres', JSON.stringify(favorisChapitres));
+    renderDashboard();
 }
 
 function checkExo(btn, isCorrect, correction) {
@@ -955,10 +1124,6 @@ function markChapitreDone(chapitreId) {
     renderDashboard();
     var modal = document.querySelector('.chapitre-modal');
     if (modal) document.body.removeChild(modal);
-    renderChapitres('3e');
-    renderChapitres('4e');
-    renderChapitres('5e');
-    renderChapitres('6e');
     alert('✅ Chapitre marqué comme révisé !');
 }
 
@@ -1072,6 +1237,23 @@ function showQuizResult() {
     container.innerHTML = html;
     
     renderDashboard();
+}
+
+// =========================================================
+// DÉFI DU JOUR
+// =========================================================
+
+function startDefiJour() {
+    var questions = shuffle(QUESTIONS_QUIZ.slice()).slice(0, 5);
+    if (questions.length === 0) {
+        alert('Aucune question disponible.');
+        return;
+    }
+    currentQuiz.questions = questions;
+    currentQuiz.index = 0;
+    currentQuiz.score = 0;
+    currentQuiz.total = questions.length;
+    renderQuiz();
 }
 
 // =========================================================
@@ -1198,77 +1380,109 @@ function finishExamen() {
 }
 
 // =========================================================
-// REVISIONS
+// STATISTIQUES
 // =========================================================
 
-function renderRevisions() {
-    var container = document.getElementById('revisionsContent');
-    var html = '';
-    
-    var total = 0;
-    var done = 0;
-    
-    for (var annee in CHAPITRES) {
-        var chaps = CHAPITRES[annee] || [];
-        if (chaps.length === 0) continue;
-        total += chaps.length;
-        var anneeDone = 0;
-        for (var i = 0; i < chaps.length; i++) {
-            var prog = USER_DATA.progress[chaps[i].id] || 0;
-            if (prog >= 100) anneeDone++;
-        }
-        done += anneeDone;
-        var percent = chaps.length > 0 ? Math.round(anneeDone / chaps.length * 100) : 0;
-        var label = annee === '3e' ? '3e Année' : annee === '4e' ? '4e Année' : annee === '5e' ? '5e Année' : '6e Année';
-        var color = percent >= 80 ? '#1e7a3c' : percent >= 50 ? '#e8a400' : '#1c5fa8';
-        
-        html += '<div style="margin: 10px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">';
-        html += '<div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-weight: 900;">' + label + '</span><span style="font-weight: 900; color: ' + color + ';">' + percent + '%</span></div>';
-        html += '<div style="height: 6px; margin: 6px 0; background: var(--soft); border-radius: 3px; overflow: hidden;"><div style="width: ' + percent + '%; height: 100%; background: ' + color + '; border-radius: 3px; transition: width 0.6s ease;"></div></div>';
-        html += '<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">';
+function renderStats() {
+    var totalChapitres = 0;
+    var revisites = 0;
+    var annees = ['3e', '4e', '5e', '6e'];
+    for (var a = 0; a < annees.length; a++) {
+        var chaps = CHAPITRES[annees[a]] || [];
+        totalChapitres += chaps.length;
         for (var c = 0; c < chaps.length; c++) {
-            var chap = chaps[c];
-            var prog2 = USER_DATA.progress[chap.id] || 0;
-            var status = prog2 >= 100 ? '✅' : prog2 > 0 ? '⏳' : '📖';
-            html += '<span style="font-size: 12px; background: var(--soft); padding: 2px 8px; border-radius: 10px;">' + status + ' ' + chap.titre + '</span>';
+            if (USER_DATA.progress[chaps[c].id] >= 100) revisites++;
         }
-        html += '</div></div>';
     }
     
-    var percentTotal = total > 0 ? Math.round(done / total * 100) : 0;
+    document.getElementById('statsTotalChapitres').textContent = totalChapitres;
+    document.getElementById('statsRevisites').textContent = totalChapitres > 0 ? Math.round(revisites / totalChapitres * 100) + '%' : '0%';
+    document.getElementById('statsQuizTotal').textContent = Object.keys(USER_DATA.quizResults || {}).length;
     
-    html = '<div style="text-align: center; padding: 16px; background: var(--soft); border-radius: 12px; margin-bottom: 16px;">';
-    html += '<span style="font-size: 20px; font-weight: 900;">Progression globale : ' + percentTotal + '%</span>';
-    html += '<div style="height: 8px; margin-top: 8px; background: var(--soft); border-radius: 4px; overflow: hidden;"><div style="width: ' + percentTotal + '%; height: 100%; background: linear-gradient(90deg, #1c5fa8, #6b46c1); border-radius: 4px; transition: width 0.6s ease;"></div></div>';
-    html += '<p style="margin-top: 8px; font-size: 13px; color: var(--muted);">' + done + ' / ' + total + ' chapitres révisés' + (percentTotal >= 100 ? ' 🎉 Tu es prêt pour l\'examen !' : '') + '</p>';
-    html += '</div>' + html;
-    
-    if (total === 0) {
-        html = '<div style="text-align: center; padding: 40px; color: var(--muted);">📚 Aucun chapitre disponible pour le moment.</div>';
+    var meilleur = 0;
+    for (var key in USER_DATA.quizResults) {
+        if (USER_DATA.quizResults[key] > meilleur) meilleur = USER_DATA.quizResults[key];
     }
+    document.getElementById('statsMeilleur').textContent = meilleur + '%';
+    document.getElementById('statsTemps').textContent = Math.floor((USER_DATA.totalTime || 0) / 60) + 'h';
+    document.getElementById('statsSerie').textContent = USER_DATA.streak || 0;
     
-    container.innerHTML = html;
+    // Performance par catégorie
+    var perfHtml = '';
+    var categories = ['3e', '4e', '5e', '6e'];
+    for (var i = 0; i < categories.length; i++) {
+        var cat = categories[i];
+        var chaps2 = CHAPITRES[cat] || [];
+        var total2 = chaps2.length;
+        var done2 = 0;
+        for (var c2 = 0; c2 < chaps2.length; c2++) {
+            if (USER_DATA.progress[chaps2[c2].id] >= 100) done2++;
+        }
+        var percent2 = total2 > 0 ? Math.round(done2 / total2 * 100) : 0;
+        var label2 = cat === '3e' ? '3e Année' : cat === '4e' ? '4e Année' : cat === '5e' ? '5e Année' : '6e Année';
+        var color2 = percent2 >= 80 ? '#1e7a3c' : percent2 >= 50 ? '#e8a400' : '#c81e2c';
+        perfHtml += '<div style="margin: 6px 0;"><div style="display: flex; justify-content: space-between;"><span>' + label2 + '</span><span style="font-weight: 900; color: ' + color2 + ';">' + percent2 + '%</span></div><div style="height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden;"><div style="width: ' + percent2 + '%; height: 100%; background: ' + color2 + '; border-radius: 2px; transition: width 0.6s ease;"></div></div></div>';
+    }
+    document.getElementById('categoryPerformance').innerHTML = perfHtml || '<div style="color: var(--muted);">Aucune donnée.</div>';
+    
+    // Points faibles
+    var weakHtml = '';
+    var weaks = [];
+    for (var a2 = 0; a2 < annees.length; a2++) {
+        var chaps3 = CHAPITRES[annees[a2]] || [];
+        for (var c3 = 0; c3 < chaps3.length; c3++) {
+            var chap = chaps3[c3];
+            var prog = USER_DATA.progress[chap.id] || 0;
+            if (prog < 50) {
+                weaks.push({ titre: chap.titre, niveau: chap.niveau, progress: prog });
+            }
+        }
+    }
+    weaks.sort(function(a, b) { return a.progress - b.progress; });
+    if (weaks.length === 0) {
+        weakHtml = '<div style="color: #1e7a3c; font-weight: 900;">🎉 Aucun point faible détecté !</div>';
+    } else {
+        for (var w = 0; w < Math.min(weaks.length, 5); w++) {
+            weakHtml += '<div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--line);"><span>' + weaks[w].titre + '</span><span style="color: #c81e2c; font-weight: 900;">' + weaks[w].progress + '%</span></div>';
+        }
+    }
+    document.getElementById('weakCategories').innerHTML = weakHtml;
 }
 
 // =========================================================
-// EFFACER TOUTE PROGRESSION
+// FAVORIS
 // =========================================================
 
-function clearAllProgress() {
-    if (confirm('⚠️ Es-tu sûr de vouloir effacer toute ta progression ?')) {
-        USER_DATA.progress = {};
-        USER_DATA.quizResults = {};
-        USER_DATA.totalTime = 0;
-        USER_DATA.streak = 0;
-        saveUserData();
-        renderDashboard();
-        renderChapitres('3e');
-        renderChapitres('4e');
-        renderChapitres('5e');
-        renderChapitres('6e');
-        renderRevisions();
-        alert('🗑️ Toute progression a été effacée.');
+function renderFavoris() {
+    // Formules favorites
+    var htmlFormules = '';
+    var count = 0;
+    for (var categorie in FORMULES_DATA) {
+        var formules = FORMULES_DATA[categorie];
+        for (var i = 0; i < formules.length; i++) {
+            var f = formules[i];
+            if (favorisFormules.indexOf(f.id) !== -1) {
+                count++;
+                htmlFormules += '<div style="padding: 8px 12px; border-bottom: 1px solid var(--line);"><span>' + f.icone + '</span> <b>' + f.titre + '</b><br><span style="font-size: 12px; color: var(--muted);">' + f.definition + '</span></div>';
+            }
+        }
     }
+    document.getElementById('favorisFormules').innerHTML = count > 0 ? htmlFormules : '<div style="color: var(--muted); padding: 10px;">Aucune formule favorite.</div>';
+    
+    // Chapitres favoris
+    var htmlChapitres = '';
+    var count2 = 0;
+    for (var annee in CHAPITRES) {
+        var chaps = CHAPITRES[annee];
+        for (var i = 0; i < chaps.length; i++) {
+            var chap = chaps[i];
+            if (favorisChapitres.indexOf(chap.id) !== -1) {
+                count2++;
+                htmlChapitres += '<div style="padding: 8px 12px; border-bottom: 1px solid var(--line);"><span>' + chap.icone + '</span> <b>' + chap.titre + '</b><br><span style="font-size: 12px; color: var(--muted);">' + chap.niveau + '</span></div>';
+            }
+        }
+    }
+    document.getElementById('favorisChapitres').innerHTML = count2 > 0 ? htmlChapitres : '<div style="color: var(--muted); padding: 10px;">Aucun chapitre favori.</div>';
 }
 
 // =========================================================
@@ -1306,6 +1520,18 @@ function startRevision() {
     }
 }
 
+function clearAllProgress() {
+    if (confirm('⚠️ Es-tu sûr de vouloir effacer toute ta progression ?')) {
+        USER_DATA.progress = {};
+        USER_DATA.quizResults = {};
+        USER_DATA.totalTime = 0;
+        USER_DATA.streak = 0;
+        saveUserData();
+        renderDashboard();
+        alert('🗑️ Toute progression a été effacée.');
+    }
+}
+
 // =========================================================
 // INITIALISATION
 // =========================================================
@@ -1314,5 +1540,7 @@ loadUserData();
 showTab('dashboard');
 
 console.log('📚 Programme officiel complet de Mathématiques chargé !');
-console.log('📖 Chapitres disponibles :', Object.keys(CHAPITRES).length);
-console.log('🎯 Questions de quiz :', QUESTIONS_QUIZ.length);
+console.log('📖 Chapitres :', Object.keys(CHAPITRES).length);
+console.log('📚 Formules :', Object.keys(FORMULES_DATA).reduce(function(acc, key) {
+    return acc + FORMULES_DATA[key].length;
+}, 0));
