@@ -773,6 +773,39 @@ body.dark {
 ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
 /* =========================================================
+   FICHES DE RÉVISION (NOUVEAU)
+========================================================= */
+
+.fiches-container {
+    padding-bottom: 40px;
+}
+
+.groupe-fiches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.groupe-fiches img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    cursor: zoom-in;
+}
+
+.groupe-fiches img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 
@@ -784,6 +817,12 @@ body.dark {
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .stat-card span { font-size: 17px; }
     .formule-card { padding: 12px; }
+}
+
+@media(max-width: 600px) {
+    .groupe-fiches img {
+        max-width: 100%;
+    }
 }
 
 @media(max-width: 480px) {
