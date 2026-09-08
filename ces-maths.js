@@ -29,7 +29,7 @@ var CHAPITRES = {
             exercices: [
                 { question: 'Quelle est l equation d une fonction lineaire', options: ['y = ax', 'y = ax + b', 'y = x2', 'y = 1/x'], correct: 0, correction: 'Une fonction lineaire est de la forme y = ax' },
                 { question: 'Dans f(x) = 2x + 3, que represente le coefficient 2', options: ['Le coefficient angulaire', 'L ordonnee a l origine', 'La racine', 'Le terme constant'], correct: 0, correction: '2 est le coefficient angulaire (la pente)' },
-                { question: 'Dans f(x) = 2x + 3, que represente le nombre 3', options: ['L ordonnee a l origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l ordonnee a l origine' }
+                { question: 'Dans f(x) = 2x + 3, que represente le nombre 3', options: ['L ordonnee a l origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l ordonnee a l origine (intersection avec l axe des y)' }
             ]
         },
         {
@@ -132,7 +132,7 @@ var CHAPITRES = {
                 'Factorisation des trinomes du deuxieme degre'
             ],
             exercices: [
-                { question: 'Quelle est la formule du discriminant Δ', options: ['b2 - 4ac', 'b2 + 4ac', 'a2 - 4bc', 'c2 - 4ab'], correct: 0, correction: 'Δ = b2 - 4ac' },
+                { question: 'Quelle est la formule du discriminant Δ', options: ['b2 - 4ac', 'b2 + 4ac', 'a2 - 4bc', 'c2 - 4ab'], correct: 0, correction: 'Δ = b2 - 4ac pour une equation ax2 + bx + c = 0' },
                 { question: 'Resoudre x2 - 4 = 0', options: ['x = 2 ou x = -2', 'x = 2', 'x = -2', 'x = 4'], correct: 0, correction: 'x2 = 4 donc x = ±2' }
             ]
         },
@@ -242,13 +242,14 @@ var USER_DATA = {
     quizResults: {},
     totalTime: 0,
     revisions: {},
-    chapitreScores: {}
+    chapitreScores: {},
+    examensCompleted: {}
 };
 
 // ---- ETAT ----
 var currentTab = 'dashboard';
 var currentQuiz = { index: 0, questions: [], answers: [], score: 0, total: 0 };
-var currentExamen = { index: 0, questions: [], answers: [], score: 0, total: 0, timer: null, timeLeft: 0 };
+var currentExamen = { index: 0, questions: [], answers: [], score: 0, total: 0, timer: null, timeLeft: 0, niveau: '3e' };
 var currentChapitreId = null;
 
 // =========================================================
@@ -441,6 +442,7 @@ function openChapitre(chapitreId) {
     if (!found) return;
     
     var modal = document.createElement('div');
+    modal.className = 'chapitre-modal';
     modal.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px;';
     
     var content = document.createElement('div');
@@ -539,7 +541,7 @@ function markChapitreDone(chapitreId) {
     USER_DATA.progress[chapitreId] = 100;
     saveUserData();
     renderDashboard();
-    var modal = document.querySelector('div[style*="position: fixed; top: 0; left: 0; right: 0; bottom: 0;"]');
+    var modal = document.querySelector('.chapitre-modal');
     if (modal) document.body.removeChild(modal);
     renderChapitres('3e');
     renderChapitres('4e');
@@ -595,7 +597,7 @@ function renderQuiz() {
     var html = '<div style="margin-bottom: 16px;"><div style="display: flex; justify-content: space-between; font-size: 14px; color: var(--muted);"><span>Question ' + (currentQuiz.index + 1) + ' / ' + currentQuiz.total + '</span><span>Score: ' + currentQuiz.score + '</span></div><div style="height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden;"><div style="width: ' + progress + '%; height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.3s;"></div></div></div>';
     html += '<div style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 12px;">';
     html += '<div style="font-weight: 900; font-size: 17px; margin-bottom: 12px;">' + q.question + '</div>';
-    html += '<div style="display: flex; flex-direction: column; gap: 8px;">';
+    html += '<div class="quiz-options" style="display: flex; flex-direction: column; gap: 8px;">';
     for (var i = 0; i < q.options.length; i++) {
         html += '<button onclick="answerQuiz(' + i + ')" style="text-align: left; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); cursor: pointer; transition: all 0.2s; font-size: 14px;">' + String.fromCharCode(65 + i) + '. ' + q.options[i] + '</button>';
     }
@@ -633,6 +635,11 @@ function showQuizResult() {
     var percent = Math.round(currentQuiz.score / currentQuiz.total * 100);
     var message = percent >= 80 ? 'Excellent !' : percent >= 60 ? 'Bon travail !' : 'Continue à t entraîner !';
     
+    // Enregistrer le résultat du quiz
+    var quizId = 'quiz_' + new Date().getTime();
+    USER_DATA.quizResults[quizId] = percent;
+    saveUserData();
+    
     var html = '<div style="text-align: center; padding: 30px 0;">';
     html += '<div style="font-size: 48px; margin-bottom: 10px;">' + (percent >= 80 ? '🏆' : percent >= 60 ? '📈' : '📚') + '</div>';
     html += '<h2>Quiz terminé !</h2>';
@@ -644,6 +651,8 @@ function showQuizResult() {
     html += '<button class="ghost-btn" onclick="showTab(\'dashboard\')" style="background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 10px 18px; font-weight: 900; cursor: pointer;">Retour</button>';
     html += '</div></div>';
     container.innerHTML = html;
+    
+    renderDashboard();
 }
 
 // =========================================================
@@ -660,7 +669,7 @@ function startExamen(niveau) {
         questions = shuffle(allQuestions.filter(function(q) { return q.annee === niveau; }));
     }
     
-    var count = niveau === 'complet' ? 50 : 20;
+    var count = niveau === 'complet' ? 45 : 20;
     questions = questions.slice(0, count);
     
     if (questions.length < 10) {
@@ -672,7 +681,8 @@ function startExamen(niveau) {
     currentExamen.index = 0;
     currentExamen.score = 0;
     currentExamen.total = questions.length;
-    currentExamen.timeLeft = niveau === 'complet' ? 5400 : 1800;
+    currentExamen.niveau = niveau;
+    currentExamen.timeLeft = niveau === 'complet' ? 4200 : 1800;
     
     var container = document.getElementById('examenContent');
     container.innerHTML = '<div style="margin-bottom: 16px;"><div style="display: flex; justify-content: space-between; font-size: 14px;"><span>Temps: <span id="examenTimer">' + formatTime(currentExamen.timeLeft) + '</span></span><span>Question <span id="examenProgress">1</span> / ' + currentExamen.total + '</span><span>Score: <span id="examenScore">0</span></span></div><div style="height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden;"><div id="examenBar" style="width: 0%; height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.3s;"></div></div></div><div id="examenQuestion"></div>';
@@ -710,7 +720,7 @@ function renderExamenQuestion() {
     
     var html = '<div style="background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 12px;">';
     html += '<div style="font-weight: 900; font-size: 17px; margin-bottom: 12px;">' + q.question + '</div>';
-    html += '<div style="display: flex; flex-direction: column; gap: 8px;">';
+    html += '<div class="quiz-options" style="display: flex; flex-direction: column; gap: 8px;">';
     for (var i = 0; i < q.options.length; i++) {
         html += '<button onclick="answerExamen(' + i + ')" style="text-align: left; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); cursor: pointer; transition: all 0.2s; font-size: 14px;">' + String.fromCharCode(65 + i) + '. ' + q.options[i] + '</button>';
     }
@@ -749,6 +759,11 @@ function finishExamen() {
     var percent = Math.round(currentExamen.score / currentExamen.total * 100);
     var message = percent >= 80 ? 'Félicitations !' : percent >= 60 ? 'Bonne performance !' : 'Continue à réviser !';
     
+    // Enregistrer le résultat de l'examen
+    var examId = 'exam_' + currentExamen.niveau + '_' + new Date().getTime();
+    USER_DATA.quizResults[examId] = percent;
+    saveUserData();
+    
     var html = '<div style="text-align: center; padding: 30px 0;">';
     html += '<div style="font-size: 64px; margin-bottom: 10px;">' + (percent >= 80 ? '🎉' : percent >= 60 ? '📈' : '📚') + '</div>';
     html += '<h2>Examen terminé !</h2>';
@@ -756,11 +771,12 @@ function finishExamen() {
     html += '<p style="font-size: 18px; margin: 10px 0;">' + currentExamen.score + ' / ' + currentExamen.total + ' bonnes réponses</p>';
     html += '<p style="color: var(--muted);">' + message + '</p>';
     html += '<div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">';
-    html += '<button class="primary-btn" onclick="startExamen(\'' + (currentExamen.questions[0]?.annee || '3e') + '\')" style="background: #1c5fa8; color: white; border: none; border-radius: 10px; padding: 10px 18px; font-weight: 900; cursor: pointer;">Refaire</button>';
+    html += '<button class="primary-btn" onclick="startExamen(\'' + currentExamen.niveau + '\')" style="background: #1c5fa8; color: white; border: none; border-radius: 10px; padding: 10px 18px; font-weight: 900; cursor: pointer;">Refaire</button>';
     html += '<button class="ghost-btn" onclick="showTab(\'dashboard\')" style="background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 10px 18px; font-weight: 900; cursor: pointer;">Retour</button>';
     html += '</div></div>';
     
     document.getElementById('examenContent').innerHTML = html;
+    renderDashboard();
 }
 
 // =========================================================
