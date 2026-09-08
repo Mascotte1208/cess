@@ -44,6 +44,43 @@ var GEO_CHAPITRES = {
                 { question: 'Que désigne la vulnérabilité ?', options: ['La fragilité face à un aléa', 'La taille de la population', 'Le climat', 'Le nombre de routes'], correct: 0, correction: 'La vulnérabilité est la fragilité du territoire.' },
                 { question: 'Un volcan sur une île déserte est un...', options: ['Aléa sans risque', 'Risque maximal', 'Aléa technologique', 'Aucun aléa'], correct: 0, correction: 'Pas d\'enjeu humain = pas de risque.' }
             ]
+        },
+        {
+            id: 'geo3_volcans',
+            titre: "2. Séismes & Volcans",
+            desc: "La tectonique des plaques et les zones à risque.",
+            niveau: '3e',
+            icone: '🌍',
+            color: '#c0392b',
+            pdf: 'geo-chapitre-2.pdf',
+            cours: `
+                <h4>🔹 La tectonique des plaques</h4>
+                <p>La surface de la Terre est divisée en plaques rigides qui se déplacent lentement. La plupart des séismes et des volcans se situent aux <b>frontières de ces plaques</b> (zones de convergence, de divergence ou de coulissage).</p>
+                <br>
+                <h4>🔹 Le "Cercle de feu" du Pacifique</h4>
+                <p>C'est une zone de forte activité sismique et volcanique qui entoure l'océan Pacifique. Elle correspond aux limites de la plaque Pacifique.</p>
+                <br>
+                <h4>🔹 Vocabulaire</h4>
+                <ul>
+                    <li><b>Épicentre :</b> Point à la surface de la Terre où le séisme est le plus fort.</li>
+                    <li><b>Magnitude :</b> Échelle de mesure de la force d'un séisme (échelle de Richter).</li>
+                    <li><b>Nuée ardente :</b> Nuage de gaz et de cendres brûlantes qui dévale un volcan.</li>
+                </ul>
+            `,
+            objectifs: [
+                'Localiser les grandes zones sismiques et volcaniques',
+                'Expliquer la répartition des séismes par le modèle de la tectonique des plaques',
+                'Utiliser le vocabulaire spécifique (épicentre, magnitude...)'
+            ],
+            matieres: [
+                'Tectonique des plaques',
+                'Zones de subduction et de divergence',
+                'Volcanisme effusif et explosif'
+            ],
+            exercices: [
+                { question: 'À quoi est liée la répartition des séismes et des volcans ?', options: ['Aux frontières des plaques tectoniques', 'À la latitude', 'À l\'altitude', 'À la proximité des océans'], correct: 0, correction: 'Les frontières de plaques sont les zones les plus actives.' },
+                { question: 'Que mesure la magnitude d\'un séisme ?', options: ['Sa force', 'Sa profondeur', 'Sa durée', 'Sa localisation'], correct: 0, correction: 'La magnitude mesure l\'énergie libérée par le séisme.' }
+            ]
         }
     ],
     '4e': [
@@ -54,25 +91,30 @@ var GEO_CHAPITRES = {
             niveau: '4e',
             icone: '💧',
             color: '#1d4ed8',
-            pdf: 'geo-chapitre-2.pdf',
+            pdf: 'geo-chapitre-3.pdf',
             cours: `
                 <h4>🔹 Une ressource vitale inégalement répartie</h4>
-                <p>L'eau douce est rare (2,5% de l'eau totale). Sa répartition dépend des climats et des fleuves. Certaines régions subissent un stress hydrique.</p>
+                <p>L'eau douce est une ressource rare sur Terre (environ 2,5% de l'eau totale). Sa répartition dépend des climats, des précipitations, des fleuves et des nappes souterraines. Certaines régions sont très riches en eau, d'autres subissent un stress hydrique (manque d'eau).</p>
+                <br>
+                <h4>🔹 L'accès à l'eau potable</h4>
+                <p>L'accès à l'eau potable est un enjeu majeur. La croissance démographique, l'urbanisation, l'agriculture intensive et le changement climatique augmentent la pression sur les ressources en eau.</p>
                 <br>
                 <h4>🔹 Exemple : Mexico</h4>
-                <p>Mexico puise son eau dans des nappes souterraines qui s'assèchent, provoquant l'affaissement de la ville, malgré des pluies abondantes.</p>
+                <p>La ville de Mexico puise son eau dans des nappes souterraines qui s'assèchent, provoquant l'affaissement de la ville, malgré des pluies abondantes (souvent perdues ou polluées).</p>
             `,
             objectifs: [
                 'Décrire la répartition de la ressource en eau',
+                'Comparer population et ressource pour identifier des contraintes',
                 'Comprendre les enjeux liés à l\'accès à l\'eau'
             ],
             matieres: [
-                'Ressources en eau',
-                'Stress hydrique',
+                'Ressources en eau : nappes, fleuves, bassins hydrographiques',
+                'Stress hydrique et désertification',
                 'Aménagements pour l\'accès à l\'eau'
             ],
             exercices: [
-                { question: 'Qu\'est-ce qu\'une nappe aquifère ?', options: ['Réserve d\'eau souterraine', 'Un fleuve', 'Un lac', 'Une usine'], correct: 0, correction: 'C\'est une réserve d\'eau souterraine.' }
+                { question: 'Qu\'est-ce qu\'une nappe aquifère ?', options: ['Une réserve d\'eau souterraine', 'Un fleuve', 'Un lac artificiel', 'Une usine de traitement d\'eau'], correct: 0, correction: 'Une nappe aquifère est une réserve d\'eau souterraine.' },
+                { question: 'Pourquoi Mexico s\'affaisse-t-elle ?', options: ['Car elle pompe trop d\'eau dans ses nappes souterraines', 'Car il y a trop de pluies', 'Car elle est située sur un volcan', 'Car elle est construite sur du sable'], correct: 0, correction: 'L\'épuisement des nappes souterraines provoque l\'affaissement du sol.' }
             ]
         }
     ]
