@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carnet de Maths — CESS</title>
+<title>Carnet de Réussite — CESS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <body>
 
 <header class="ces-header">
-    <div class="brand" onclick="goHome()"><span class="pin"></span>Carnet de Maths</div>
+    <div class="brand" onclick="goHome()"><span class="pin"></span>Carnet de Réussite</div>
     <button class="nav-btn" onclick="toggleTheme()" id="themeBtn">🌙 Mode sombre</button>
 </header>
 
@@ -23,7 +23,7 @@
         <div class="hero">
             <div>
                 <h1>Prêt à réviser ?</h1>
-                <p>Le programme officiel du CESS en maths, expliqué simplement, avec des quiz et des examens blancs.</p>
+                <p>Maths, Géo... Le programme du CESS expliqué simplement.</p>
                 <span class="pastille-progress">📊 <span id="globalProgress">0</span>% du programme revu</span>
             </div>
             <button class="primary-btn" onclick="startRevision()">Reprendre où j'en étais</button>
@@ -31,8 +31,8 @@
 
         <div class="dashboard-grid">
             <div class="panel">
-                <h3>📊 Progression par année</h3>
-                <div id="progressionAnnees" class="progression-list"></div>
+                <h3>📊 Progression par matière</h3>
+                <div id="progressionMatieres" class="progression-list"></div>
             </div>
             <div class="panel">
                 <h3>🔥 À revoir en priorité</h3>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="panel">
-            <h3>💡 Formules du jour</h3>
+            <h3>💡 Formules & notions du jour</h3>
             <div id="formulesDuJour" class="formules-du-jour"></div>
         </div>
     </section>
@@ -51,21 +51,27 @@
         <div class="page-header">
             <div>
                 <h1 class="section-title">📖 Réviser</h1>
-                <p class="muted">Choisissez une année pour voir les chapitres.</p>
+                <p class="muted">Choisissez une matière, puis une année.</p>
             </div>
             <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
         </div>
 
-        <div id="choixAnnee" class="annee-selector"></div>
+        <!-- Choix de la matière -->
+        <div id="choixMatiere" class="annee-selector"></div>
+
+        <!-- Choix de l'année -->
+        <div id="choixAnnee" class="annee-selector hidden"></div>
+        
+        <!-- Liste des chapitres -->
         <div id="contenuAnnee" class="hidden"></div>
 
-        <!-- FICHES VISUELLES CORRIGÉES -->
+        <!-- Fiches visuelles -->
         <div class="panel" style="margin-top: 6px;">
             <h3>🖼️ Fiches de révision</h3>
             <p class="muted" style="margin-bottom: 4px;">Les notions essentielles résumées en images.</p>
             <div class="groupe-fiches">
-                <img src="pythagore.jpg" alt="Théorème de Pythagore">
-                <img src="thales.jpg" alt="Théorème de Thalès">
+                <img src="pythagore.jpg" alt="Pythagore">
+                <img src="thales.jpg" alt="Thalès">
                 <img src="trigonometrie.jpg" alt="Trigonométrie">
                 <img src="cercle_trigo.jpg" alt="Cercle trigonométrique">
                 <img src="discriminant.jpg" alt="Discriminant">
@@ -175,6 +181,7 @@
     <div class="nav-item" tabindex="0" onclick="showTab('suivi')" id="navSuivi"><span class="nav-icon">📊</span>Suivi</div>
 </div>
 
+<script src="geo-data.js"></script>
 <script src="ces-maths.js"></script>
 </body>
 </html>
