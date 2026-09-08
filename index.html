@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 CESS - Mathématiques - Programme officiel</title>
+    <title>📚 CESS - Mathématiques - Programme officiel complet</title>
     <link rel="stylesheet" href="ces-maths.css">
 </head>
 <body>
@@ -12,14 +12,14 @@
     <div class="brand" onclick="goHome()">📚 CESS - Mathématiques</div>
     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
         <button class="nav-btn" onclick="showTab('dashboard')" id="tabDashboard">📊 Tableau de bord</button>
-        <button class="nav-btn" onclick="showTab('annee3')" id="tab3e">📖 3e Année</button>
-        <button class="nav-btn" onclick="showTab('annee4')" id="tab4e">📖 4e Année</button>
-        <button class="nav-btn" onclick="showTab('annee5')" id="tab5e">📖 5e Année</button>
-        <button class="nav-btn" onclick="showTab('annee6')" id="tab6e">📖 6e Année</button>
+        <button class="nav-btn" onclick="showTab('annee3')" id="tab3e">📖 3e</button>
+        <button class="nav-btn" onclick="showTab('annee4')" id="tab4e">📖 4e</button>
+        <button class="nav-btn" onclick="showTab('annee5')" id="tab5e">📖 5e</button>
+        <button class="nav-btn" onclick="showTab('annee6')" id="tab6e">📖 6e</button>
         <button class="nav-btn" onclick="showTab('quiz')" id="tabQuiz">🎯 Quiz</button>
         <button class="nav-btn" onclick="showTab('examens')" id="tabExamens">📝 Examens</button>
         <button class="nav-btn" onclick="showTab('revisions')" id="tabRevisions">📝 Révisions</button>
-        <button class="nav-btn" onclick="toggleTheme()">🌙</button>
+        <button class="nav-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
     </div>
 </header>
 
@@ -31,9 +31,9 @@
 <section id="dashboard" class="tab-content">
     <div class="hero">
         <div>
-            <div class="eyebrow">📚 PROGRAMME OFFICIEL - MATHÉMATIQUES</div>
+            <div class="eyebrow">📚 PROGRAMME OFFICIEL COMPLET - MATHÉMATIQUES</div>
             <h1>2e et 3e Degrés - 3e à 6e Années</h1>
-            <p>Révise selon le programme officiel de la Communauté Française.</p>
+            <p>Révise selon le programme officiel de la Communauté Française. <span class="highlight">21 chapitres complets</span> avec exercices interactifs.</p>
         </div>
         <div class="actions">
             <button class="primary-btn" onclick="startRevision()">🚀 Démarrer la révision</button>
@@ -41,10 +41,12 @@
     </div>
 
     <div class="stats-grid">
-        <div class="stat-card"><b>📖 Chapitres</b><span id="totalChapitres">0</span></div>
-        <div class="stat-card"><b>✅ Révisés</b><span id="revisites">0%</span></div>
-        <div class="stat-card"><b>🎯 Quiz réussis</b><span id="quizReussis">0%</span></div>
-        <div class="stat-card"><b>⏱️ Temps</b><span id="tempsTotal">0h</span></div>
+        <div class="stat-card" style="border-top: 4px solid #1c5fa8;"><b>📖 Chapitres</b><span id="totalChapitres">0</span></div>
+        <div class="stat-card" style="border-top: 4px solid #1e7a3c;"><b>✅ Révisés</b><span id="revisites">0%</span></div>
+        <div class="stat-card" style="border-top: 4px solid #e8a400;"><b>🎯 Quiz réussis</b><span id="quizReussis">0%</span></div>
+        <div class="stat-card" style="border-top: 4px solid #6b46c1;"><b>⏱️ Temps</b><span id="tempsTotal">0h</span></div>
+        <div class="stat-card" style="border-top: 4px solid #c81e2c;"><b>🔥 Série</b><span id="streakDisplay">0</span></div>
+        <div class="stat-card" style="border-top: 4px solid #0e7c86;"><b>🏆 Badges</b><span id="badgeCount">0</span></div>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
@@ -57,6 +59,12 @@
             <div id="chapitresUrgents"></div>
         </div>
     </div>
+
+    <!-- Badges -->
+    <div class="panel" style="margin-top: 20px;">
+        <h3>🏆 Mes badges</h3>
+        <div id="badgeDisplay" style="display: flex; gap: 12px; flex-wrap: wrap; padding: 10px 0;"></div>
+    </div>
 </section>
 
 <!-- ================= 3E ANNÉE ================= -->
@@ -64,7 +72,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
         <div>
             <h2 class="section-title">📖 3e Année - Mathématiques</h2>
-            <p class="muted">Programme officiel - Étude des fonctions, Algèbre, Géométrie et trigonométrie.</p>
+            <p class="muted">Programme officiel complet - 7 chapitres</p>
         </div>
         <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
     </div>
@@ -76,7 +84,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
         <div>
             <h2 class="section-title">📖 4e Année - Mathématiques</h2>
-            <p class="muted">Programme officiel - Fonctions de référence, Algèbre 2e degré, Géométrie vectorielle, Trigonométrie avancée, Statistiques.</p>
+            <p class="muted">Programme officiel complet - 8 chapitres</p>
         </div>
         <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
     </div>
@@ -88,7 +96,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
         <div>
             <h2 class="section-title">📖 5e Année - Mathématiques</h2>
-            <p class="muted">Programme officiel - Analyse, Fonctions exponentielles et logarithmes, Nombres complexes, Géométrie analytique.</p>
+            <p class="muted">Programme officiel - 3 chapitres</p>
         </div>
         <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
     </div>
@@ -100,7 +108,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
         <div>
             <h2 class="section-title">📖 6e Année - Mathématiques</h2>
-            <p class="muted">Programme officiel - Dérivées, Intégrales, Équations différentielles, Probabilités et statistiques avancées.</p>
+            <p class="muted">Programme officiel - 3 chapitres</p>
         </div>
         <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
     </div>
@@ -140,46 +148,31 @@
         </div>
         <button class="ghost-btn" onclick="showTab('dashboard')">← Retour</button>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin: 16px 0;">
-        <div class="exam-card" onclick="startExamen('3e')">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 16px 0;">
+        <div class="exam-card" onclick="startExamen('3e')" style="border-left: 4px solid #1c5fa8;">
             <span class="exam-icon">📘</span>
-            <div class="exam-info">
-                <b>Examen 3e Année</b>
-                <span>20 questions • 30 min</span>
-            </div>
-            <button class="ghost-btn">Commencer →</button>
+            <div class="exam-info"><b>Examen 3e</b><span>20 questions • 30 min</span></div>
+            <button class="ghost-btn">→</button>
         </div>
-        <div class="exam-card" onclick="startExamen('4e')">
+        <div class="exam-card" onclick="startExamen('4e')" style="border-left: 4px solid #6b46c1;">
             <span class="exam-icon">📗</span>
-            <div class="exam-info">
-                <b>Examen 4e Année</b>
-                <span>25 questions • 40 min</span>
-            </div>
-            <button class="ghost-btn">Commencer →</button>
+            <div class="exam-info"><b>Examen 4e</b><span>25 questions • 40 min</span></div>
+            <button class="ghost-btn">→</button>
         </div>
-        <div class="exam-card" onclick="startExamen('5e')">
+        <div class="exam-card" onclick="startExamen('5e')" style="border-left: 4px solid #0e7c86;">
             <span class="exam-icon">📙</span>
-            <div class="exam-info">
-                <b>Examen 5e Année</b>
-                <span>25 questions • 40 min</span>
-            </div>
-            <button class="ghost-btn">Commencer →</button>
+            <div class="exam-info"><b>Examen 5e</b><span>25 questions • 40 min</span></div>
+            <button class="ghost-btn">→</button>
         </div>
-        <div class="exam-card" onclick="startExamen('6e')">
+        <div class="exam-card" onclick="startExamen('6e')" style="border-left: 4px solid #c81e2c;">
             <span class="exam-icon">📕</span>
-            <div class="exam-info">
-                <b>Examen 6e Année</b>
-                <span>30 questions • 50 min</span>
-            </div>
-            <button class="ghost-btn">Commencer →</button>
+            <div class="exam-info"><b>Examen 6e</b><span>30 questions • 50 min</span></div>
+            <button class="ghost-btn">→</button>
         </div>
-        <div class="exam-card" onclick="startExamen('complet')" style="border-color: #6b46c1;">
+        <div class="exam-card" onclick="startExamen('complet')" style="border-left: 4px solid #e8a400; background: linear-gradient(135deg, var(--surface), #fff9eb);">
             <span class="exam-icon">📚</span>
-            <div class="exam-info">
-                <b>Examen complet</b>
-                <span>50 questions • 90 min</span>
-            </div>
-            <button class="ghost-btn">Commencer →</button>
+            <div class="exam-info"><b>Examen complet</b><span>50 questions • 90 min</span></div>
+            <button class="ghost-btn">→</button>
         </div>
     </div>
     <div id="examenContent"></div>
