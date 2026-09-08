@@ -505,7 +505,6 @@ body.dark {
     margin: 0 0 14px 0;
 }
 
-/* Scroll personnalisé */
 ::-webkit-scrollbar {
     width: 6px;
 }
