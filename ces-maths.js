@@ -1,9 +1,12 @@
 // =========================================================
 // PROGRAMME OFFICIEL DE MATHEMATIQUES - COMMUNAUTE FRANÇAISE
-// 2e DEGRE - 3e ET 4e ANNEES
+// 3e, 4e, 5e ET 6e ANNEES
 // =========================================================
 
 var CHAPITRES = {
+    // =========================================================
+    // 3E ANNÉE
+    // =========================================================
     '3e': [
         {
             id: '3e_fonctions',
@@ -29,7 +32,7 @@ var CHAPITRES = {
             exercices: [
                 { question: 'Quelle est l equation d une fonction lineaire', options: ['y = ax', 'y = ax + b', 'y = x2', 'y = 1/x'], correct: 0, correction: 'Une fonction lineaire est de la forme y = ax' },
                 { question: 'Dans f(x) = 2x + 3, que represente le coefficient 2', options: ['Le coefficient angulaire', 'L ordonnee a l origine', 'La racine', 'Le terme constant'], correct: 0, correction: '2 est le coefficient angulaire (la pente)' },
-                { question: 'Dans f(x) = 2x + 3, que represente le nombre 3', options: ['L ordonnee a l origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l ordonnee a l origine (intersection avec l axe des y)' }
+                { question: 'Dans f(x) = 2x + 3, que represente le nombre 3', options: ['L ordonnee a l origine', 'Le coefficient angulaire', 'La racine', 'La pente'], correct: 0, correction: '3 est l ordonnee a l origine' }
             ]
         },
         {
@@ -88,6 +91,9 @@ var CHAPITRES = {
             ]
         }
     ],
+    // =========================================================
+    // 4E ANNÉE
+    // =========================================================
     '4e': [
         {
             id: '4e_fonctions_ref',
@@ -132,7 +138,7 @@ var CHAPITRES = {
                 'Factorisation des trinomes du deuxieme degre'
             ],
             exercices: [
-                { question: 'Quelle est la formule du discriminant Δ', options: ['b2 - 4ac', 'b2 + 4ac', 'a2 - 4bc', 'c2 - 4ab'], correct: 0, correction: 'Δ = b2 - 4ac pour une equation ax2 + bx + c = 0' },
+                { question: 'Quelle est la formule du discriminant Δ', options: ['b2 - 4ac', 'b2 + 4ac', 'a2 - 4bc', 'c2 - 4ab'], correct: 0, correction: 'Δ = b2 - 4ac' },
                 { question: 'Resoudre x2 - 4 = 0', options: ['x = 2 ou x = -2', 'x = 2', 'x = -2', 'x = 4'], correct: 0, correction: 'x2 = 4 donc x = ±2' }
             ]
         },
@@ -209,6 +215,167 @@ var CHAPITRES = {
                 { question: 'Quelle est la moyenne de 4, 6, 8, 10, 12', options: ['8', '7', '9', '6'], correct: 0, correction: '(4+6+8+10+12)/5 = 40/5 = 8' }
             ]
         }
+    ],
+    // =========================================================
+    // 5E ANNÉE
+    // =========================================================
+    '5e': [
+        {
+            id: '5e_analyse',
+            titre: 'Analyse',
+            desc: 'Limites, continuite, fonctions exponentielles et logarithmes',
+            niveau: '5e Annee',
+            icone: '📈',
+            objectifs: [
+                'Comprendre la notion de limite d une fonction',
+                'Etudier la continuite d une fonction',
+                'Utiliser les fonctions exponentielles et logarithmes',
+                'Resoudre des equations exponentielles et logarithmiques'
+            ],
+            matieres: [
+                'Limites de fonctions',
+                'Continuite',
+                'Fonction exponentielle : definition et proprietes',
+                'Fonction logarithme neperien',
+                'Equations et inequations exponentielles',
+                'Applications aux sciences'
+            ],
+            exercices: [
+                { question: 'Que vaut e^0', options: ['1', '0', 'e', '2.718'], correct: 0, correction: 'e^0 = 1' },
+                { question: 'Que vaut ln(1)', options: ['0', '1', 'e', '2.718'], correct: 0, correction: 'ln(1) = 0' }
+            ]
+        },
+        {
+            id: '5e_nombres_complexes',
+            titre: 'Nombres complexes',
+            desc: 'Forme algebrique, trigonometrique, operations',
+            niveau: '5e Annee',
+            icone: 'ℂ',
+            objectifs: [
+                'Representer un nombre complexe',
+                'Effectuer des operations sur les nombres complexes',
+                'Passer de la forme algebrique a la forme trigonometrique',
+                'Resoudre des equations dans C'
+            ],
+            matieres: [
+                'Definition des nombres complexes',
+                'Forme algebrique : a + ib',
+                'Operations : addition, multiplication, conjugue',
+                'Module et argument',
+                'Forme trigonometrique',
+                'Formule de Moivre'
+            ],
+            exercices: [
+                { question: 'Que vaut i2', options: ['-1', '1', 'i', '0'], correct: 0, correction: 'i2 = -1' },
+                { question: 'Que vaut le conjugue de 3 + 4i', options: ['3 - 4i', '-3 + 4i', '3 + 4i', '-3 - 4i'], correct: 0, correction: 'Le conjugue de 3 + 4i est 3 - 4i' }
+            ]
+        },
+        {
+            id: '5e_geometrie_analytique',
+            titre: 'Geometrie analytique',
+            desc: 'Equations de droites, coniques, transformations',
+            niveau: '5e Annee',
+            icone: '📐',
+            objectifs: [
+                'Utiliser les equations de droites dans le plan',
+                'Etudier les coniques (cercle, ellipse, parabole, hyperbole)',
+                'Appliquer les transformations geometriques'
+            ],
+            matieres: [
+                'Equation cartesienne d une droite',
+                'Equation parametrique d une droite',
+                'Cercle : equation et proprietes',
+                'Ellipse : definition et equation',
+                'Parabole : definition et equation',
+                'Hyperbole : definition et equation',
+                'Transformations : translation, rotation, homothetie'
+            ],
+            exercices: [
+                { question: 'Quelle est l equation d un cercle de centre (0,0) et de rayon r', options: ['x2 + y2 = r2', 'x + y = r', 'x2 - y2 = r2', 'xy = r'], correct: 0, correction: 'L equation d un cercle est x2 + y2 = r2' },
+                { question: 'Quelle est l equation d une droite passant par l origine', options: ['y = mx', 'y = mx + p', 'x = a', 'y = a'], correct: 0, correction: 'Une droite passant par l origine a pour equation y = mx' }
+            ]
+        }
+    ],
+    // =========================================================
+    // 6E ANNÉE
+    // =========================================================
+    '6e': [
+        {
+            id: '6e_derivees',
+            titre: 'Derivees',
+            desc: 'Fonctions derivees, applications, etude de fonctions',
+            niveau: '6e Annee',
+            icone: '📉',
+            objectifs: [
+                'Calculer la derivee d une fonction',
+                'Utiliser la derivee pour etudier les variations d une fonction',
+                'Determiner les extremums d une fonction',
+                'Appliquer la derivee a des problemes concrets'
+            ],
+            matieres: [
+                'Definition de la derivee',
+                'Derivees des fonctions usuelles',
+                'Regles de derivation : somme, produit, quotient',
+                'Derivee des fonctions composees',
+                'Tableau de variations',
+                'Extremums locaux',
+                'Applications : optimisation, cinetique'
+            ],
+            exercices: [
+                { question: 'Que vaut la derivee de f(x) = x2', options: ['2x', 'x', '2x2', 'x2'], correct: 0, correction: 'La derivee de x2 est 2x' },
+                { question: 'Que vaut f(3) si f(x) = x2', options: ['6', '3', '9', '4'], correct: 0, correction: 'f(3) = 2 x 3 = 6' }
+            ]
+        },
+        {
+            id: '6e_integrales',
+            titre: 'Integrales',
+            desc: 'Primitives, calcul d aires, applications',
+            niveau: '6e Annee',
+            icone: '∫',
+            objectifs: [
+                'Determiner une primitive d une fonction',
+                'Calculer une integrale definie',
+                'Interpreter geometriquement l integrale',
+                'Appliquer l integrale a des problemes concrets'
+            ],
+            matieres: [
+                'Primitives d une fonction',
+                'Integrale definie : definition et proprietes',
+                'Theoreme fondamental du calcul integral',
+                'Calcul d aires sous une courbe',
+                'Applications : volumes, travail, probabilites'
+            ],
+            exercices: [
+                { question: 'Quelle est la primitive de f(x) = x', options: ['x2/2', 'x2', '2x', '1'], correct: 0, correction: 'La primitive de x est x2/2' },
+                { question: 'L integrale de 0 a 1 de x dx vaut', options: ['1/2', '1', '0', '2'], correct: 0, correction: '∫0_1 x dx = [x2/2]0_1 = 1/2' }
+            ]
+        },
+        {
+            id: '6e_probabilites',
+            titre: 'Probabilites et statistiques avancees',
+            desc: 'Variables aleatoires, lois, echantillonnage',
+            niveau: '6e Annee',
+            icone: '📊',
+            objectifs: [
+                'Comprendre la notion de variable aleatoire',
+                'Calculer les caracteristiques d une variable aleatoire',
+                'Utiliser les lois de probabilite usuelles',
+                'Appliquer les concepts d echantillonnage'
+            ],
+            matieres: [
+                'Variables aleatoires discretes et continues',
+                'Esperance, variance, ecart-type',
+                'Loi binomiale',
+                'Loi normale',
+                'Loi de Poisson',
+                'Echantillonnage et estimation',
+                'Intervalles de confiance'
+            ],
+            exercices: [
+                { question: 'Que represente l esperance d une variable aleatoire', options: ['La moyenne theorique', 'La mediane', 'Le mode', 'La variance'], correct: 0, correction: 'L esperance est la moyenne theorique d une variable aleatoire' },
+                { question: 'Que represente la variance', options: ['La dispersion autour de l esperance', 'La moyenne', 'La mediane', 'Le maximum'], correct: 0, correction: 'La variance mesure la dispersion des valeurs autour de l esperance' }
+            ]
+        }
     ]
 };
 
@@ -282,7 +449,7 @@ function saveUserData() {
 
 function showTab(tab) {
     currentTab = tab;
-    var tabs = ['dashboard', 'annee3', 'annee4', 'quiz', 'examens', 'revisions'];
+    var tabs = ['dashboard', 'annee3', 'annee4', 'annee5', 'annee6', 'quiz', 'examens', 'revisions'];
     for (var i = 0; i < tabs.length; i++) {
         var el = document.getElementById(tabs[i]);
         if (el) el.classList.add('hidden');
@@ -297,6 +464,8 @@ function showTab(tab) {
     if (tab === 'dashboard') renderDashboard();
     if (tab === 'annee3') renderChapitres('3e');
     if (tab === 'annee4') renderChapitres('4e');
+    if (tab === 'annee5') renderChapitres('5e');
+    if (tab === 'annee6') renderChapitres('6e');
     if (tab === 'quiz') updateQuizChapitres();
     if (tab === 'revisions') renderRevisions();
 }
@@ -324,7 +493,7 @@ function renderDashboard() {
     var revisites = 0;
     var tempsTotal = USER_DATA.totalTime || 0;
     
-    var annees = ['3e', '4e'];
+    var annees = ['3e', '4e', '5e', '6e'];
     for (var a = 0; a < annees.length; a++) {
         var chaps = CHAPITRES[annees[a]] || [];
         totalChapitres += chaps.length;
@@ -355,7 +524,7 @@ function renderDashboard() {
             if (USER_DATA.progress[chaps2[c2].id] && USER_DATA.progress[chaps2[c2].id] >= 100) done++;
         }
         var percent = total > 0 ? Math.round(done / total * 100) : 0;
-        var label = annee === '3e' ? '3e Annee' : '4e Annee';
+        var label = annee === '3e' ? '3e Annee' : annee === '4e' ? '4e Annee' : annee === '5e' ? '5e Annee' : '6e Annee';
         var color = percent >= 80 ? '#1e7a3c' : percent >= 50 ? '#e8a400' : '#1c5fa8';
         progressHtml += '<div style="margin: 8px 0;"><div style="display: flex; justify-content: space-between; font-size: 13px;"><span>' + label + '</span><span style="font-weight: 900;">' + percent + '%</span></div><div style="height: 6px; background: #eee; border-radius: 3px; overflow: hidden;"><div style="width: ' + percent + '%; height: 100%; background: ' + color + '; border-radius: 3px; transition: width 0.6s ease;"></div></div></div>';
     }
@@ -545,6 +714,8 @@ function markChapitreDone(chapitreId) {
     if (modal) document.body.removeChild(modal);
     renderChapitres('3e');
     renderChapitres('4e');
+    renderChapitres('5e');
+    renderChapitres('6e');
     alert('Chapitre marque comme revisé !');
 }
 
@@ -635,7 +806,6 @@ function showQuizResult() {
     var percent = Math.round(currentQuiz.score / currentQuiz.total * 100);
     var message = percent >= 80 ? 'Excellent !' : percent >= 60 ? 'Bon travail !' : 'Continue à t entraîner !';
     
-    // Enregistrer le résultat du quiz
     var quizId = 'quiz_' + new Date().getTime();
     USER_DATA.quizResults[quizId] = percent;
     saveUserData();
@@ -669,7 +839,7 @@ function startExamen(niveau) {
         questions = shuffle(allQuestions.filter(function(q) { return q.annee === niveau; }));
     }
     
-    var count = niveau === 'complet' ? 45 : 20;
+    var count = niveau === 'complet' ? 50 : niveau === '6e' ? 30 : niveau === '5e' ? 25 : 20;
     questions = questions.slice(0, count);
     
     if (questions.length < 10) {
@@ -682,7 +852,7 @@ function startExamen(niveau) {
     currentExamen.score = 0;
     currentExamen.total = questions.length;
     currentExamen.niveau = niveau;
-    currentExamen.timeLeft = niveau === 'complet' ? 4200 : 1800;
+    currentExamen.timeLeft = niveau === 'complet' ? 5400 : niveau === '6e' ? 3000 : niveau === '5e' ? 2400 : 1800;
     
     var container = document.getElementById('examenContent');
     container.innerHTML = '<div style="margin-bottom: 16px;"><div style="display: flex; justify-content: space-between; font-size: 14px;"><span>Temps: <span id="examenTimer">' + formatTime(currentExamen.timeLeft) + '</span></span><span>Question <span id="examenProgress">1</span> / ' + currentExamen.total + '</span><span>Score: <span id="examenScore">0</span></span></div><div style="height: 4px; background: var(--soft); border-radius: 2px; overflow: hidden;"><div id="examenBar" style="width: 0%; height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.3s;"></div></div></div><div id="examenQuestion"></div>';
@@ -759,7 +929,6 @@ function finishExamen() {
     var percent = Math.round(currentExamen.score / currentExamen.total * 100);
     var message = percent >= 80 ? 'Félicitations !' : percent >= 60 ? 'Bonne performance !' : 'Continue à réviser !';
     
-    // Enregistrer le résultat de l'examen
     var examId = 'exam_' + currentExamen.niveau + '_' + new Date().getTime();
     USER_DATA.quizResults[examId] = percent;
     saveUserData();
@@ -801,7 +970,7 @@ function renderRevisions() {
         }
         done += anneeDone;
         var percent = chaps.length > 0 ? Math.round(anneeDone / chaps.length * 100) : 0;
-        var label = annee === '3e' ? '3e Année' : '4e Année';
+        var label = annee === '3e' ? '3e Année' : annee === '4e' ? '4e Année' : annee === '5e' ? '5e Année' : '6e Année';
         var color = percent >= 80 ? '#1e7a3c' : percent >= 50 ? '#e8a400' : '#1c5fa8';
         
         html += '<div style="margin: 10px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">';
@@ -845,6 +1014,8 @@ function clearAllProgress() {
         renderDashboard();
         renderChapitres('3e');
         renderChapitres('4e');
+        renderChapitres('5e');
+        renderChapitres('6e');
         renderRevisions();
         alert('Toute progression a été effacée.');
     }
@@ -892,6 +1063,6 @@ function startRevision() {
 loadUserData();
 showTab('dashboard');
 
-console.log('Programme officiel de Mathematiques - 2e degre charge !');
+console.log('Programme officiel de Mathematiques - 3e, 4e, 5e, 6e charge !');
 console.log('Chapitres disponibles :', Object.keys(CHAPITRES).length);
 console.log('Questions de quiz :', QUESTIONS_QUIZ.length);
