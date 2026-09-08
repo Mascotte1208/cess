@@ -1,6 +1,6 @@
 // =========================================================
-// PROGRAMME OFFICIEL DE MATHÉMATIQUES - COMMUNAUTÉ FRANÇAISE
-// 2e DEGRÉ - 3e ET 4e ANNÉES
+// PROGRAMME OFFICIEL DE MATHEMATIQUES - COMMUNAUTE FRANÇAISE
+// 2e DEGRE - 3e ET 4e ANNEES
 // =========================================================
 
 var CHAPITRES = {
