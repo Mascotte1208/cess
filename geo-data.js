@@ -11,7 +11,6 @@ var GEO_CHAPITRES = {
             niveau: '3e',
             icone: '🌋',
             color: '#0e7c86',
-            pdf: 'geo-chapitre-1.pdf',
             cours: `
                 <h4>🔹 La notion de "Risque"</h4>
                 <p>Un <b>risque</b> est la rencontre entre un <b>aléa</b> (un phénomène naturel ou technologique dangereux) et un <b>enjeu</b> (la présence humaine, des infrastructures, des activités).</p>
@@ -52,7 +51,6 @@ var GEO_CHAPITRES = {
             niveau: '3e',
             icone: '🌍',
             color: '#c0392b',
-            pdf: 'geo-chapitre-2.pdf',
             cours: `
                 <h4>🔹 La tectonique des plaques</h4>
                 <p>La surface de la Terre est divisée en plaques rigides qui se déplacent lentement. La plupart des séismes et des volcans se situent aux <b>frontières de ces plaques</b> (zones de convergence, de divergence ou de coulissage).</p>
@@ -91,7 +89,6 @@ var GEO_CHAPITRES = {
             niveau: '4e',
             icone: '💧',
             color: '#1d4ed8',
-            pdf: 'geo-chapitre-3.pdf',
             cours: `
                 <h4>🔹 Une ressource vitale inégalement répartie</h4>
                 <p>L'eau douce est une ressource rare sur Terre (environ 2,5% de l'eau totale). Sa répartition dépend des climats, des précipitations, des fleuves et des nappes souterraines. Certaines régions sont très riches en eau, d'autres subissent un stress hydrique (manque d'eau).</p>
