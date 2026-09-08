@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 CESS - Mathématiques - Programme Complet</title>
+    <title>📚 CESS - Mathématiques - Cours interactif</title>
     <link rel="stylesheet" href="ces-maths.css">
 </head>
 <body>
@@ -16,15 +16,15 @@
 <main class="ces-app">
     <div class="container">
 
-        <!-- ================= ACCUEIL (TABLEAU DE BORD) ================= -->
+        <!-- ================= ACCUEIL ================= -->
         <section id="dashboard" class="tab-content">
             <div class="hero">
                 <div>
-                    <h1>Bonjour ! Prêt à réviser ?</h1>
-                    <p>Le programme officiel complet de la 3e à la 6e année.</p>
+                    <h1>Bonjour ! Prêt à apprendre ?</h1>
+                    <p>Un cours de math complet et interactif, basé sur le programme officiel.</p>
                     <span class="pastille-progress">📊 <span id="globalProgress">0</span>% du programme</span>
                 </div>
-                <button class="primary-btn" onclick="startRevision()">🚀 Continuer ma révision</button>
+                <button class="primary-btn" onclick="startRevision()">🚀 Commencer le cours</button>
             </div>
 
             <div class="dashboard-grid">
@@ -33,7 +33,7 @@
                     <div id="progressionAnnees" class="progression-list"></div>
                 </div>
                 <div class="panel">
-                    <h3>🔥 Chapitres urgents</h3>
+                    <h3>🔥 Reprendre les chapitres</h3>
                     <div id="chapitresUrgents"></div>
                 </div>
             </div>
@@ -44,8 +44,8 @@
             </div>
         </section>
 
-        <!-- ================= RÉVISER ================= -->
-        <section id="revision" class="tab-content hidden">
+        <!-- ================= COURS ================= -->
+        <section id="cours" class="tab-content hidden">
             <div class="page-header">
                 <div>
                     <h1 class="section-title">📖 Réviser</h1>
@@ -54,27 +54,26 @@
                 <button class="ghost-btn" onclick="showTab('dashboard')">← Accueil</button>
             </div>
 
-            <!-- Choix de l'année -->
             <div id="choixAnnee" class="annee-selector">
                 <div class="annee-card" style="border-left-color: #1c5fa8;" onclick="showAnnee('3e')">
                     <span class="annee-icon">📘</span>
-                    <div class="annee-info"><h3>3e Année</h3><p>7 chapitres • Fonctions, Algèbre, Géométrie...</p></div>
+                    <div class="annee-info"><h3>3e Année</h3><p>Fonctions, Algèbre, Géométrie, Trigonométrie...</p></div>
                 </div>
                 <div class="annee-card" style="border-left-color: #6b46c1;" onclick="showAnnee('4e')">
                     <span class="annee-icon">📗</span>
-                    <div class="annee-info"><h3>4e Année</h3><p>8 chapitres • 2nd degré, Vecteurs, Stats...</p></div>
+                    <div class="annee-info"><h3>4e Année</h3><p>Fonctions de référence, 2nd degré, Vecteurs...</p></div>
                 </div>
                 <div class="annee-card" style="border-left-color: #0e7c86;" onclick="showAnnee('5e')">
                     <span class="annee-icon">📙</span>
-                    <div class="annee-info"><h3>5e Année</h3><p>3 chapitres • Analyse, Complexes...</p></div>
+                    <div class="annee-info"><h3>5e Année</h3><p>Analyse, Complexes, Géométrie analytique...</p></div>
                 </div>
                 <div class="annee-card" style="border-left-color: #c81e2c;" onclick="showAnnee('6e')">
                     <span class="annee-icon">📕</span>
-                    <div class="annee-info"><h3>6e Année</h3><p>3 chapitres • Dérivées, Intégrales...</p></div>
+                    <div class="annee-info"><h3>6e Année</h3><p>Dérivées, Intégrales, Probabilités...</p></div>
                 </div>
             </div>
 
-            <!-- Liste des chapitres (cachée par défaut) -->
+            <!-- Module de cours injecté ici -->
             <div id="contenuAnnee" class="hidden"></div>
 
             <!-- Fiches visuelles -->
@@ -178,7 +177,7 @@
             <div id="examenContent" style="margin-top: 20px;"></div>
         </section>
 
-        <!-- ================= MON SUIVI ================= -->
+        <!-- ================= SUIVI ================= -->
         <section id="suivi" class="tab-content hidden">
             <div class="page-header">
                 <div>
@@ -210,13 +209,12 @@
     </div>
 </main>
 
-<!-- Barre de navigation basse (Mobile) -->
 <div class="bottom-nav" id="bottomNav">
     <div class="nav-item active" onclick="showTab('dashboard')" id="navDashboard"><span class="nav-icon">🏠</span>Accueil</div>
-    <div class="nav-item" onclick="showTab('revision')" id="navRevision"><span class="nav-icon">📖</span>Réviser</div>
+    <div class="nav-item" onclick="showTab('cours')" id="navCours"><span class="nav-icon">📖</span>Cours</div>
     <div class="nav-item" onclick="showTab('formules')" id="navFormules"><span class="nav-icon">📚</span>Formules</div>
     <div class="nav-item" onclick="showTab('entrainer')" id="navEntrainer"><span class="nav-icon">🎯</span>S'entraîner</div>
-    <div class="nav-item" onclick="showTab('suivi')" id="navSuivi"><span class="nav-icon">📊</span>Mon suivi</div>
+    <div class="nav-item" onclick="showTab('suivi')" id="navSuivi"><span class="nav-icon">📊</span>Suivi</div>
 </div>
 
 <script src="ces-maths.js"></script>
